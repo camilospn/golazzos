@@ -1,0 +1,29 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.features {
+	text-align: center ;
+  margin-left: auto ;
+  margin-right: auto ;
+  margin:40px;
+}
+
+.registrarse{
+	text-align:center;
+	background-color: #00CAED;
+	margin-top:40px;
+	padding: 40px;
+	h4{
+		color:#ffffff;
+	}
+}
+
+.logo-container{
+	background-color: #00CAED;
+	padding: 31px;
+}
+
+footer{
+	text-align:center;
+}
