@@ -15,12 +15,29 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
   </head>
   <body>
+<!-- ini facebook -->
+    <div id="user_nav">
+  <% if current_user %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div><!-- fin facebook -->
+
+
       <%= yield %>
       <footer>
         <p>&copy; Golazzos 2012</p>
       </footer>
 
-    </div> <!-- /container -->
+    </div> 
+
+
+
+
+
+    <!-- /container -->
 
     <!-- Javascripts
     ================================================== -->
