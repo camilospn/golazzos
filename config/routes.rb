@@ -1,4 +1,6 @@
 Gollazos::Application.routes.draw do
+  get "apuesta/index"
+
   get "home/index"
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
