@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="span8 offset2">
+
+<%- model_class = Partido -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:local) %>:</strong></dt>
+  <dd><%= @partido.local %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:visitante) %>:</strong></dt>
+  <dd><%= @partido.visitante %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logolocal) %>:</strong></dt>
+  <dd><%= @partido.logolocal %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logovisitante) %>:</strong></dt>
+  <dd><%= @partido.logovisitante %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:diapartido) %>:</strong></dt>
+  <dd><%= @partido.diapartido %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              partidos_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_partido_path(@partido), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              partido_path(@partido),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+
+   </div>
+  </div>
+</div>

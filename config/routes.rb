@@ -1,4 +1,7 @@
 Gollazos::Application.routes.draw do
+  resources :partidos
+
+
   get "apuesta/index"
 
   get "home/index"
