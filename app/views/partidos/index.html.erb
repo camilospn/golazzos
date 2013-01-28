@@ -15,6 +15,7 @@
               <td><%= partido.local %></td>
               <td><%= partido.visitante %></td>
               <td><%= image_tag partido.logovisitante, {:class => "", :width=>"50"}%></td>
+              <td><%= partido.diapartido.strftime('%d de %B')%></td>
               <td>
                 <%= link_to "Apostar", partido_path(partido), {:class=>"btn-mini btn"} %>
                 <%= link_to t('edit', :default => t("helpers.links.edit")),
