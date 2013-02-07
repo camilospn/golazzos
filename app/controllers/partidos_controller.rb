@@ -14,7 +14,6 @@ class PartidosController < ApplicationController
   # GET /partidos/1.json
   def show
     @partido = Partido.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @partido }

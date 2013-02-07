@@ -1,8 +1,7 @@
 Gollazos::Application.routes.draw do
-  resources :partidos
-
-
-  get "apuesta/index"
+  resources :partidos do
+      resources :bets
+  end
 
   get "home/index"
   match 'auth/:provider/callback', to: 'sessions#create'

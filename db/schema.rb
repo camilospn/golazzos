@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128181615) do
+ActiveRecord::Schema.define(:version => 20130205050559) do
+
+  create_table "bets", :force => true do |t|
+    t.integer  "monto"
+    t.integer  "golesLocal"
+    t.integer  "golesVisitante"
+    t.integer  "partido_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "bets", ["partido_id"], :name => "index_bets_on_partido_id"
+  add_index "bets", ["user_id"], :name => "index_bets_on_user_id"
 
   create_table "partidos", :force => true do |t|
     t.string   "local"

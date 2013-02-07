@@ -31,7 +31,36 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+<div><strong>monto total:<%=@partido.monto_total_apostado%></strong></div>
+<table>
+  <tbody>
+      <%for i in 0..6 %>
+      <tr>
+          <% for j in 0..6%>
+            <td>
+                <%= form_for([@partido, @partido.bets.build]) do |f| %>
+                <%= f.hidden_field :monto, value: 10000%>
+                <%= f.hidden_field :golesLocal, value: i%>
 
+                <%= f.hidden_field :golesVisitante, value: j%>
+                <%= f.hidden_field :user_id, value: current_user.id%>
+                <%= f.submit "#{i} - #{j} (x#{@partido.xveces_el_resultado(i,j).round(1)})"%>
+                <% end %>
+
+            </td>
+          <%end%> 
+      </tr>
+      <%end%>
+  </tbody>
+</table> 
+  <%for i in 0..6 %>
+  <% for j in 0..6%>
+      <%if @partido.monto_apostado_en_el_resultado(i,j)!= 0%>
+      <div>Resultado <%= i%> - <%= j%>: <%=@partido.monto_apostado_en_el_resultado(i,j)%>  -  <%=@partido.porcentaje_en_el_resultado(i,j).round(3)%>  -  <%= @partido.xveces_el_resultado(i,j).round(3)%> </div>
+      <%end%>
+  <%end%> 
+  <%end%>
+   
    </div>
   </div>
 </div>
