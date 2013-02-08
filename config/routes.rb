@@ -2,11 +2,18 @@ Gollazos::Application.routes.draw do
   resources :partidos do
       resources :bets
   end
+  #devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } 
+
 
   get "home/index"
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+
+  #match 'users', to: 'sessions#create', :as => 'user_root'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

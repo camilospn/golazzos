@@ -29,7 +29,11 @@ gem 'jquery-rails'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.3.0'
+gem 'omniauth', '1.1.1'
+gem 'devise'
+#gem 'oauth2'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
