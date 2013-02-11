@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205050559) do
+ActiveRecord::Schema.define(:version => 20130209175642) do
 
   create_table "bets", :force => true do |t|
     t.integer  "monto"
@@ -32,8 +32,13 @@ ActiveRecord::Schema.define(:version => 20130205050559) do
     t.string   "logolocal"
     t.string   "logovisitante"
     t.datetime "diapartido"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "resultadoLocal"
+    t.integer  "resultadoVisitante"
+    t.boolean  "terminado"
+    t.boolean  "cerrado"
+    t.boolean  "repartido"
   end
 
   create_table "users", :force => true do |t|
@@ -54,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130205050559) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "pezzos"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

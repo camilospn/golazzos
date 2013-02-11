@@ -1,5 +1,6 @@
 Gollazos::Application.routes.draw do
   resources :partidos do
+      post 'repartir', :on => :collection
       resources :bets
   end
   #devise_for :users

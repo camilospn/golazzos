@@ -15,18 +15,51 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner ">
+      <div class="container">
+            <div class="brand" >Golazzos</div>
+              <ul class="nav">
+                <li><%= link_to "Home", root_path%></li>
+                <li><%= link_to "Partidos", partidos_path %></li>
+                <li><a href="#">Usuarios</a></li>
+              </ul>
+              <ul class= "nav pull-right">
+                <% if current_user %>
+                      <li><a> <%= current_user.pezzos %> pezzos</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <strong><%= current_user.name %></strong>
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"> Account</a></li>
+                          <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+                        </ul>
+                      </li>
+                <% else %>
+                    <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li> 
+                <% end %>
+              </ul>
+            </div>
+      </div>
+
+    
+</div>
+<div class="container">
+    <% if flash[:notice] %>
+    <div class="alert alert-block">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+</div>
+
+
 
 <!-- ini facebook -->
     <div id="user_nav">
-      <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
-      <% else %>
       
-        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-      <% end %>
     </div><!-- fin facebook -->
       
       <%= yield %>

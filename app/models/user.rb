@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   #attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
 
-	has_many :bets
+	has_many :bets, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
+  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid, :pezzos
+
+  validates :pezzos, :numericality => {:greater_than_or_equal_to => 0, :message => "no puedes tener menos de 0 pezzos"}
   
 
 def self.from_omniauth(auth)
@@ -58,6 +60,15 @@ end
 	  end
 	end
 
+
+  def descontar_pezzos(monto)
+    pezzos_total = self.pezzos - monto
+    self.update_attributes(pezzos: pezzos_total)
+  end
+  def consignar_pezzos(monto)
+    pezzos_total = self.pezzos + monto
+    self.update_attributes(pezzos: pezzos_total)
+  end
 
 
 end

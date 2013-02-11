@@ -79,4 +79,15 @@ class PartidosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def repartir
+    @partido = Partido.find(params[:id])
+    if @partido.terminado && @partido.cerrado
+      @partido.repartir_la_plata
+      @partido.update_attributes(repartido: true)
+      redirect_to partido_path(@partido), notice: "Se repartio la plata !"
+    else
+      redirect_to edit_partido_path(@partido), notice: "Asegurate de Cerrar la apuesta y de agregar el marcador"
+    end
+  end
 end
