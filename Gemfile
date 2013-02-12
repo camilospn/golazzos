@@ -31,7 +31,8 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'omniauth-facebook', '1.3.0'
 gem 'omniauth', '1.1.1'
-gem 'devise'
+gem "fb_graph"
+#gem 'devise'
 #gem 'oauth2'
 
 
