@@ -11,7 +11,7 @@ class Partido < ActiveRecord::Base
   has_many :bets, :dependent => :destroy
 
   def apuestas_en_el_resultado(local, visitante)
-    self.bets.where("golesLocal= ? AND golesVisitante= ?",local, visitante)
+    self.bets.where("\"golesLocal\"= ? AND \"golesVisitante\"= ?",local, visitante)
   end
   def monto_apostado_en_el_resultado(local, visitante)
   	total=0
