@@ -1,4 +1,5 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Users::OmniauthCallbacksController < ActionController::Base
+  protect_from_forgery
   def facebook
 
      # with this code you can see the data sent by facebook
