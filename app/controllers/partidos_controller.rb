@@ -1,6 +1,8 @@
 class PartidosController < ApplicationController
   # GET /partidos
   # GET /partidos.json
+  before_filter :require_login
+  before_filter :require_admin_login , :only => [:new, :edit, :update, :destroy, :create, :repartir]
   def index
     @partidos = Partido.all
 

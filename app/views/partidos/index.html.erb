@@ -9,6 +9,7 @@
       <table class="table table-hover">
 
         <tbody>
+          
           <% @partidos.each do |partido| %>
             <tr>
               <td><%= image_tag partido.logolocal, {:class => "", :width=>"50"}%></td>
@@ -18,6 +19,7 @@
               <td><%= partido.diapartido.strftime('%B %d')%></td>
               <td>
                 <%= link_to "Apostar", partido_path(partido), {:class=>"btn-mini btn"} %>
+                <% if current_user.administrator==true %>
                 <%= link_to t('edit', :default => t("helpers.links.edit")),
                             edit_partido_path(partido), :class => 'btn btn-mini' %>
                 <%= link_to t('destroy', :default => t("helpers.links.destroy")),
@@ -25,15 +27,20 @@
                             :method => :delete,
                             :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                             :class => 'btn btn-mini btn-danger' %>
+                <% end %>
               </td>
             </tr>
-          <% end %>
+          
         </tbody>
+        <% end %>
       </table>
-
+      
+      <% if current_user.administrator==true %>
       <%= link_to t('.new', :default => t("helpers.links.new")),
                   new_partido_path,
                   :class => 'btn btn-primary' %>
+      <% end %>
+
 
     </div>
   </div>
