@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
  
   def require_login
     unless logged_in?
-      flash[:error] = "You must be logged in to access this section"
+      flash[:error] = "tienes que estar loggeado con tu cuenta de FACEBOOK !"
       redirect_to root_url # halts request cycle
     end
   end
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
  
   def require_admin_login
     unless admin_logged_in?
-      flash[:error] = "You must be logged in as ADMIN to access this section"
+      flash[:error] = "Tienes que ser un ADMINISTRADOR para poder acceder !"
       redirect_to root_url # halts request cycle
     end
   end
