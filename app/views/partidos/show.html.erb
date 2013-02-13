@@ -25,16 +25,42 @@
 
                       <%= f.hidden_field :golesVisitante, value: j%>
                       <%= f.hidden_field :user_id, value: current_user.id%>
-                      <button class= "btn btn-block btn-mini"> 
-                        <h2><%= "#{i} - #{j}"%></h2>
-                        <h2 class="lead"><%="x#{@partido.xveces_el_resultado(i,j).round(3)}"%></h2> 
-                        <% f.submit ""%>
-                      </button>
+                      <%if @partido.xveces_el_resultado(i,j)>=2 && @partido.xveces_el_resultado(i,j)<4%>
+                        <button class= "btn btn-block btn-mini btn-danger"> 
+                          <h2><%= "#{i} - #{j}"%></h2>
+                      
+                          <% f.submit ""%>
+                        </button>
+                      <%end%>
+
+                      <%if @partido.xveces_el_resultado(i,j)>=4 && @partido.xveces_el_resultado(i,j)<6%>
+                        <button class= "btn btn-block btn-mini btn-warning"> 
+                          <h2><%= "#{i} - #{j}"%></h2>
+                          
+                          <% f.submit ""%>
+                        </button>
+                      <%end%>
+
+                      <%if @partido.xveces_el_resultado(i,j)>=6 && @partido.xveces_el_resultado(i,j)<8%>
+                        <button class= "btn btn-block btn-mini btn-success"> 
+                          <h2><%= "#{i} - #{j}"%></h2>
+                           
+                          <% f.submit ""%>
+                        </button>
+                      <%end%>
+
+                      <%if @partido.xveces_el_resultado(i,j)>=8%>
+                        <button class= "btn btn-block btn-mini btn-info"> 
+                          <h2><%= "#{i} - #{j}"%></h2>
+                          
+                          <% f.submit ""%>
+                        </button>
+                      <%end%>
                       <%end%>
                 <%else%>
                       <button class= "btn btn-block btn-mini disabled"> 
                         <h2><%= "#{i} - #{j}"%></h2>  
-                        <h2 class="lead"><%="x#{@partido.xveces_el_resultado(i,j).round(3)}"%></h2> 
+                       
                       
                       </button>
                 <% end %>
