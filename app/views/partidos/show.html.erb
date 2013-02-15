@@ -14,74 +14,18 @@
   </div>
 </div>
 <div class="vs"><h2 class="muted">vs</h2></div>
-<div class="row">
-      <%for i in 0..5 %>
-          <% for j in 0..5%>
-          <div class="span2">
-              <%if (@partido.monto_que_puedo_apostar_en_el_marcador(i,j) >= 10000 || @partido.monto_total_apostado < 50000) && @partido.cerrado==false %>
-                      <%= form_for([@partido, @partido.bets.build]) do |f| %>
-                      <%= f.hidden_field :monto, value: 10000%>
-                      <%= f.hidden_field :golesLocal, value: i%>
 
-                      <%= f.hidden_field :golesVisitante, value: j%>
-                      <%= f.hidden_field :user_id, value: current_user.id%>
-                      <%if @partido.xveces_el_resultado(i,j)>=2 && @partido.xveces_el_resultado(i,j)<4%>
-                        <button class= "btn btn-block btn-mini btn-danger"> 
-                          <h2><%= "#{i} - #{j}"%></h2>
-                      
-                          <% f.submit ""%>
-                        </button>
-                      <%end%>
+<%= render  "matriz_apuestas"%>
 
-                      <%if @partido.xveces_el_resultado(i,j)>=4 && @partido.xveces_el_resultado(i,j)<6%>
-                        <button class= "btn btn-block btn-mini btn-warning"> 
-                          <h2><%= "#{i} - #{j}"%></h2>
-                           <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j).round(3)}x"%></h2> 
-                          <% f.submit ""%>
-                        </button>
-                      <%end%>
-
-                      <%if @partido.xveces_el_resultado(i,j)>=6 && @partido.xveces_el_resultado(i,j)<8%>
-                        <button class= "btn btn-block btn-mini btn-success"> 
-                          <h2><%= "#{i} - #{j}"%></h2>
-                            <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j).round(3)}x"%></h2> 
-                          <% f.submit ""%>
-                        </button>
-                      <%end%>
-
-                      <%if @partido.xveces_el_resultado(i,j)>=8%>
-                        <button class= "btn btn-block btn-mini btn-info"> 
-                          <h2><%= "#{i} - #{j}"%></h2>
-                        <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j).round(3)}x"%></h2>    
-                          <% f.submit ""%>
-                        </button>
-                      <%end%>
-                      <%end%>
-                <%else%>
-                      <button class= "btn btn-block btn-mini disabled"> 
-                        <h2><%= "#{i} - #{j}"%></h2>  
-                        <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j).round(3)}x"%></h2> 
-                      
-                      </button>
-                <% end %>
-          </div>
-          <%end%> 
-      <%end%>
-</div>
-   <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              partidos_path, :class => 'btn'  %>
-              <% if current_user.administrator==true %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_partido_path(@partido), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              partido_path(@partido),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-              <% end %>
-
-  
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),partidos_path, :class => 'btn'  %>
+  <% if current_user.administrator==true %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_partido_path(@partido), :class => 'btn' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),partido_path(@partido),
+                    :method => 'delete',:data => { :confirm => t('.confirm', 
+                    :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-danger' %>
+  <% end %>
 </div>
    </div>
   </div>

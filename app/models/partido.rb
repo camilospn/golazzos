@@ -21,12 +21,20 @@ class Partido < ActiveRecord::Base
 	return total.to_f
   end
 
-  def porcentaje_en_el_resultado(local, visitante)
-  	self.monto_apostado_en_el_resultado(local, visitante)/ self.monto_total_apostado
+  def porcentaje_en_el_resultado(local, visitante, monto_futuro=0)
+    if (self.monto_apostado_en_el_resultado(local, visitante) + monto_futuro)==0
+        return -1
+    else
+  	   return (self.monto_apostado_en_el_resultado(local, visitante) +monto_futuro)/ self.monto_total_apostado
+    end
   end
 
-  def xveces_el_resultado(local, visitante)
-  	return ((1 - 0.4)/self.porcentaje_en_el_resultado(local,visitante)) 
+  def xveces_el_resultado(local, visitante, monto_futuro=0)
+    if self.porcentaje_en_el_resultado(local,visitante, monto_futuro)== -1
+        return ((1 - 0.4)/self.porcentaje_en_el_resultado(local,visitante, 10000)) 
+    else
+  	   return ((1 - 0.4)/self.porcentaje_en_el_resultado(local,visitante, monto_futuro)) 
+    end
   end
 
   def monto_total_apostado
