@@ -15,77 +15,11 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
   </head>
   <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner ">
-      <div class="container">
-            <div class="brand" ></div>
-              <ul class="nav">
-                <p>
-                <li><%= image_tag ('Menu/menu_logo.png')  %></li>
-                <li><%= link_to "Home", root_path%></li>
-                <li><%= link_to "Partidos", partidos_path %></li>
-                <li><a href="#">Usuarios</a></li>
-              </ul>
-              <ul class= "nav pull-right">
-                <% if current_user %>
-                      <li><a> <%= current_user.pezzos %> pezzos</a></li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <strong><%= current_user.name %></strong>
-                          <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#"> Account</a></li>
-                          <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-                        </ul>
-                      </li>
-                <% else %>
-                    <li>
-                      <%= link_to "/auth/facebook" do%>
-                        <%= image_tag ('Menu/menu_btnRegistro.png')  %>
-                      <% end -%>
-                      
-                      </li> 
-                <% end %>
-              </ul>
-            </div>
-      </div>
-
-    
-</div>
-<div class="container">
-    <% if flash[:notice] %>
-      <div class="alert alert-block">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-    <div class="alert alert-block">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:alert] %>
-    </div>
-    <% end %>
-    <% if flash[:error] %>
-      <div class="alert alert-block alert-error">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:error] %>
-      </div>
-    <% end %>
-</div>
-      
-      <%= yield %>
-
-      <footer>
-        <p>&copy; Golazzos 2012</p>
-      </footer>
-
+    <%=render "layouts/navbar"%>
+    <%= render "layouts/flash_notice"%>
+    <%= yield %>
+    <%=render "layouts/footer"%>
     </div> 
-
-
-
-
-
     <!-- /container -->
 
     <!-- Javascripts

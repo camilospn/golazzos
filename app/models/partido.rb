@@ -33,7 +33,7 @@ class Partido < ActiveRecord::Base
     if self.porcentaje_en_el_resultado(local,visitante, monto_futuro)== -1
         return ((1 - 0.4)/self.porcentaje_en_el_resultado(local,visitante, 10000)) 
     else
-  	   return ((1 - 0.4)/self.porcentaje_en_el_resultado(local,visitante, monto_futuro)) 
+  	   return ((1 - 0.4)/self.porcentaje_en_el_resultado(local,visitante, monto_futuro)).round(1)
     end
   end
 

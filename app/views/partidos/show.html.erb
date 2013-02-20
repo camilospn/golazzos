@@ -1,32 +1,34 @@
+<div class= "header-title">
+  <div class="container">
+    <div class="row">
+      <div class="span8 offset1">
+        <h3>JUEGA POR TU MARCADOR</h3>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
-    <div class="span12">
-
-
-<div class="row">
-  <div class="span4 offset2 logo">
-    <%= image_tag @partido.logolocal, {:class => "", :width=>"200x200"}%>
-    <div><h2> <%=@partido.local%></h2></div>
-  </div>
-  <div class="span4 logo">
-    <%= image_tag @partido.logovisitante,{:class => "", :size=>"200x100"}%>
-    <div><h2> <%=@partido.visitante%></h2></div>
-  </div>
-</div>
-<div class="vs"><h2 class="muted">vs</h2></div>
-
-<%= render  "matriz_apuestas"%>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),partidos_path, :class => 'btn'  %>
-  <% if current_user.administrator==true %>
-      <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_partido_path(@partido), :class => 'btn' %>
-      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),partido_path(@partido),
-                    :method => 'delete',:data => { :confirm => t('.confirm', 
-                    :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                    :class => 'btn btn-danger' %>
-  <% end %>
-</div>
-   </div>
+    <div class="partido-fecha span12">
+      <h4> <%=@partido.diapartido.strftime("%d de %B")%> </h4>
+      <h6 class="muted"> <%=@partido.diapartido.strftime("%l:%M %p")%></h6>
+    </div>
+    <div class="span3 offset3 logo">
+      <%= image_tag @partido.logolocal, {:class => "", :width=>"200x200"}%>
+      <div>
+          <h2 class="lead"> <%=@partido.local%></h2>      
+          <h6 class="muted">Local</h6>
+      </div>
+    </div>
+    <div class="span3 logo">
+      <%= image_tag @partido.logovisitante,{:class => "", :size=>"200x100"}%>
+      <div>
+        <h2 class="lead"> <%=@partido.visitante%></h2>
+        <h6 class="muted"> Visitante</h6>
+      </div>
+    </div>
   </div>
 </div>
+
+<%=render "monto_a_apostar"%>
+<%=render "matriz_apuestas"%>

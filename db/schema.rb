@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212154405) do
+ActiveRecord::Schema.define(:version => 20130219152251) do
 
   create_table "bets", :force => true do |t|
     t.integer  "monto"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20130212154405) do
     t.string   "last_sign_in_ip"
     t.integer  "pezzos",                 :default => 0
     t.boolean  "administrator",          :default => false
+    t.integer  "pezzos_que_apuesta",     :default => 10000
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

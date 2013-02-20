@@ -1,0 +1,32 @@
+<div class= "header-title">
+  <div class="container">
+    <div class="row">
+      <div class="span8 offset1">
+        <h3>USUARIOS</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span10 offset1">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th><th>Nombre</th><th>Pezzos</th><th># Apuestas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%count = 1 %>
+      <%@users.each do |user|%>
+        <tr>
+          <td><%=count%></td><td><%=link_to user.name, user%></td><td><%= user.pezzos%></td><td><%= user.bets.count%></td>
+        </tr>
+        <%count +=1%>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+  </div>
+</div>

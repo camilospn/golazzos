@@ -1,47 +1,76 @@
-<div class="container">
-  <div class="row">
-    <div class="span8 offset2">
-
-      <%- model_class = Partido -%>
-      <div class="page-header">
-        <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<div class= "header-title">
+  <div class="container">
+    <div class="row">
+      <div class="span8 offset1">
+        <h3>PARTIDOS</h3>
       </div>
-      <table class="table table-hover">
-
-        <tbody>
-          
-          <% @partidos.each do |partido| %>
-            <tr>
-              <td><%= image_tag partido.logolocal, {:class => "", :width=>"50"}%></td>
-              <td><%= partido.local %></td>
-              <td><%= partido.visitante %></td>
-              <td><%= image_tag partido.logovisitante, {:class => "", :width=>"50"}%></td>
-              <td><%= partido.diapartido.strftime('%B %d')%></td>
-              <td>
-                <%= link_to "Apostar", partido_path(partido), {:class=>"btn-mini btn"} %>
-                <% if current_user.administrator==true %>
-                <%= link_to t('edit', :default => t("helpers.links.edit")),
-                            edit_partido_path(partido), :class => 'btn btn-mini' %>
-                <%= link_to t('destroy', :default => t("helpers.links.destroy")),
-                            partido_path(partido),
-                            :method => :delete,
-                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                            :class => 'btn btn-mini btn-danger' %>
-                <% end %>
-              </td>
-            </tr>
-          
-        </tbody>
-        <% end %>
-      </table>
-      
-      <% if current_user.administrator==true %>
-      <%= link_to t('.new', :default => t("helpers.links.new")),
-                  new_partido_path,
-                  :class => 'btn btn-primary' %>
-      <% end %>
-
-
     </div>
   </div>
 </div>
+
+
+
+<div class="container">
+  <div class="row">
+   <div class="span7s offset1">
+      <hr>
+      <% @partidos.each do |partido| %>
+              <div class="row">
+                <div class="span1 partidos-equipos-loca">
+                  <%= image_tag partido.logolocal, {:class => "", :width=>"50"}%> 
+                </div>
+                <div class="span1 partidos-equipos-local">
+                  <%= partido.local %> 
+                </div>
+                <div class="span0">
+                   <strong class="muted">vs</strong> 
+                </div>
+                <div class="span1 partidos-equipos-visitante">
+                  <%= partido.visitante %> 
+                </div>
+                <div class="span1">
+                  <%= image_tag partido.logovisitante, {:class => "", :width=>"50"}%>
+                </div>
+                <div class="span3">
+                  <%= link_to "Juega!", partido_path(partido), {:class=>"btn-warning btn"} %>
+                      <% if current_user.administrator==true %>
+                      <%= link_to t('edit', :default => t("helpers.links.edit")),
+                                  edit_partido_path(partido), :class => 'btn btn-mini' %>
+                      <%= link_to t('destroy', :default => t("helpers.links.destroy")),
+                                  partido_path(partido),
+                                  :method => :delete,
+                                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                                  :class => 'btn btn-mini btn-danger' %>
+                      <% end %>
+                </div>
+              </div>
+            
+          
+          <hr>
+      <%end%>
+    </div>
+    <div class="span3 well well-mini partidos-ranking pull-right">
+      <h3>Ranking</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th><th>Nombre</th><th>pezzos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%count = 1 %>
+          <%@user_ranking.each do |user|%>
+            <tr>
+              <td><%=count%></td><td><%=user.name%></td><td><%= user.pezzos%></td>
+            </tr>
+            <%count +=1%>
+          <%end%>
+        </tbody>
+      </table>
+      <%= link_to "ver mas", users_path%>
+    </div>
+  </div>
+</div>
+
+
+

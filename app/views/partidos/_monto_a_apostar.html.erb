@@ -1,0 +1,113 @@
+<div class="partido-montos" id="partido-montos">
+  <div class="container">
+    <div class="row">
+      <div class="span3 offset1 partido-pasouno">
+      <h3>1. <small>ESCOGE EL VALOR PARA JUGAR</small></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span8 offset2">
+        <div class="row">
+          <div class="span2">
+            <%=form_for current_user, remote: false do |f|%>
+              <%if current_user.pezzos_que_apuesta==10000%>
+                    <button class= "btn-block btn disabled"> 
+              <%else%>
+                     <button class= "btn-block btn"> 
+              <%end%>
+                <%= f.hidden_field :pezzos_que_apuesta, value: 10000%>
+                  $10,000 pezzos
+                  <% f.submit ""%> 
+              </button>
+            <%end%>
+          </div>
+          <div class="span2">
+            <%=form_for current_user, remote: false  do |f|%>
+              <%if current_user.pezzos_que_apuesta==20000%>
+                    <button class= "btn-block btn disabled"> 
+              <%else%>
+                     <button class= "btn-block btn"> 
+              <%end%>
+                <%= f.hidden_field :pezzos_que_apuesta, value: 20000%>
+                  $20,000 pezzos
+                  <% f.submit ""%> 
+              </button>
+            <%end%>
+          </div><div class="span2">
+            <%=form_for current_user, remote: false do |f|%>
+              <%if current_user.pezzos_que_apuesta==30000%>
+                    <button class= "btn-block btn disabled"> 
+              <%else%>
+                     <button class= "btn-block btn"> 
+              <%end%>
+                <%= f.hidden_field :pezzos_que_apuesta, value: 30000%>
+                  $30,000 pezzos
+                  <% f.submit ""%> 
+              </button>
+            <%end%>
+          </div><div class="span2">
+            <%=form_for current_user, remote: false do |f|%>
+              <%if current_user.pezzos_que_apuesta==40000%>
+                    <button class= "btn-block btn disabled"> 
+              <%else%>
+                     <button class= "btn-block btn"> 
+              <%end%> 
+                <%= f.hidden_field :pezzos_que_apuesta, value: 40000%>
+                  $40,000 pezzos
+                  <% f.submit ""%> 
+              </button>
+            <%end%>
+          </div><div class="span2">
+            <%=form_for current_user, remote: false do |f|%>
+              <%if current_user.pezzos_que_apuesta==50000%>
+                    <button class= "btn-block btn disabled"> 
+              <%else%>
+                     <button class= "btn-block btn"> 
+              <%end%>
+                <%= f.hidden_field :pezzos_que_apuesta, value: 50000%>
+                  $50,000 pezzos
+                  <% f.submit ""%> 
+              </button>
+            <%end%>
+          </div><div class="span2">
+            <%=form_for current_user, remote: false do |f|%>
+              <%if current_user.pezzos_que_apuesta==100000%>
+                    <button class= "btn-block btn disabled"> 
+              <%else%>
+                     <button class= "btn-block btn"> 
+              <%end%>
+                <%= f.hidden_field :pezzos_que_apuesta, value: 100000%>
+                  $100,000 pezzos
+                  <% f.submit ""%> 
+              </button>
+            <%end%>
+          </div><div class="span2">
+            <%=form_for current_user, remote: false do |f|%>
+              <%if current_user.pezzos_que_apuesta==150000%>
+                    <button class= "btn-block btn disabled"> 
+              <%else%>
+                     <button class= "btn-block btn"> 
+              <%end%>
+                <%= f.hidden_field :pezzos_que_apuesta, value: 150000%>
+                  $150,000 pezzos
+                  <% f.submit ""%> 
+              </button>
+            <%end%>
+          </div><div class="span2">
+            <%=form_for current_user, remote: false do |f|%>
+              <%if current_user.pezzos_que_apuesta==200000%>
+                    <button class= "btn-block btn disabled"> 
+              <%else%>
+                     <button class= "btn-block btn"> 
+              <%end%>
+                <%= f.hidden_field :pezzos_que_apuesta, value: 200000%>
+                  $200,000 pezzos
+                  <% f.submit ""%> 
+              </button>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner ">
+    <div class="container">
+      <div class="brand" ><%= image_tag ('Menu/menu_logo.png')  %></div>
+      <ul class="nav">
+        <li><%= link_to "Home", root_path%></li>
+        <li><%= link_to "Partidos", partidos_path %></li>
+        <li><%= link_to "Usuarios", users_path%></a></li>
+      </ul>
+      <ul class= "nav pull-right">
+        <% if current_user %>
+            <li><a> <%= current_user.pezzos %> pezzos</a></li>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <strong><%= current_user.name %></strong>
+            <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li><%= link_to "Mi Perfil", user_path(current_user)%></li>
+            <% if current_user.administrator==true %>
+                <li>
+                <%= link_to "Partido Nuevo", new_partido_path %>
+                </li>
+            <% end %>
+            <li class="divider"></li>
+            <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+            </ul>
+            </li>
+        <% else %>
+            <li>
+            <%= link_to "/auth/facebook" do%>
+            <%= image_tag ('Menu/menu_btnRegistro.png')  %>
+            <% end -%>
+            </li> 
+        <% end %>
+      </ul>
+    </div>
+  </div> 
+</div>

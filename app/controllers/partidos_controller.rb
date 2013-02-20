@@ -5,7 +5,7 @@ class PartidosController < ApplicationController
   before_filter :require_admin_login , :only => [:new, :edit, :update, :destroy, :create, :repartir]
   def index
     @partidos = Partido.all
-
+    @user_ranking = User.order("pezzos DESC").limit(10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @partidos }

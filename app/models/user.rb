@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   #attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid, :pezzos, :administrator
+  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid, :pezzos, :administrator, :pezzos_que_apuesta
 
   validates :pezzos, :numericality => {:greater_than_or_equal_to => 0, :message => "no puedes tener menos de 0 pezzos"}
   
@@ -19,8 +19,9 @@ def self.from_omniauth(auth)
     user.provider = auth.provider
     user.uid = auth.uid
     user.name = auth.info.name
-    #CHAMBONADAAAA!!!!
+    #CHAMBONADAAAA!!!! ------
     user.email = auth.uid
+    #------
     user.oauth_token = auth.credentials.token
     user.oauth_expires_at = Time.at(auth.credentials.expires_at)
     user.save!    
