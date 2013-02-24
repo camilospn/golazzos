@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   #attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
 
 	has_many :bets, :dependent => :destroy
+  has_many :partidos, :through => :bets, :uniq => true
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -37,6 +38,12 @@ end
     pezzos_total = self.pezzos + monto
     self.update_attributes(pezzos: pezzos_total)
   end
+
+  def position(column = 'pezzos', order = 'DESC')
+    order_by = "#{column} #{order}"
+    arrow = order.capitalize == "ASC" ? "<=" : ">="
+    User.where("#{column} #{arrow} ?", self.send(column)).order(order_by).count
+  end  
 
 
 end

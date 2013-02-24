@@ -1,9 +1,68 @@
-<div class= "header-title">
+<div class= "">
   <div class="container">
     <div class="row">
-      <div class="span8 offset1">
-        <h3><%= @user.name%></h3>
-      </div>
+      <div class="span12">
+	  	<p class= "lead">Hola <strong><%=@user.name%></strong>!</p>
+	  	<p>tienes <strong><%=@user.pezzos%></strong> pezzos     / ACTUALMENTE ESTAS EN LA POSICION <strong><%=@user.position%></strong> DEL RANKING</p>
+	  	<%= link_to  "#" do%>
+	  		<%= image_tag "user/btnGanarPezzos_menu.png"%>
+	  	<%end%>
+	  </div>
+    </div>
+  </div>
+</div>
+<div class="separador"></div>
+<div class= "">
+  <div class="container">
+    <div class="row">
+      <div class="span12 offset">
+	  	<div class="row">
+	  		<div class="span3">
+	  			<%= image_tag "user/btnTuspartidosJugados_perfil.jpg"%>
+	  			<ul class="nav nav-tabs nav-stacked">
+		  			<% @user.partidos.each do |partido|%>
+		  				<li class=<%="active" if @partido.id == partido.id%>><%= link_to "#{partido.local} vs #{partido.visitante}", user_path(@user, partidoId: partido.id )%></li>
+		  			<%end%>  
+				</ul>
+	  		</div>
+	  		<div class="span8">
+	  			<div class="row">
+	  				<div class= "span8">
+	  					  <table class="table">
+						    <thead>
+						      <tr>
+						        <th>Resultado Apostado</th><th>Pezzos Apostados</th><th>Pezzos Ganados</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <%count = 1 %>
+						      <%@bets.each do |bet|%>
+						        <tr>
+						         <td><%= "#{bet.golesLocal} - #{bet.golesVisitante}"%></td><td><%= bet.monto%></td><td><%= %></td>
+						        </tr>
+						        <%count +=1%>
+						      <%end%>
+						    </tbody>
+						  </table>
+	  				</div>
+	  			</div>
+	  		</div>
+	  	</div>
+	  </div>
+    </div>
+  </div>
+</div>
+<div class="separador"></div>
+<div class= "">
+  <div class="container">
+    <div class="row">
+      <div class="span12 offset">
+	  	<div class="row">
+	  		<div class="span3">
+	  			<%= image_tag "user/btnTuspezzos_perfil.jpg"%>
+	  		</div>
+	  	</div>
+	  </div>
     </div>
   </div>
 </div>

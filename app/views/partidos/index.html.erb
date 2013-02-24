@@ -32,7 +32,9 @@
                   <%= image_tag partido.logovisitante, {:class => "", :width=>"50"}%>
                 </div>
                 <div class="span3">
-                  <%= link_to "Juega!", partido_path(partido), {:class=>"btn-warning btn"} %>
+                  <%= link_to  partido_path(partido) do %>
+                  <%=image_tag "partidos/btnJUEGA_partidos.png"%>
+                  <%end%>
                       <% if current_user.administrator==true %>
                       <%= link_to t('edit', :default => t("helpers.links.edit")),
                                   edit_partido_path(partido), :class => 'btn btn-mini' %>
@@ -50,7 +52,7 @@
       <%end%>
     </div>
     <div class="span3 well well-mini partidos-ranking pull-right">
-      <h3>Ranking</h3>
+      <%= image_tag "partidos/tituloMiRanking.png"%>
       <table class="table">
         <thead>
           <tr>

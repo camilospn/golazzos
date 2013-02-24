@@ -3,18 +3,22 @@ Gollazos::Application.routes.draw do
       post 'repartir', :on => :collection
       resources :bets
   end
+  resources :users
   #devise_for :users
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } 
 
 
   get "home/index"
+  #LOGIN WITH FACEBOOK OMNIAUTH
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
+  #VIRALIDAD TOKEN
+  match "home/:invitation_token" ,to: "home#index"
+  match "/:invitation_token" ,to: "home#index"
 
-  resources :users
   #match 'users', to: 'sessions#create', :as => 'user_root'
 
 

@@ -6,7 +6,7 @@
 
 .logo{
 	text-align:center;
-	padding-bottom:60px;
+	padding-bottom:0px;
 }
 
 .vs{
@@ -31,6 +31,8 @@
 }
 .partidos-ranking{
 	padding:0	px;
+	color: white;
+	background: #353535;
 	margin-top:20px;
 }
 
@@ -42,14 +44,30 @@
 .partido-fecha{
 	text-align: center;
 }
+.partido-uno{
+	position:relative;
+	width:100%;
+	z-index:1;
+	left:-50px;
+	bottom:-50px;
+}
 .partido-pasouno{
 	background:white;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	margin-top: -15px;
 	margin-bottom: 15px;
+	padding-left:50px;
 }
 
+.partido-dos{
+	position:relative;
+	width:100%;
+	z-index:1;
+	left:-50px;
+	bottom:100px;
+	margin-bottom:-80px;
+}
 .partido-pasodos{
 	background: #004f92;
 	-moz-border-radius: 15px;
@@ -57,11 +75,24 @@
 	margin-top: -55px;
 	margin-bottom: 15px;
 	color: white;
+	padding-left:50px;
 	small{
 		color:white;
 	}
 }
+.partido-rangos{
+	padding-top:-50px;
+	padding-bottom:40px;
+}
+.centro{
+	text-align: center;
+}
 .flash-container{
-	padding-top:40px;
+	padding-top: 40px;
 	background: #f0f1f1;
+}
+
+.hr-color{
+	background-color:#353535;
+	color: #353535;
 }
