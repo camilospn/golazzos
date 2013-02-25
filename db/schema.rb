@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20130225030332) do
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.boolean  "used",          :default => false
-    t.time     "demora"
+    t.decimal  "demora"
   end
 
   create_table "partidos", :force => true do |t|
