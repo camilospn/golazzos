@@ -1,0 +1,76 @@
+<div class="container">
+<div class="row">
+  <div class="span4 offset2">
+<p>Puedes ganar más pezzos:
+
+<p>1. Invitando amigos:
+
+<p>0 – 10 amigos recibe 0 PEZZOS
+<p>11 - 20 amigos recibe 20.000 PEZZOS
+<p>21 - 30 amigos recibe 50.000 PEZZOS
+<p>31 - 40 amigos recibe 125.000 PEZZOS
+<p>41 – 50 amigos recibe 300.000 PEZZOS
+<p>Más de 51 amigos recibe 750.000 PEZZOS
+
+<!-- Button to trigger modal -->
+<p><a href="#myModal" role="button" class="btn" data-toggle="modal">Invitar a un amigo</a>
+
+<p>2. Amigos referidos
+
+<p>Si aceptan antes de 24 horas recibes: 50,000 Pezzos
+<p>Entre 24 – 48 horas recibes: 20,000 Pezzos
+<p>Después de 48 Horas: 0  Pezzos
+
+<!-- Button to trigger modal -->
+<p><a href="#myModal" role="button" class="btn" data-toggle="modal">Invitar a un amigo</a>
+
+<p>3. Postear en tu muro
+
+<p>Por Publicar el Post recibes: 10,000 Pezzos
+<p>//si un amigo se registra a través del post ganas X
+
+
+<p><%= link_to "Postear", @linkwallpost , :class =>"btn btn-block btn-large btn-primary"%>
+<p>4. Apostando
+
+<p>Por cada apuesta que realices recibes 5000 pezzos
+
+<p><%= link_to "Apuesta ya", '/partidos/' , :class =>"btn btn-block btn-large btn-primary"%>
+</div>
+</div>
+    
+  
+
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Invita a un amigo a Golazzos</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+
+
+
+<% @user = User.find(session['user_id'])%>
+<% @connections2 = @user.facebook.get_connections("me","friends")%>
+
+<%= form_for @invitation do |f| %>
+  <p>
+    
+    <% @connections2.each do |connection2| %>
+    <p>
+    
+  <%= f.radio_button :recipient_uid, ''+connection2["id"], :checked => true %>
+  <%= image_tag"http://graph.facebook.com/"+connection2["id"]+"/picture"%>
+  <%= connection2["name"]%>
+  </p>
+  <% end %>
+    </p>
+  </div>
+  <div class="modal-footer">
+      <p><%= f.submit "Invite!" , :class => 'btn btn-primary'%></p>
+<% end %>
+  </div>
+</div>
