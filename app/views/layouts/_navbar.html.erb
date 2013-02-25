@@ -3,9 +3,24 @@
     <div class="container">
       <div class="brand" ><%= image_tag ('Menu/menu_logo.png')  %></div>
       <ul class="nav">
-        <li><%= link_to "Home", root_path%></li>
-        <li><%= link_to "Partidos", partidos_path %></li>
-        <li><%= link_to "Usuarios", users_path%></a></li>
+        <li><%= link_to partidos_path do%>
+            <%=image_tag "Menu/iconoPartidosMenu.png", {:class => "", :width=>"20"}%>PARTIDOS
+            <%end%>
+        </li>
+        <li><%if current_user %>
+                <%= link_to user_path(current_user) do%>
+                    <%=image_tag "Menu/iconoPerfilMenu.png", {:class => "", :width=>"20"}%>MI CUENTA
+                <%end%>
+            <%end%>
+        </li>
+        <li><%= link_to "#" do%>
+            <%=image_tag "Menu/iconoPremiosMenu.png", {:class => "", :width=>"20"}%> PREMIOS
+            <%end%>
+        </li>
+        <li><%= link_to users_path do%>
+            <%=image_tag "Menu/iconoRankingMenu.png", {:class => "", :width=>"20"}%>VER RANKING
+            <%end%>
+        </li>
       </ul>
       <ul class= "nav pull-right">
         <% if current_user %>

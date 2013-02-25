@@ -11,7 +11,7 @@
     </div>
   </div>
 </div>
-<div class="separador"></div>
+<div class="user-separador"></div>
 <div class= "">
   <div class="container">
     <div class="row">
@@ -21,14 +21,45 @@
 	  			<%= image_tag "user/btnTuspartidosJugados_perfil.jpg"%>
 	  			<ul class="nav nav-tabs nav-stacked">
 		  			<% @user.partidos.each do |partido|%>
-		  				<li class=<%="active" if @partido.id == partido.id%>><%= link_to "#{partido.local} vs #{partido.visitante}", user_path(@user, partidoId: partido.id )%></li>
+		  				<li class=<%="active" if @partido.id == partido.id%>>
+		  					<%= link_to user_path(@user, partidoId: partido.id ) do%>
+
+						      <h6> <%=partido.diapartido.strftime("%d de %B")%> <%=@partido.diapartido.strftime("%l:%M %p")%> </h6>
+						      <div class="centro">
+							      <%= image_tag partido.logolocal, {:class => "", :width=>"50px"}%>
+							      Vs
+							      <%= image_tag partido.logovisitante,{:class => "", :width =>"50px"}%>
+						      </div>
+		  					<%end%>
+		  				</li>
 		  			<%end%>  
 				</ul>
 	  		</div>
-	  		<div class="span8">
+	  		<div class="user-separador-abajo span9">
 	  			<div class="row">
-	  				<div class= "span8">
-	  					  <table class="table">
+	  				<div class= "span9">
+	  					<div class="row">
+						    <div class="partido-fecha span8">
+						      <h4> <%=@partido.diapartido.strftime("%d de %B")%> </h4>
+						      <h6 class="muted"> <%=@partido.diapartido.strftime("%l:%M %p")%></h6>
+						    </div>
+						    <div class="span3 offset1 logo">
+						      <%= image_tag @partido.logolocal, {:class => "", :width=>"100px"}%>
+						      <div>
+						          <h2 class="lead"> <%=@partido.local%></h2>      
+						          <h6 class="muted">Local</h6>
+						      </div>
+						    </div>
+						    <div class="span3 logo">
+						      <%= image_tag @partido.logovisitante,{:class => "", :width =>"100px"}%>
+						      <div>
+						        <h2 class="lead"> <%=@partido.visitante%></h2>
+						        <h6 class="muted"> Visitante</h6>
+						      </div>
+						    </div>
+						  </div>
+						  <hr>
+	  					  <table class="table span6 offset1">
 						    <thead>
 						      <tr>
 						        <th>Resultado Apostado</th><th>Pezzos Apostados</th><th>Pezzos Ganados</th>
@@ -52,14 +83,32 @@
     </div>
   </div>
 </div>
-<div class="separador"></div>
-<div class= "">
+<div class="user-separador"></div>
+<div class= "user-fondoGris">
   <div class="container">
     <div class="row">
       <div class="span12 offset">
 	  	<div class="row">
 	  		<div class="span3">
 	  			<%= image_tag "user/btnTuspezzos_perfil.jpg"%>
+	  		</div>
+	  		<div class="span4">
+	  			<div class= "user-separador-abajo">
+	  			<p>Estos son los Pezzos que has adquirido Jugando, Invitando y Compartiendo.</p></div>
+
+	  			<div class="user-gano-pezzos">
+	  				<%=image_tag "user/iconoBalon_tusPezzosPerfil.png", {:class =>"", :height =>"30"}%> JUEGOS GANADOS
+	  				<span class="user-pezzos pull-right"> 20000 pezzos</span>
+	  			</div>
+	  			<div class="user-gano-pezzos">
+	  				<%=image_tag "user/iconoInvitaAmigos_tusPezzosPerfil.png", {:class =>"", :height =>"30"}%>INVITANDO AMIGOS
+	  				<span class="user-pezzos pull-right"> 20000 pezzos</span>
+	  			</div>
+	  			<div class="user-gano-pezzos">
+	  				<%=image_tag "user/iconoApuestaPartido_Perfil.png", {:class =>"", :height =>"30"}%> ACTIVIDAD
+	  				<span class="user-pezzos pull-right"> 20000 pezzos</span>
+	  			</div>
+
 	  		</div>
 	  	</div>
 	  </div>
