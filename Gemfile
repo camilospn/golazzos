@@ -32,6 +32,10 @@ gem "twitter-bootstrap-rails"
 gem 'omniauth-facebook', '1.3.0'
 gem 'omniauth', '1.1.1'
 gem "fb_graph"
+gem "koala"
+gem "nifty-generators", :group => :development
+#gem "xmpp4r_facebook"
+
 #gem 'devise'
 #gem 'oauth2'
 
@@ -50,3 +54,5 @@ gem "fb_graph"
 
 # To use debugger
 # gem 'debugger'
+
+gem "mocha", :group => :test

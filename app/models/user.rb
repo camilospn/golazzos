@@ -1,18 +1,20 @@
 class User < ActiveRecord::Base
-  #attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
 
 	has_many :bets, :dependent => :destroy
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-
 
   # Setup accessible (or protected) attributes for your model
   #attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid, :pezzos, :administrator
+  #attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
+  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid, :pezzos, :administrator, :invitation_token, :visits_number, :invitation_number, :invitation_id, :post_on_fb, :bets_number, :age
 
   validates :pezzos, :numericality => {:greater_than_or_equal_to => 0, :message => "no puedes tener menos de 0 pezzos"}
-  
+  #INVITATION before_create :set_invitation_limit
+  #----este si se necesita validates_presence_of :invitation_id, :message => 'is required'
+  #validates_uniqueness_of :invitation_id
+
+  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
+  #belongs_to :invitation
+
 
 def self.from_omniauth(auth)
   where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -26,6 +28,16 @@ def self.from_omniauth(auth)
 end
 
 
+#invitaciones
+
+def facebook
+  @facebook ||= Koala::Facebook::API.new(oauth_token)
+end
+
+def friends_count
+  facebook.get_connection("me","friends").size
+end
+
   def descontar_pezzos(monto)
     pezzos_total = self.pezzos - monto
     self.update_attributes(pezzos: pezzos_total)
@@ -34,6 +46,21 @@ end
     pezzos_total = self.pezzos + monto
     self.update_attributes(pezzos: pezzos_total)
   end
-
-
+  def aumentar_visitas
+    visitas_total = self.visits_number + 1
+    self.update_attributes(visits_number: visitas_total)
+  end
+  def aumentar_invitaciones
+    invitaciones_total = self.invitation_number + 1
+    self.update_attributes(invitation_number: invitaciones_total)
+  end
+  def aumentar_apuestas
+    apuestas_total = self.bets_number + 1
+    self.update_attributes(bets_number: apuestas_total)
+  end
+  def aumentar_posts
+    posts_total = self.post_on_fb + 1
+    self.update_attributes(post_on_fb: posts_total)
+  end
+  
 end

@@ -1,0 +1,39 @@
+
+    
+  </p>
+
+<!-- Button to trigger modal -->
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Invitar a un amigo</a>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Invita a un amigo a Golazzos</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+
+
+
+<% @user = User.find(session['user_id'])%>
+<% @connections2 = @user.facebook.get_connections("me","friends")%>
+
+<%= form_for @invitation do |f| %>
+  <p>
+    
+    <% @connections2.each do |connection2| %>
+    <p>
+    
+  <%= f.radio_button :recipient_uid, ''+connection2["id"], :checked => true %>
+  <%= image_tag"http://graph.facebook.com/"+connection2["id"]+"/picture"%>
+  <%= connection2["name"]%>
+  </p>
+  <% end %>
+    </p>
+  </div>
+  <div class="modal-footer">
+      <p><%= f.submit "Invite!" , :class => 'btn btn-primary'%></p>
+<% end %>
+  </div>
+</div>

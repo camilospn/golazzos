@@ -1,4 +1,13 @@
 Gollazos::Application.routes.draw do
+
+  get "metrics/index"
+
+  #map.home '/home/:invitation_token', :controller => 'users', :action => 'new'
+  #map.home '/home/:invitation_token', :controller => 'home', :action => 'referido'
+  #match "home/:invitation_token" ,to: "home#referido"
+  match "home/:invitation_token" ,to: "home#referido"
+  resources :invitations
+
   resources :partidos do
       post 'repartir', :on => :collection
       resources :bets
@@ -6,7 +15,6 @@ Gollazos::Application.routes.draw do
   #devise_for :users
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } 
-
 
   get "home/index"
   match 'auth/:provider/callback', to: 'sessions#create'

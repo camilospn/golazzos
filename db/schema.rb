@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212154405) do
+ActiveRecord::Schema.define(:version => 20130225030332) do
 
   create_table "bets", :force => true do |t|
     t.integer  "monto"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(:version => 20130212154405) do
 
   add_index "bets", ["partido_id"], :name => "index_bets_on_partido_id"
   add_index "bets", ["user_id"], :name => "index_bets_on_user_id"
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "sender_id"
+    t.string   "recipient_uid"
+    t.string   "token"
+    t.datetime "sent_at"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "used",          :default => false
+    t.time     "demora"
+  end
 
   create_table "partidos", :force => true do |t|
     t.string   "local"
@@ -41,16 +52,28 @@ ActiveRecord::Schema.define(:version => 20130212154405) do
     t.boolean  "repartido"
   end
 
+  create_table "tokenreferidos", :force => true do |t|
+    t.string   "tokenr"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.integer  "pezzos",           :default => 0
-    t.boolean  "administrator",    :default => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "pezzos",            :default => 0
+    t.boolean  "administrator",     :default => false
+    t.integer  "invitation_id"
+    t.integer  "invitation_number", :default => 0
+    t.integer  "visits_number",     :default => 0
+    t.integer  "post_on_fb",        :default => 0
+    t.integer  "bets_number",       :default => 0
+    t.integer  "age"
   end
 
 end
