@@ -53,16 +53,6 @@ end
     pezzos_total = self.pezzos + monto
     self.update_attributes(pezzos: pezzos_total)
   end
-<<<<<<< HEAD
-
-  def position(column = 'pezzos', order = 'DESC')
-    order_by = "#{column} #{order}"
-    arrow = order.capitalize == "ASC" ? "<=" : ">="
-    User.where("#{column} #{arrow} ?", self.send(column)).order(order_by).count
-  end  
-
-
-=======
   def aumentar_visitas
     visitas_total = self.visits_number + 1
     self.update_attributes(visits_number: visitas_total)
@@ -80,5 +70,9 @@ end
     self.update_attributes(post_on_fb: posts_total)
   end
   
->>>>>>> 9da69a274b68a614c6742dbac23a55bc22ee0bfe
+    def position(column = 'pezzos', order = 'DESC')
+    order_by = "#{column} #{order}"
+    arrow = order.capitalize == "ASC" ? "<=" : ">="
+    User.where("#{column} #{arrow} ?", self.send(column)).order(order_by).count
+  end  
 end

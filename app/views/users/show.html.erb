@@ -11,7 +11,9 @@
     </div>
   </div>
 </div>
+
 <div class="user-separador"></div>
+<%if @user.partidos.any?%>
 <div class= "">
   <div class="container">
     <div class="row">
@@ -59,22 +61,22 @@
 						    </div>
 						  </div>
 						  <hr>
-	  					  <table class="table span6 offset1">
-						    <thead>
-						      <tr>
-						        <th>Resultado Apostado</th><th>Pezzos Apostados</th><th>Pezzos Ganados</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <%count = 1 %>
-						      <%@bets.each do |bet|%>
-						        <tr>
-						         <td><%= "#{bet.golesLocal} - #{bet.golesVisitante}"%></td><td><%= bet.monto%></td><td><%= %></td>
-						        </tr>
-						        <%count +=1%>
-						      <%end%>
-						    </tbody>
-						  </table>
+						  <%if @bets.count != 0%>
+		  					  <table class="table span6 offset1">
+							    <thead>
+							      <tr>
+							        <th>Resultado Apostado</th><th>Pezzos Apostados</th><th>Pezzos Ganados</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <%@bets.each do |bet|%>
+							        <tr>
+							         <td><%= "#{bet.golesLocal} - #{bet.golesVisitante}"%></td><td><%= bet.monto%></td><td><%= %></td>
+							        </tr>
+							      <%end%>
+							    </tbody>
+							  </table>
+						   <%end%>
 	  				</div>
 	  			</div>
 	  		</div>
@@ -115,3 +117,6 @@
     </div>
   </div>
 </div>
+<%else%>
+	no tienes partidos!!
+<%end%>

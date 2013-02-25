@@ -6,13 +6,15 @@ class UsersController < ApplicationController
   def show
     @user= User.find(params[:id])
 
-    if params[:partidoId]
-      @partido= Partido.find(params[:partidoId])
-    else
-      @partido = @user.partidos.first
-    end
+    if @user.partidos.any?
+      if params[:partidoId]
+        @partido= Partido.find(params[:partidoId])
+      else
+        @partido = @user.partidos.first
+      end
 
-    @bets= @partido.bets.where("user_id = ?", @user.id)
+      @bets= @partido.bets.where("user_id = ?", @user.id) 
+    end   
 
   end
 

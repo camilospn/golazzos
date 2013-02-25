@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219152251) do
-
+ActiveRecord::Schema.define(:version => 20130225030332) do
 
   create_table "bets", :force => true do |t|
     t.integer  "monto"
@@ -65,20 +64,18 @@ ActiveRecord::Schema.define(:version => 20130219152251) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.integer  "pezzos",            :default => 0
-    t.boolean  "administrator",     :default => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.integer  "pezzos",             :default => 0
+    t.boolean  "administrator",      :default => false
     t.integer  "invitation_id"
-    t.integer  "invitation_number", :default => 0
-    t.integer  "visits_number",     :default => 0
-    t.integer  "post_on_fb",        :default => 0
-    t.integer  "bets_number",       :default => 0
+    t.integer  "invitation_number",  :default => 0
+    t.integer  "visits_number",      :default => 0
+    t.integer  "pezzos_que_apuesta", :default => 10000
+    t.integer  "post_on_fb",         :default => 0
+    t.integer  "bets_number",        :default => 0
     t.integer  "age"
-    t.integer  "pezzos_que_apuesta",     :default => 10000
+    t.string   "email"
   end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
