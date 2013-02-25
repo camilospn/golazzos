@@ -5,7 +5,7 @@ Gollazos::Application.routes.draw do
   #map.home '/home/:invitation_token', :controller => 'users', :action => 'new'
   #map.home '/home/:invitation_token', :controller => 'home', :action => 'referido'
   #match "home/:invitation_token" ,to: "home#referido"
-  match "home/:invitation_token" ,to: "home#referido"
+
   resources :invitations do
     post 'postear', :on => :collection
   end
@@ -26,7 +26,7 @@ Gollazos::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   #VIRALIDAD TOKEN
-  match "home/:invitation_token" ,to: "home#index"
+  match "home/:invitation_token" ,to: "home#referido"
   match "/:invitation_token" ,to: "home#index"
 
   #match 'users', to: 'sessions#create', :as => 'user_root'
