@@ -6,7 +6,9 @@ Gollazos::Application.routes.draw do
   #map.home '/home/:invitation_token', :controller => 'home', :action => 'referido'
   #match "home/:invitation_token" ,to: "home#referido"
   match "home/:invitation_token" ,to: "home#referido"
-  resources :invitations
+  resources :invitations do
+    post 'postear', :on => :collection
+  end
 
   resources :partidos do
       post 'repartir', :on => :collection
