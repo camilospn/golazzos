@@ -24,10 +24,10 @@
 <%= @numeroPostsPromedio=User.average(:post_on_fb) %>
 
 <p><span class="badge">7.</span> Tiempo promedio en aceptar invitación:
-<%= @tiempoPromedioEnAceptar=Invitation.average(:demora) %>
+<%= @tiempoPromedioEnAceptar=Invitation.average(:demora) %> days
 
 <p><span class="badge">8.</span> Edad promedio:
-<%= @usuariosConEdad=User.average(:age)%>
+<%= @usuariosConEdad=User.average(:age)%> years
 
 
               <div class="accordion" id="accordion2">

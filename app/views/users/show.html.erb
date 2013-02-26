@@ -4,7 +4,7 @@
       <div class="span12">
 	  	<p class= "lead">Hola <strong><%=@user.name%></strong>!</p>
 	  	<p>tienes <strong><%=@user.pezzos%></strong> pezzos     / ACTUALMENTE ESTAS EN LA POSICION <strong><%=@user.position%></strong> DEL RANKING</p>
-	  	<%= link_to  "#" do%>
+	  	<%= link_to  new_invitation_path do%>
 	  		<%= image_tag "user/btnGanarPezzos_menu.png"%>
 	  	<%end%>
 	  </div>
@@ -13,7 +13,7 @@
 </div>
 
 <div class="user-separador"></div>
-<%if @user.partidos.any?%>
+
 <div class= "">
   <div class="container">
     <div class="row">
@@ -37,6 +37,7 @@
 		  			<%end%>  
 				</ul>
 	  		</div>
+	  		<%if @user.partidos.any?%>
 	  		<div class="user-separador-abajo span9">
 	  			<div class="row">
 	  				<div class= "span9">
@@ -80,6 +81,16 @@
 	  				</div>
 	  			</div>
 	  		</div>
+	  		<%else%>
+		  		<div class= "container">
+		  			<div class="row">
+		  				<div class="span9">
+		  					<h3>NO HAS APOSTADO POR NINGUN PARTIDO!</h3>
+		  					<%=link_to "Empieza a Apostar!", partidos_path, {:class=> "btn"}%>
+		  				</div>
+		  			</div>
+		  		</div>
+			<%end%>
 	  	</div>
 	  </div>
     </div>
@@ -117,6 +128,3 @@
     </div>
   </div>
 </div>
-<%else%>
-	no tienes partidos!!
-<%end%>
