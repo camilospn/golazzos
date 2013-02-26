@@ -22,7 +22,7 @@
                 </div>
                 <div>
                   <div class="span1 partidos-equipos-loca">
-                    <%= image_tag "small_"+partido.logolocal, {:class => "", :width=>"50"}%> 
+                    <%= image_tag partido.logolocal, {:class => "", :width=>"50"}%> 
                   </div>
                   <div class="span1 partidos-equipos-local">
                     <%= partido.local %> 
@@ -34,7 +34,7 @@
                     <%= partido.visitante %> 
                   </div>
                   <div class="span1">
-                    <%= image_tag "small_"+partido.logovisitante, {:class => "", :width=>"50"}%>
+                    <%= image_tag partido.logovisitante, {:class => "", :width=>"50"}%>
                   </div>
                   <div class="span3">
                     <%= link_to  partido_path(partido) do %>
