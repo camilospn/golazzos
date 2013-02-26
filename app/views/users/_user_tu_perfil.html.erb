@@ -1,0 +1,7 @@
+<div class="span9">
+<p class= "lead"><strong><%=@user.name%></strong>!</p>
+<p>tiene <strong><%=@user.pezzos%></strong> pezzos     / ACTUALMENTE ESTA EN LA POSICION <strong><%=@user.position%></strong> DEL RANKING</p>
+<%= link_to  new_invitation_path do%>
+	<%= image_tag "user/btnGanarPezzos_menu.png"%>
+<%end%>
+</div>

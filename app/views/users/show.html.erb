@@ -1,13 +1,14 @@
 <div class= "">
   <div class="container">
-    <div class="row">
-      <div class="span12">
-	  	<p class= "lead">Hola <strong><%=@user.name%></strong>!</p>
-	  	<p>tienes <strong><%=@user.pezzos%></strong> pezzos     / ACTUALMENTE ESTAS EN LA POSICION <strong><%=@user.position%></strong> DEL RANKING</p>
-	  	<%= link_to  new_invitation_path do%>
-	  		<%= image_tag "user/btnGanarPezzos_menu.png"%>
-	  	<%end%>
-	  </div>
+    <div class="row user-photo">
+    	<div class="span2">
+    		<%=image_tag @user.facebook.get_picture(current_user.uid, {type: "large"}), {:class=> "thumbnail"}%>
+    	</div>
+    	<% if current_user.id == @user.id%>
+    		<%=render "user_mi_perfil"%>
+    	<%else%>
+    		<%=render "user_tu_perfil"%>
+    	<%end%>
     </div>
   </div>
 </div>
@@ -37,10 +38,11 @@
 		  			<%end%>  
 				</ul>
 	  		</div>
-	  		<%if @user.partidos.any?%>
+
 	  		<div class="user-separador-abajo span9">
 	  			<div class="row">
 	  				<div class= "span9">
+	  					<%if @user.partidos.any?%>
 	  					<div class="row">
 						    <div class="partido-fecha span8">
 						      <h4> <%=@partido.diapartido.strftime("%d de %B")%> </h4>
@@ -62,35 +64,40 @@
 						    </div>
 						  </div>
 						  <hr>
-						  <%if @bets.count != 0%>
-		  					  <table class="table span6 offset1">
-							    <thead>
-							      <tr>
-							        <th>Resultado Apostado</th><th>Pezzos Apostados</th><th>Pezzos Ganados</th>
-							      </tr>
-							    </thead>
-							    <tbody>
-							      <%@bets.each do |bet|%>
-							        <tr>
-							         <td><%= "#{bet.golesLocal} - #{bet.golesVisitante}"%></td><td><%= bet.monto%></td><td><%= %></td>
-							        </tr>
-							      <%end%>
-							    </tbody>
-							  </table>
-						   <%end%>
+						  
+	  					  <table class="table">
+						    <thead>
+						      <tr>
+						        <th>Resultado Apostado</th><th>Pezzos Apostados</th><th>Pezzos Ganados</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <%@bets.each do |bet|%>
+						        <tr>
+						         <td><%= "#{bet.golesLocal} - #{bet.golesVisitante}"%></td><td><%= bet.monto%></td><td>
+						         <% if bet.pezzos_ganados==nil  %>
+						         <%= 0%>
+						         <%else%>
+						         <%= bet.pezzos_ganados%>
+						         <%end%>
+						     	</td>
+						        </tr>
+						      <%end%>
+						    </tbody>
+						  </table>
+						   
+						<%else%>
+		  				<div class="">
+		  					<h6>NO HAS APOSTADO POR NINGUN PARTIDO!</h6>
+		  					<%=link_to "Empieza a Apostar!", partidos_path, {:class=> "btn"}%>
+		  				</div>
+		  			
+		  		
+			<%end%>
 	  				</div>
 	  			</div>
 	  		</div>
-	  		<%else%>
-		  		<div class= "container">
-		  			<div class="row">
-		  				<div class="span9">
-		  					<h3>NO HAS APOSTADO POR NINGUN PARTIDO!</h3>
-		  					<%=link_to "Empieza a Apostar!", partidos_path, {:class=> "btn"}%>
-		  				</div>
-		  			</div>
-		  		</div>
-			<%end%>
+
 	  	</div>
 	  </div>
     </div>
@@ -105,21 +112,21 @@
 	  		<div class="span3">
 	  			<%= image_tag "user/btnTuspezzos_perfil.jpg"%>
 	  		</div>
-	  		<div class="span4">
+	  		<div class="span5">
 	  			<div class= "user-separador-abajo">
 	  			<p>Estos son los Pezzos que has adquirido Jugando, Invitando y Compartiendo.</p></div>
 
 	  			<div class="user-gano-pezzos">
 	  				<%=image_tag "user/iconoBalon_tusPezzosPerfil.png", {:class =>"", :height =>"30"}%> JUEGOS GANADOS
-	  				<span class="user-pezzos pull-right"> 20000 pezzos</span>
+	  				<span class="user-pezzos pull-right"> <%= current_user.bets.sum(:pezzos_ganados)%> pezzos</span>
 	  			</div>
 	  			<div class="user-gano-pezzos">
 	  				<%=image_tag "user/iconoInvitaAmigos_tusPezzosPerfil.png", {:class =>"", :height =>"30"}%>INVITANDO AMIGOS
-	  				<span class="user-pezzos pull-right"> 20000 pezzos</span>
+	  				<span class="user-pezzos pull-right"> <%= @pezzos_por_amigos%> pezzos</span>
 	  			</div>
 	  			<div class="user-gano-pezzos">
 	  				<%=image_tag "user/iconoApuestaPartido_Perfil.png", {:class =>"", :height =>"30"}%> ACTIVIDAD
-	  				<span class="user-pezzos pull-right"> 20000 pezzos</span>
+	  				<span class="user-pezzos pull-right"> <%= @pezzos_por_actividad%> pezzos</span>
 	  			</div>
 
 	  		</div>

@@ -7,5 +7,5 @@ class Bet < ActiveRecord::Base
   validates :monto, presence: true 
   validates :user_id, presence: true 
   
-  attr_accessible :golesLocal, :golesVisitante, :monto, :user_id
+  attr_accessible :golesLocal, :golesVisitante, :monto, :user_id, :pezzos_ganados
 end

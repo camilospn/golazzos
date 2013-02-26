@@ -15,6 +15,9 @@ class UsersController < ApplicationController
 
       @bets= @partido.bets.where("user_id = ?", @user.id) 
     end   
+    @pezzos_por_amigos= User.where('invitation_id== ?', @user.id).count * 50000
+
+    @pezzos_por_actividad= @user.bets.count * 5000 
 
   end
 

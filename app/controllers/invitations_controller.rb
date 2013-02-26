@@ -4,11 +4,11 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new
     @linkwallpost= "https://www.facebook.com/dialog/feed?
   app_id=193467880799348&
-  link=https://golazzos.herokuapp.com/&
+  link=https://www.golazzos.com/&
   name=Visita%20Golazzos%20y%20gana%20premios&
   caption=La%20nueva%20plataforma%20de%20apuestas%20sociales%20en%20futbol&
   description=.&
-  redirect_uri=http://golazzos.herokuapp.com/"
+  redirect_uri=http://www.golazzos.com/"
 
   end
   def postear
@@ -52,8 +52,8 @@ class InvitationsController < ApplicationController
 
             @linkinvitation= "http://www.facebook.com/dialog/send?app_id=193467880799348&
 name=Visita%20Golazzos%20y%20gana%20premios&
-link=http://golazzos.herokuapp.com/home/"+@invitation.token+"/&to="+@invitation.recipient_uid+"&
-redirect_uri=http://golazzos.herokuapp.com/"
+link=http://www.golazzos.com/home/"+@invitation.token+"/&to="+@invitation.recipient_uid+"&
+redirect_uri=http://www.golazzos.com/"
    
 
       if @user.invitation_number == 10
