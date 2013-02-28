@@ -1,8 +1,9 @@
 <div class= "header-title">
   <div class="container">
     <div class="row">
-      <div class="span8 offset1">
-        <h3>PARTIDOS</h3>
+      <p>
+      <div class="span6 fuenteFuturaB titulo-blanco">
+        <h3><span class="offset1">PARTIDOS</div></h3>
       </div>
     </div>
   </div>
@@ -11,7 +12,7 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row BTSinEspacio">
    <div class="span7s offset1">
       <hr>
       <% @partidos.each do |partido| %>
@@ -57,6 +58,15 @@
           <hr>
       <%end%>
     </div>
+
+
+    <div class="span3 well well-mini partidos-premios pull-right">
+      <%= image_tag "ranking/titulopremios.png"%>
+      ...................................................................
+      <%= image_tag "ranking/premiosmiranking.png"%>
+      
+    </div>
+
     <div class="span3 well well-mini partidos-ranking pull-right">
       <%= image_tag "partidos/tituloMiRanking.png"%>
       <table class="table">
@@ -77,6 +87,8 @@
       </table>
       <%= link_to "ver mas", users_path%>
     </div>
+
+
   </div>
 </div>
 

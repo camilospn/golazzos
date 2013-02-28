@@ -1,11 +1,67 @@
 <div class="contenedor">
-	<%= image_tag "secciones/pasos1.png"%>
-<%= image_tag "secciones/partido2.png"%>
-  <div id="apDiv2"><%= image_tag "secciones/premios3.png"%>
+	
+
+	
+<div class="fondoPremios">
+  <div class="centro fuenteFuturaB">
+  	<div class="areaPremios"></div>
+  	<%=image_tag "landing/pasos_titulo.png", {:class => "", :width=>"450"}%> 
+    <div class="areaPremios">
+  <%=image_tag "landing/pasos_icono1.png", {:class => "", :width=>"200"}%> 
+  <%=image_tag "landing/pasos_icono2.png", {:class => "", :width=>"200"}%> 
+  <%=image_tag "landing/pasos_icono3.png", {:class => "", :width=>"200"}%> 
+  
+  </div>
+  <div class="areaPremios"></div>
+  </div>
+</div>
+
+<div class="fondoPartidosLanding">
+	<%=image_tag "landing/partidos/partido_titulo.png", {:class => "tituloS", :width=>""}%> 
+  <div class="centro fuenteFuturaB">
+  	
+  	
+    <div class="areaPremios">
+    <%=image_tag "landing/partidos/partido_flechaIzq_normal.png", {:class => "", :width=>"50"}%> 
+  	<%=image_tag "landing/partidos/partido_equiposImportantes.png", {:class => "", :width=>"550"}%> 
+  
+  	<%=image_tag "landing/partidos/partido_flechaDer_normal.png", {:class => "", :width=>"50"}%> 
+  
+  </div>
+  <div class="areaPremios"></div>
+  
+  
+  </div>
+</div>
+ 
+
+<div class="fondoPremios">
+	
+	<%=image_tag "ranking/premios_titulo.png", {:class => "tituloS", :width=>""}%> 
+
+  <div class="centro">
+  	<p><font color="white" face="Futura Book BT">¡Acumula la mayor cantidad de Pezzos jugando por tus equipos favoritos e invitando amigos y gana fabulosos premios!
+  	</font></p>
+    <div class="areaPremios">
+  <%=image_tag "ranking/1er_premios.png", {:class => "", :width=>""}%> 
+  <%=image_tag "ranking/2do_premios.png", {:class => "", :width=>""}%> 
+  <%=image_tag "ranking/3er_premios.png", {:class => "", :width=>""}%> 
+  <%=image_tag "ranking/4to5to_premios.png", {:class => "", :width=>""}%> 
+  </div>
+  <div class="areaPremios"></div>
+  <div class="areaPremios"></div>
+  <div class="areaPremios"></div>
+  <div class="areaPremios"></div>
+  </div>
+</div>
+
    <div class="botonFacebook">
+   	
+   	<font color="white" face="FUTURAB" size="4">TIENES</font>
+   	<font color="orange" face="FUTURAB" size="5">20.000</font>
+   	<font color="white" face="FUTURAB" size="4">PEZZOS GRATIS</font><P>
 		<%= link_to "/auth/facebook" do%>
 		 <%= image_tag ('Call/btnCall.png')  %>
 		 <% end -%>
   </div>
   </div>
-</div>

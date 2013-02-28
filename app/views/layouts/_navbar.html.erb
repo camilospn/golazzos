@@ -1,49 +1,28 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner ">
-    <div class="container">
+    <div class="container fuenteFuturaBookBT">
       <div class="brand" ><%= image_tag ('Menu/menu_logo.png')  %></div>
       <ul class="nav">
         <li><%= link_to partidos_path do%>
-            <%=image_tag "Menu/iconoPartidosMenu.png", {:class => "", :width=>"20"}%>PARTIDOS
+            <%=image_tag "Menu/iconoPartidosMenu.png", {:class => "", :height=>"20"}%> PARTIDOS
             <%end%>
         </li>
         <li><%if current_user %>
-                <%= link_to user_path(current_user) do%>
-                    <%=image_tag "Menu/iconoPerfilMenu.png", {:class => "", :width=>"20"}%>MI CUENTA
+                <%= link_to user_path(current_user) do%>| 
+                    <%=image_tag "Menu/iconoPerfilMenu.png", {:class => "", :height=>"20"}%> MI CUENTA      
                 <%end%>
             <%end%>
         </li>
-        <li><%= link_to new_invitation_path do%>
-            <%=image_tag "Menu/iconoPremiosMenu.png", {:class => "", :width=>"20"}%> PREMIOS
-            <%end%>
-        </li>
-        <li><%= link_to users_path do%>
-            <%=image_tag "Menu/iconoRankingMenu.png", {:class => "", :width=>"20"}%>VER RANKING
+
+        <li><%= link_to users_path do%>| 
+            <%=image_tag "Menu/iconoRankingMenu.png", {:class => "", :height=>"20"}%> RANKING
             <%end%>
         </li>
       </ul>
       <ul class= "nav pull-right">
         <% if current_user %>
-            <li><a> <%= current_user.pezzos %> pezzos</a></li>
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <strong><%= current_user.name %></strong>
-            <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li><%= link_to "Mi Perfil", user_path(current_user)%></li>
-            <% if current_user.administrator==true %>
-                <li>
-                <%= link_to "Partido Nuevo", new_partido_path %>
-                </li>
-                <li>
-                <%= link_to "Metrics", metrics_index_path %>
-                </li>
-            <% end %>
-            <li class="divider"></li>
-            <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-            </ul>
-            </li>
+            
+           
         <% else %>
             <li>
             <%= link_to "/auth/facebook" do%>

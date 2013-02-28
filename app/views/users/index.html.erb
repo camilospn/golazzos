@@ -1,8 +1,9 @@
 <div class= "header-title">
   <div class="container">
     <div class="row">
-      <div class="span8 offset1">
-        <h3>USUARIOS</h3>
+      <div class="span6 fuenteFuturaB titulo-blanco">
+        <p> <p>
+        <h3><span class="offset1">JUGADORES</span></h3>
       </div>
     </div>
   </div>
@@ -10,18 +11,18 @@
 
 <div class="container">
   <div class="row">
-    <div class="span10 offset1">
+    <div class="span10 offset1 BTSinEspacio">
   <table class="table">
     <thead>
       <tr>
-        <th>#</th><th>Nombre</th><th>Pezzos</th><th># Apuestas</th>
+        <th>Posición</th><th>Nombre</th><th>Pezzos</th><th># Apuestas</th>
       </tr>
     </thead>
     <tbody>
       <%count = 1 %>
       <%@users.each do |user|%>
         <tr>
-          <td><%=count%></td><td><%=link_to user.name, user%></td><td><%= user.pezzos%></td><td><%= user.bets.count%></td>
+          <td><%=count%></td><td><%=image_tag user.facebook.get_picture(user.uid, {type: "square"}), {:class=> "", :width=>"30"}%>  <%=link_to user.name, user%></td><td><%= user.pezzos%></td><td><%= user.bets.count%></td>
         </tr>
         <%count +=1%>
       <%end%>
@@ -29,4 +30,26 @@
   </table>
 </div>
   </div>
+</div>
+<div class= "header-title2">
+  <div class="container">
+    <div class="row">
+      <p>
+      <div class="span6 fuenteFuturaB titulo-blanco">
+
+        <h3><div class="offset1">PREMIOS</div></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fondoPremios">
+  <div class="centro">
+    <div class="areaPremios">
+  <%=image_tag "ranking/1er_premios.png", {:class => "", :width=>""}%> 
+  <%=image_tag "ranking/2do_premios.png", {:class => "", :width=>""}%> 
+  <%=image_tag "ranking/3er_premios.png", {:class => "", :width=>""}%> 
+  <%=image_tag "ranking/4to5to_premios.png", {:class => "", :width=>""}%> 
+  </div>
+</div>
 </div>
