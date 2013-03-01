@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226165715) do
+ActiveRecord::Schema.define(:version => 20130227194916) do
 
   create_table "bets", :force => true do |t|
     t.integer  "monto"
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20130226165715) do
     t.integer  "bets_number",        :default => 0
     t.integer  "age"
     t.string   "email"
+    t.integer  "local_apostado",     :default => 0
+    t.integer  "visitante_apostado", :default => 0
   end
 
 end

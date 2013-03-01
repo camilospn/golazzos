@@ -80,9 +80,20 @@
 		color:white;
 	}
 }
+.partido-tres{
+	position:relative;
+	width:100%;
+	left:-200px;
+	bottom:-20px;
+	margin-bottom:-30px;
+}
 .partido-rangos{
 	padding-top:-50px;
 	padding-bottom:40px;
+}
+
+.partido-disabled-btn{
+	margin-bottom:20px;
 }
 .centro{
 	text-align: center;
@@ -96,4 +107,11 @@
 .hr-color{
 	background-color:#353535;
 	color: #353535;
+}
+
+.afiche{
+	background-image:url('partido/VS_partidos.png');
+		background-repeat:no-repeat;
+		background-attachment:fixed;
+		background-position:center; 
 }
