@@ -15,10 +15,12 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
   </head>
   <body>
+
     <%=render "layouts/navbar"%>
     <%= render "layouts/flash_notice"%>
     <%= yield %>
     <%=render "layouts/footer"%>
+    <%=render "layouts/user_badge"%>
     <!-- /container -->
 
     <!-- Javascripts

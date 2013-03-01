@@ -1,41 +1,77 @@
+<div class= "header-title">
+  <div class="container">
+    <div class="row">
+      <p>
+      <div class="span6 fuenteFuturaB titulo-blanco">
+        <h3><span class="offset1">GANA MÁS PEZZOS</div></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
-<div class="row">
+<div class="row BTSinEspacio">
   <div class="span4 offset2">
-<hr>
-<p>Puedes ganar más pezzos:
 
-<p>1. Invitando amigos:
+<p><strong>1. INVITANDO AMIGOS:</strong>
+<table class="table">
 
-<p>0 – 10 amigos recibe 0 PEZZOS
-<p>11 - 20 amigos recibe 20.000 PEZZOS
-<p>21 - 30 amigos recibe 50.000 PEZZOS
-<p>31 - 40 amigos recibe 125.000 PEZZOS
-<p>41 – 50 amigos recibe 300.000 PEZZOS
-<p>Más de 51 amigos recibe 750.000 PEZZOS
+    <tbody>
+        <tr>
+          <td>10 amigos</td><td>recibes 20.000 PEZZOS</td>
+        </tr>
+        <tr>
+        <td>20 amigos</td><td>recibes 50.000 PEZZOS</td>
+        </tr>
+        <tr>
+        <td>30 amigos</td><td>recibes 125.000 PEZZOS</td>
+        </tr>
+        <tr>
+        <td>40 amigos</td><td>recibes 300.000 PEZZOS</td>
+        </tr>
+        <tr>
+        <td>50 amigos</td><td>recibes 750.000 PEZZOS</td>
+        </tr>
+        
+    </tbody>
+  </table>
 
 <!-- Button to trigger modal -->
 <p><a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Invitar a un amigo</a>
 <hr>
-<p>2. Amigos referidos
+<p><strong>2. AMIGOS REFERIDOS</strong>
+<table class="table">
 
-<p>Si aceptan antes de 24 horas recibes: 50,000 Pezzos
-<p>Entre 24 – 48 horas recibes: 20,000 Pezzos
-<p>Después de 48 Horas: 0  Pezzos
+    <tbody>
+        <tr>
+          <td>Si aceptan antes de 24 horas</td><td>recibes 50.000 PEZZOS</td>
+        </tr>
+        <tr>
+        <td>Si aceptan entre 24 y 48 horas</td><td>recibes 20.000 PEZZOS</td>
+        </tr>
+        <tr>
+        <td>Si aceptan después de 48 horas</td><td>recibes 0 PEZZOS</td>
+        </tr>
+        
+        
+    </tbody>
+  </table>
 
 <!-- Button to trigger modal -->
 <p><a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Invitar a un amigo</a>
 <hr>
-<p>3. Postear en tu muro
+<p><strong>3. POSTEANDO EN TU MURO</strong>
 
 <p>Por Publicar el Post recibes: 10,000 Pezzos
 
 
 <p><%= link_to "Postear", @linkwallpost , :class =>"btn btn-primary"%>
-<hr><p>4. Apostando
+<hr><p><strong>4. APOSTANDO</strong>
 
 <p>Por cada apuesta que realices recibes 5000 pezzos
 
 <p><%= link_to "Apuesta ya", '/partidos/' , :class =>"btn btn-primary"%>
+</div>
 </div>
 </div>
     

@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   def index
     @users= User.order("pezzos DESC")
+
+
   end
 
   def show
+    @user_ranking = User.order("pezzos DESC").limit(10)
     @user= User.find(params[:id])
 
     if @user.partidos.any?

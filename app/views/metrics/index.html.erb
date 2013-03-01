@@ -1,4 +1,15 @@
-<h1>Métricas</h1>
+<div class= "header-title">
+  <div class="container">
+    <div class="row">
+      <p>
+      <div class="span6 fuenteFuturaB titulo-blanco">
+        <h3><span class="offset1">MÉTRICAS</div></h3>
+      </div>
+    </div>
+  </div>
+</div>
+<p>
+<div class="row BTSinEspacio offset2">
 <p><span class="badge">1.</span> Número de usuarios registrados:
 <%= @numeroUsuarios=User.count %>
 </p>
@@ -29,51 +40,10 @@
 <p><span class="badge">8.</span> Edad promedio:
 <%= @usuariosConEdad=User.average(:age)%> years
 
-
-              <div class="accordion" id="accordion2">
-                <div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
-                      Otras Métricas
-                    </a>
-                  </div>
-                  <div id="collapseOne" class="accordion-body collapse in">
-                    <div class="accordion-inner">
-   
-<p><span class="badge badge-important">F X.</span> Número de visitas únicas landing page:
-<%= @visitasLandingPage=0 %>
-</p>
 <p><span class="badge">B.</span> Número de Apuestas Promedio por usuario:
   <%= @numeroApuestasPromedio=User.average(:bets_number) %>
 </p>
-<p><span class="badge badge-important">F X.</span> Total de Pezzos Apostados Promedio por usuario:
-</p>
-<p><span class="badge badge-important">F X.</span> Total de Amigos en Golazzos Promedio por usuario:
-</p>
 
-                    </div>
-                  </div>
-                </div>
-
-                <div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                      Métricas Partidos
-                    </a>
-                  </div>
-                  <div id="collapseThree" class="accordion-body collapse">
-                    <div class="accordion-inner">
-<p><span class="badge badge-important">F X. </span> Total de Apuestas por partido: 
-</p>
-<p><span class="badge badge-important">F X. </span> Total de Usuarios Apostando por partido: 
-</p>
-<p><span class="badge badge-important">F X. </span> Monto promedio apostado por partido: 
-</p>
-<p><span class="badge badge-important">F X. </span> Marcador más apostado en un partido: 
-</p>
-                    </div>
-                  </div>
-                </div>
 
                 <div class="accordion-group">
                   <div class="accordion-heading">
@@ -103,4 +73,28 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                      Métricas Partidos
+                    </a>
+                  </div>
+                  <div id="collapseThree" class="accordion-body collapse">
+                    <div class="accordion-inner">
+<p><span class="badge badge-important">F X. </span> Total de Apuestas por partido: 
+</p>
+<p><span class="badge badge-important">F X. </span> Total de Usuarios Apostando por partido: 
+</p>
+<p><span class="badge badge-important">F X. </span> Monto promedio apostado por partido: 
+</p>
+<p><span class="badge badge-important">F X. </span> Marcador más apostado en un partido: 
+</p>
+                    </div>
+                  </div>
+                </div>
+
+
               </div>
+
+</div>
