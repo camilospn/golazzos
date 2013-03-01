@@ -10,6 +10,7 @@
     </div>
   </div>
 </div>
+
 <%=render "afiche_partido"%>
 
 <div class="container">
@@ -25,4 +26,9 @@
 <%=render "monto_a_apostar"%>
 <%render "matriz_apuestas"%>
 <%=render "matriz_apuestas_dos"%>
+</div>
+
+<div class="centro spinner" id="spinner">
+  <%= image_tag "350.gif", { width: "28px" }%>
+   <h6 class="muted BTSinEspacio">CARGANDO...</h6>
 </div>

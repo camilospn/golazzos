@@ -142,3 +142,14 @@
 		background-attachment:scroll;
 		background-position:51%; 
 }
+
+.spinner{
+    left:46%; 
+    top:50%;
+	position: fixed;
+	background-color: #353535;
+	padding: 5px;
+		-moz-border-radius: 15px;
+	border-radius: 15px;
+	opacity: .8;
+}
