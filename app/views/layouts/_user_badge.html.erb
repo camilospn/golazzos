@@ -29,8 +29,8 @@
 		<p></font>
 	<p> <font color="#165f93">.</font></p><p>
 
-		<span class="secTitle">ACUMULAS</span>
-		<font face="digital7" color="orange" size="5"><%= current_user.pezzos %></font>
+		<span class="secTitle">TIENES</span>
+		<font face="digital7" color="orange" size="5"><%= number_to_currency(current_user.pezzos,:precision => 0) %></font>
 		<span class="secTitle">PEZZOS</span>
 	
 	<p>

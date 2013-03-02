@@ -3,7 +3,7 @@
     <div class="row">
       <div class="span6 fuenteFuturaB titulo-blanco">
         <p> <p>
-        <h3><span class="offset1">JUGADORES</span></h3>
+        <h3>JUGADORES</h3>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
       <%count = 1 %>
       <%@users.each do |user|%>
         <tr>
-          <td><%=count%></td><td><%=image_tag user.facebook.get_picture(user.uid, {type: "square"}), {:class=> "", :width=>"30"}%>  <%=link_to user.name, user%></td><td><%= user.pezzos%></td><td><%= user.bets.count%></td>
+          <td><%=count%></td><td><%=image_tag user.facebook.get_picture(user.uid, {type: "square"}), {:class=> "", :width=>"30"}%>  <%=link_to user.name, user%></td><td><%= number_to_currency(current_user.pezzos,:precision => 0)%></td><td><%= user.bets.count%></td>
         </tr>
         <%count +=1%>
       <%end%>
@@ -37,7 +37,7 @@
       <p>
       <div class="span6 fuenteFuturaB titulo-blanco">
 
-        <h3><div class="offset1">PREMIOS</div></h3>
+        <h3><div class="">PREMIOS</div></h3>
       </div>
     </div>
   </div>

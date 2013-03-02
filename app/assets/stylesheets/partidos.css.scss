@@ -30,7 +30,7 @@
 	border-radius: 15px;
 	margin-bottom: 15px;
 	padding-left:50px;
-	margin-left: -50px;
+	margin-left: -25px;
 }
 .header-title{
 	padding-top:0px;
@@ -42,6 +42,12 @@
 }
 .partidos-equipos-local{
 	text-align:right;
+}
+.partidos-escudo-alinear{
+	margin-top:-25px;
+}
+.partidos-fecha-partido{
+	padding-bottom:23px;
 }
 .partidos-equipos-visitante{
 	text-align: left;
@@ -70,6 +76,10 @@
 }
 .partido-fecha{
 	text-align: center;
+	margin-bottom:-20px;
+}
+.partido-local{
+	margin-top:-20px;
 }
 .partido-uno{
 	position:relative;
@@ -77,6 +87,7 @@
 	z-index:1;
 	left:-50px;
 	bottom:-50px;
+	margin-top:-70px;
 }
 .partido-pasouno{
 	background:white;

@@ -79,11 +79,13 @@
 						    <tbody>
 						      <%@bets.each do |bet|%>
 						        <tr>
-						         <td><%= "#{bet.golesLocal} - #{bet.golesVisitante}"%></td><td><%= bet.monto%></td><td>
+						         <td><%= "#{bet.golesLocal} - #{bet.golesVisitante}"%></td>
+						         <td><%= number_to_currency(bet.monto,:precision => 0)%></td>
+						         <td>
 						         <% if bet.pezzos_ganados==nil  %>
 						         <%= 0%>
 						         <%else%>
-						         <%= bet.pezzos_ganados%>
+						         <%= number_to_currency(bet.pezzos_ganados,:precision => 0)%>
 						         <%end%>
 						     	</td>
 						        </tr>
@@ -95,7 +97,9 @@
 			  				<%if current_user.id == @user.id%>
 			  					<div class="">
 				  					<h6>NO HAS JUGADO POR NINGÚN PARTIDO!</h6>
-				  					<%=link_to "Empieza a Jugar!", partidos_path, {:class=> "btn"}%>
+				  					    <%= link_to  partidos_path do %>
+					                    	<%=image_tag "partidos/btnJUEGA_partidos.png"%>
+					                    <%end%>
 			  					</div>
 			  				<%else%>
 			  					<div class="">
@@ -127,16 +131,18 @@
 
 	  			<div class="user-gano-pezzos">
 	  				<%=image_tag "user/iconoBalon_tusPezzosPerfil.png", {:class =>"", :height =>"30"}%> JUEGOS GANADOS
-	  				<span class="user-pezzos pull-right"> <font size="6" face="digital7" color="ffd200"> <%= current_user.bets.sum(:pezzos_ganados)%> </font>PEZZOS</span>
+	  				<span class="user-pezzos pull-right"> <font size="6" face="digital7" color="ffd200"> 
+	  					<%=number_to_currency( current_user.bets.sum(:pezzos_ganados),:precision => 0)%> </font>PEZZOS</span>
 	  			</div>
 	  			<div class="user-gano-pezzos">
 	  				<%=image_tag "user/iconoInvitaAmigos_tusPezzosPerfil.png", {:class =>"", :height =>"30"}%>INVITANDO AMIGOS
-	  				<span class="user-pezzos pull-right"> <font size="6" face="digital7" color="ffd200"><%= @pezzos_por_amigos%> </font>PEZZOS</span>
+	  				<span class="user-pezzos pull-right"> <font size="6" face="digital7" color="ffd200">
+	  					<%=number_to_currency( @pezzos_por_amigos,:precision => 0)%> </font>PEZZOS</span>
 	  			</div>
 	  			<div class="user-gano-pezzos">
 	  				<%=image_tag "user/iconoApuestaPartido_Perfil.png", {:class =>"", :height =>"30"}%> ACTIVIDAD
 	  				<span class="user-pezzos pull-right">
-	  				<font size="6" face="digital7" color="ffd200"> <%= @pezzos_por_actividad%></font> PEZZOS</span>
+	  				<font size="6" face="digital7" color="ffd200"> <%=number_to_currency(  @pezzos_por_actividad,:precision => 0)%></font> PEZZOS</span>
 	  			</div>
 
 	  		</div>
