@@ -10,8 +10,8 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="span10 offset1 BTSinEspacio">
+  <div class="row centro">
+    <div class="span6 offset3 BTSinEspacio partidos-ranking">
   <table class="table">
     <thead>
       <tr>
@@ -22,7 +22,7 @@
       <%count = 1 %>
       <%@users.each do |user|%>
         <tr>
-          <td><%=count%></td><td><%=image_tag user.facebook.get_picture(user.uid, {type: "square"}), {:class=> "", :width=>"30"}%>  <%=link_to user.name, user%></td><td><%= user.pezzos%></td><td><%= user.bets.count%></td>
+          <td><%=count%></td><td><div class="jugador"><%=image_tag user.facebook.get_picture(user.uid, {type: "square"}), {:class=> "", :width=>"30"}%>  <%=link_to user.name, user%></span></td><td><%= user.pezzos%></td><td><%= user.bets.count%></td>
         </tr>
         <%count +=1%>
       <%end%>
@@ -45,6 +45,11 @@
 
 <div class="fondoPremios">
   <div class="centro">
+    <div class="areaPremios">
+    </div>
+    <font color="white" face="FUTURAB" size="4">PREMIOS MES DE MARZO</font>
+      <p><font color="white" face="Futura Book BT">¡Acumula la mayor cantidad de Pezzos jugando por tus equipos favoritos e invitando amigos y gana fabulosos premios cada mes!
+    </font></p>
     <div class="areaPremios">
   <%=image_tag "ranking/1er_premios.png", {:class => "", :width=>""}%> 
   <%=image_tag "ranking/2do_premios.png", {:class => "", :width=>""}%> 
