@@ -14,62 +14,21 @@
 
 <div class="container">
   <div class="row BTSinEspacio">
-   <div class="span">
-      <hr>
-      <% @partidos.each do |partido| %>
-              <div class="row">
-                <div class="span8 muted partidos-fecha-partido">
-                  <h6> <%=partido.diapartido.strftime("%d de %B")%> <%=partido.diapartido.strftime("%l:%M %p")%> </h6>
-                </div>
-              <div>
-                <div class="row">
-                  <div class="span0 partidos-equipos-loca">
-                    <%= image_tag partido.logolocal, {:class => "partidos-escudo-alinear", :width=>"80"}%> 
-                  </div>
-                  <div class="span2 partidos-equipos-local">
-                    <%= partido.local %> 
-                  </div>
-                  <div class="span0">
-                     <strong class="muted">vs</strong> 
-                  </div>
-                  <div class="span2 partidos-equipos-visitante">
-                    <%= partido.visitante %> 
-                  </div>
-                  <div class="span0">
-                    <%= image_tag partido.logovisitante, {:class => "partidos-escudo-alinear", :width=>"80", style:""}%>
-                  </div>
-                  <div class="span2">
-                    <%= link_to  partido_path(partido) do %>
-                    <%=image_tag "partidos/btnJUEGA_partidos.png"%>
-                    <%end%>
-                        <% if current_user.administrator==true %>
-                        <%= link_to t('edit', :default => t("helpers.links.edit")),
-                                    edit_partido_path(partido), :class => 'btn btn-mini' %>
-                        <%= link_to t('destroy', :default => t("helpers.links.destroy")),
-                                    partido_path(partido),
-                                    :method => :delete,
-                                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                                    :class => 'btn btn-mini btn-danger' %>
-                        <% end %>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <hr>
-      <%end%>
-    </div>
+
+   <%= render "acordeon"%>
 
 
-    <div class="span3 well well-mini partidos-premios pull-right">
+
+
+  <div class= "span3  pull-left">
+    <div class=" well well-mini partidos-premios pul-right">
       <%= image_tag "ranking/titulopremios.png"%>
-      ...................................................................
+      .........................................................
       <%= image_tag "ranking/premiosmiranking.png"%>
       
     </div>
 
-    <div class="span3 well well-mini partidos-ranking  pull-right">
+    <div class=" well well-mini partidos-ranking pull-right">
       <%= image_tag "partidos/tituloMiRanking.png"%>
       <table class="table">
         <thead>
@@ -90,8 +49,9 @@
       <%= link_to "ver mas", users_path%>
     </div>
 
-
+    </div>
   </div>
+</div>
 </div>
 
 

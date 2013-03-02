@@ -5,6 +5,14 @@ class PartidosController < ApplicationController
   before_filter :require_admin_login , :only => [:new, :edit, :update, :destroy, :create, :repartir]
   def index
     @partidos = Partido.all
+    
+    @eliminatorias = Partido.where("torneo = ?", 2)
+    @champions = Partido.where("torneo = ?", 1)
+    @libertadores = Partido.where("torneo = ?", 3)
+    @postobon = Partido.where("torneo = ?", 4)
+    @bbva = Partido.where("torneo = ?", 5)
+    @premier = Partido.where("torneo = ?", 6)
+
     @user_ranking = User.order("pezzos DESC").limit(10)
     respond_to do |format|
       format.html # index.html.erb

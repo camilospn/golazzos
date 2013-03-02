@@ -1,12 +1,13 @@
 class Partido < ActiveRecord::Base
   attr_accessible :diapartido, :local, :logolocal, :logovisitante, :visitante, 
-                  :terminado, :resultadoLocal, :resultadoVisitante, :cerrado, :repartido
+                  :terminado, :resultadoLocal, :resultadoVisitante, :cerrado, :repartido, :torneo
 
   validates :diapartido, presence: true 
   validates :local, presence: true
   validates :visitante, presence: true
   validates :logolocal, presence: true
   validates :logovisitante, presence: true
+  validates :torneo, presence: true
 
   has_many :bets, :dependent => :destroy
 

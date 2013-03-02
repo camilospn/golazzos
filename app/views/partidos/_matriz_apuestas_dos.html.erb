@@ -38,7 +38,9 @@
     </div>
     <div class="row">
       <div class="span6 offset3 centro">
-        <%= render"formulario_apuesta"%>
+        <%if @partido.cerrado==false%>
+          <%= render"formulario_apuesta"%>
+        <%end%> 
       </div>
     </div>
   </div>
