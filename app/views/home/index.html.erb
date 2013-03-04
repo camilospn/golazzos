@@ -1,17 +1,62 @@
 <div class="contenedor">
-	
+<div id="myCarousel" class="carousel slide">
+
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+<%=image_tag "landing/banner/bannerImagen_1.jpg", {:class => "", :width=>""}%> 
+    </div>
+    <div class="item">
+<%=image_tag "landing/banner/bannerImagen_2.jpg", {:class => "", :width=>""}%> 
+    </div>
+    <div class="item">
+<%=image_tag "landing/banner/bannerImagen_3.jpg", {:class => "", :width=>""}%> 
+    </div>
+        <div class="item">
+<%=image_tag "landing/banner/bannerImagen_4.jpg", {:class => "", :width=>""}%> 
+    </div>
+        <div class="item">
+<%=image_tag "landing/banner/bannerImagen_5.jpg", {:class => "", :width=>""}%> 
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
 
 <%= render "layouts/flash_notice"%>
+
 <div class="fondoPremios">
   <div class="centro fuenteFuturaB">
   	<div class="areaPremios"></div>
   	<%=image_tag "landing/pasos_titulo.png", {:class => "", :width=>"450"}%> 
     <div class="areaPremios">
-  <%=image_tag "landing/pasos_icono1.png", {:class => "", :width=>"200"}%> 
-  <%=image_tag "landing/pasos_icono2.png", {:class => "", :width=>"200"}%> 
-  <%=image_tag "landing/pasos_icono3.png", {:class => "", :width=>"200"}%> 
-  
+  <table class="blanco span6 offset3">
+    <tbody>
+  <tr>
+    <td>
+      <%=image_tag "landing/pasos_icono1.png", {:class => "", :width=>"200"}%> 
+    </td>
+    <td>
+      <%=image_tag "landing/pasos_icono2.png", {:class => "", :width=>"200"}%> 
+    </td>
+    <td>
+      <%=image_tag "landing/pasos_icono3.png", {:class => "", :width=>"200"}%> 
+    </td>
+  </tr>
+  <tr>
+    <td>PAZZO 1</td><td>PAZZO 2</td><td>PAZZO 3</td>
+  </tr>
+</tbody>
+  </table>
+    
   </div>
+  <div class="areaPremios"></div>
+  <div class="areaPremios"></div>
+  <div class="areaPremios"></div>
+  <div class="areaPremios"></div>
+  <div class="areaPremios"></div>
+  <div class="areaPremios"></div>
   <div class="areaPremios"></div>
   </div>
 </div>
@@ -22,10 +67,10 @@
   	
   	
     <div class="areaPremios">
-    <%=image_tag "landing/partidos/partido_flechaIzq_normal.png", {:class => "", :width=>"50"}%> 
+    
   	<%=image_tag "landing/partidos/partido_equiposImportantes.png", {:class => "", :width=>"550"}%> 
   
-  	<%=image_tag "landing/partidos/partido_flechaDer_normal.png", {:class => "", :width=>"50"}%> 
+  	 
   
   </div>
   <div class="areaPremios"></div>
@@ -58,7 +103,7 @@
    <div class="botonFacebook">
    	
    	<font color="white" face="FUTURAB" size="4">TIENES</font>
-   	<font color="orange" face="FUTURAB" size="5">20.000</font>
+   	<font color="orange" face="FUTURAB" size="5">50.000</font>
    	<font color="white" face="FUTURAB" size="4">PEZZOS GRATIS</font><P>
 		<%= link_to "/auth/facebook" do%>
 		 <%= image_tag ('Call/btnCall.png')  %>

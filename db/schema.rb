@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302182314) do
+ActiveRecord::Schema.define(:version => 20130302062939) do
 
   create_table "bets", :force => true do |t|
     t.integer  "monto"
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(:version => 20130302182314) do
     t.integer  "golesVisitante"
     t.integer  "partido_id"
     t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "pezzos_ganados"
+    t.boolean  "posteo_fb",      :default => false
   end
 
   add_index "bets", ["partido_id"], :name => "index_bets_on_partido_id"

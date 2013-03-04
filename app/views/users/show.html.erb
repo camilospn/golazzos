@@ -70,7 +70,7 @@
 						  </div>
 						  <hr>
 						  
-	  					  <table class="table">
+	  					  <table class="table partidos-ranking">
 						    <thead>
 						      <tr>
 						        <th>Resultado Jugado</th><th>Pezzos Jugados</th><th>Pezzos Ganados</th>
@@ -154,4 +154,23 @@
     </div>
   </div>
 </div>
+
+<div class="user-separador">
+  <div class="centro">
+    <div class="span6 offset3 caja-blanca invita-amigos-footer">
+    	<div class="areaPremios"></div>
+    	
+      <font face="Futura Book BT">¡INVITA A TUS AMIGOS Y COMPARTE JUEGOS PARA GANAR MÁS PEZZOS!
+    </font>
     
+    </div>
+    <div class="areaPremios"></div>
+
+    <div class="areaPremios">
+    <%= link_to  new_invitation_path do%>
+	<%=image_tag "user/logo_facebook.png", {:class => "", :width=>"50"}%> 
+	<%end%>
+  
+  	</div>
+  </div>
+</div>
