@@ -39,17 +39,17 @@
 				</ul>
 	  		</div>
 
-	  		<div class="user-separador-abajo span9">
+	  		<div class="user-separador-abajo span6">
 	  			<div class="row">
-	  				<div class= "span9">
+	  				<div class= "span6">
 	  					<%if @user.partidos.any?%>
 	  					<div class="row">
-						    <div class="partido-fecha span7 ">
+						    <div class="partido-fecha span5 ">
 						      <h4> <%=@partido.diapartido.strftime("%d de %B")%> </h4>
 						      <h6 class="muted"> <%=@partido.diapartido.strftime("%l:%M %p")%></h6>
 						    </div>
 						    <div class="">
-							    <div class="offset1 span2 logo">
+							    <div class=" span2 logo">
 							      <%= image_tag @partido.logolocal, {:class => "", :width=>"100px"}%>
 							      <div>
 							          <h2 class="lead"> <%=@partido.local%></h2>      
@@ -109,6 +109,9 @@
 		  				<%end%>
 	  				</div>
 	  			</div>
+	  		</div>
+	  		<div class="span3">
+	  			<%=render "partidos/premios_y_ranking"%>
 	  		</div>
 
 	  	</div>
