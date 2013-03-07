@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
   end
+
+  def reglamento
+    
+  end
   def referido
   		
     #Revisa si esta invitado o no esta invitado para mostrar un mensaje.  

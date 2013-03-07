@@ -20,6 +20,7 @@ Gollazos::Application.routes.draw do
   #devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } 
 
   get "home/index"
+  get "home/reglamento"
   #LOGIN WITH FACEBOOK OMNIAUTH
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')

@@ -18,6 +18,10 @@
             <%=image_tag "Menu/iconoRankingMenu.png", {:class => "", :height=>"20"}%> RANKING
             <%end%>
         </li>
+        <li><%= link_to home_reglamento_path do%>| 
+            <%=image_tag "Menu/iconoReglamentoMenu.png", {:class => "", :height=>"20"}%> REGLAMENTO
+            <%end%>
+        </li>
       </ul>
       <ul class= "nav pull-right">
         <% if current_user %>
