@@ -27,7 +27,7 @@
           </td>
           <td>
             <div class="jugador">
-              <%=image_tag user.facebook.get_picture(user.uid, {type: "square"}), {:class=> "", :width=>"30"}%>  <%=link_to user.name, user%></span></td><td><%= number_to_currency(current_user.pezzos,:precision => 0)%></td><td><%= user.bets.count%></td>
+              <%=image_tag user.facebook.get_picture(user.uid, {type: "square"}), {:class=> "", :width=>"30"}%>  <%=link_to user.name, user%></span></td><td><%= number_to_currency(user.pezzos,:precision => 0)%></td><td><%= user.bets.count%></td>
         </tr>
         <%count +=1%>
       <%end%>

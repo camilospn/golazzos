@@ -73,7 +73,7 @@
 	  					  <table class="table partidos-ranking">
 						    <thead>
 						      <tr>
-						        <th>Resultado Jugado</th><th>Pezzos Jugados</th><th>Pezzos Ganados</th>
+						        <th>Resultado Jugado</th><th>Pezzos Jugados</th><th>Retorno Esperado</th><th>Pezzos Ganados</th>
 						      </tr>
 						    </thead>
 						    <tbody>
@@ -81,11 +81,12 @@
 						        <tr>
 						         <td><%= "#{bet.golesLocal} - #{bet.golesVisitante}"%></td>
 						         <td><%= number_to_currency(bet.monto,:precision => 0)%></td>
+						         <td><%= @partido.xveces_el_resultado(bet.golesLocal, bet.golesVisitante)%></td>
 						         <td>
 						         <% if bet.pezzos_ganados==nil  %>
 						         <%= 0%>
 						         <%else%>
-						         <%= number_to_currency(bet.pezzos_ganados,:precision => 0)%>
+						         <%= number_to_currency(bet.pezzos_ganados,precision: 0)%>
 						         <%end%>
 						     	</td>
 						        </tr>
