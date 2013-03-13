@@ -2,8 +2,8 @@
   <div class="row afiche">
     <div class="partido-fecha span12 BTSinEspacio">
 
-      <h4> <%=@partido.diapartido.strftime("%d de %B")%> </h4>
-      <h6 class="muted BTSinEspacio"> <%=@partido.diapartido.strftime("%l:%M %p")%></h6>
+      <h4> <%= l(@partido.diapartido, format: '%d de %B', locale:'es-CO')%></h4>
+      <h6 class="muted BTSinEspacio"> <%= l(@partido.diapartido, format: '%l:%M %p', locale:'es-CO')%></h6>
     </div>
     <div class="span3 offset3 logo">
       <%= image_tag @partido.logolocal, {:class => "", :width=>"200x200"}%>

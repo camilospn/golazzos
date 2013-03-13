@@ -11,7 +11,8 @@
                 <% @eliminatorias.each do |partido| %>
                         <div class="row">
                           <div class="span9 muted partidos-fecha-partido">
-                            <h6> <%=partido.diapartido.strftime("%d de %B")%> <%=partido.diapartido.strftime("%l:%M %p")%> </h6>
+
+                            <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
                           </div>
                         <div>
                         <div class="row">
@@ -64,7 +65,7 @@
                <% @champions.each do |partido| %>
                         <div class="row">
                           <div class="span9 muted partidos-fecha-partido">
-                            <h6> <%=partido.diapartido.strftime("%d de %B")%> <%=partido.diapartido.strftime("%l:%M %p")%> </h6>
+                            <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
                           </div>
                         <div>
                         <div class="row">
@@ -116,8 +117,8 @@
                 <% @libertadores.each do |partido| %>
                         <div class="row">
                           <div class="span9 muted partidos-fecha-partido">
-                            <h6> <%=partido.diapartido.strftime("%d de %B")%> <%=partido.diapartido.strftime("%l:%M %p")%> </h6>
-                          </div>
+
+                            <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></div>
                         <div>
                         <div class="row">
                           <div class="span0 offset1 partidos-equipos-loca">
@@ -168,7 +169,7 @@
                 <% @postobon.each do |partido| %>
                         <div class="row">
                           <div class="span9 muted partidos-fecha-partido">
-                            <h6> <%=partido.diapartido.strftime("%d de %B")%> <%=partido.diapartido.strftime("%l:%M %p")%> </h6>
+                            <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
                           </div>
                         <div>
                         <div class="row">
@@ -220,7 +221,7 @@
                 <% @bbva.each do |partido| %>
                         <div class="row">
                           <div class="span9 muted partidos-fecha-partido">
-                            <h6> <%=partido.diapartido.strftime("%d de %B")%> <%=partido.diapartido.strftime("%l:%M %p")%> </h6>
+                            <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
                           </div>
                         <div>
                         <div class="row">
@@ -272,7 +273,7 @@
                <% @premier.each do |partido| %>
                         <div class="row">
                           <div class="span9 muted partidos-fecha-partido">
-                            <h6> <%=partido.diapartido.strftime("%d de %B")%> <%=partido.diapartido.strftime("%l:%M %p")%> </h6>
+                            <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
                           </div>
                         <div>
                         <div class="row">

@@ -26,7 +26,7 @@ class Partido < ActiveRecord::Base
     if (self.monto_apostado_en_el_resultado(local, visitante) + monto_futuro)==0
         return -1
     else
-  	   return (self.monto_apostado_en_el_resultado(local, visitante) +monto_futuro)/ self.monto_total_apostado
+  	   return (self.monto_apostado_en_el_resultado(local, visitante) +monto_futuro)/ (self.monto_total_apostado + monto_futuro)
     end
   end
 

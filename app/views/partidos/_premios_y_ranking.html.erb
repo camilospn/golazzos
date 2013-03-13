@@ -18,7 +18,7 @@
           <%count = 1 %>
           <%@user_ranking.each do |user|%>
             <tr>
-              <td><%=count%></td><td><%=user.name%></td><td><%=number_to_currency( user.pezzos,:precision => 0)%></td>
+              <td><%=count%></td><td><%=h truncate(user.name, length: 12) %></td><td><%=number_to_currency( user.pezzos,:precision => 0)%></td>
             </tr>
             <%count +=1%>
           <%end%>

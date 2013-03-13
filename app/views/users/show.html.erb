@@ -27,7 +27,7 @@
 		  				<li class=<%="active" if @partido.id == partido.id%>>
 		  					<%= link_to user_path(@user, partidoId: partido.id ) do%>
 
-						      <h6> <%=partido.diapartido.strftime("%d de %B")%> <%=@partido.diapartido.strftime("%l:%M %p")%> </h6>
+						      <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
 						      <div class="centro">
 							      <%= image_tag partido.logolocal, {:class => "", :width=>"50px"}%>
 							      Vs
@@ -45,8 +45,8 @@
 	  					<%if @user.partidos.any?%>
 	  					<div class="row">
 						    <div class="partido-fecha span5 ">
-						      <h4> <%=@partido.diapartido.strftime("%d de %B")%> </h4>
-						      <h6 class="muted"> <%=@partido.diapartido.strftime("%l:%M %p")%></h6>
+						      <h4> <%= l(@partido.diapartido, format: '%d de %B', locale:'es-CO')%></h4>
+						      <h6 class="muted"> <%= l(@partido.diapartido, format: '%l:%M %p', locale:'es-CO')%></h6>
 						    </div>
 						    <div class="">
 							    <div class=" span2 logo">

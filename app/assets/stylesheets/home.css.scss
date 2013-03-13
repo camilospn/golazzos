@@ -60,10 +60,12 @@
 }
 
 footer{
-	margin-top:px;
 	text-align:center;
 	background: #353535;
 	padding-top: 60px;
 	padding-bottom: 10px;
 	color: white;
+	background-image:url('footerLanding.jpg');
+		background-repeat:no-repeat;
+		background-attachment:scroll;
 }

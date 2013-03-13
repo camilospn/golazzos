@@ -1,25 +1,29 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner ">
     <div class="container fuenteFuturaBookBT">
-      <div class="brand" ><%= image_tag ('Menu/menu_logo.png')  %></div>
+        <div class="brand" >
+            <%=link_to root_path do%>
+               <%= image_tag ('Menu/menu_logo.png')  %>
+            <%end%>
+        </div>
       <ul class="nav">
         <li><%= link_to partidos_path do%>
-            <%=image_tag "Menu/iconoPartidosMenu.png", {:class => "", :height=>"20"}%> PARTIDOS
+            <%=image_tag "Menu/iconosMenu_Partidos.png", {:class => "", :height=>"20"}%> PARTIDOS
             <%end%>
         </li>
         <li><%if current_user %>
                 <%= link_to user_path(current_user) do%>| 
-                    <%=image_tag "Menu/iconoPerfilMenu.png", {:class => "", :height=>"20"}%> MI CUENTA      
+                    <%=image_tag "Menu/iconosMenu_Perfil.png", {:class => "", :height=>"20"}%> MI CUENTA      
                 <%end%>
             <%end%>
         </li>
 
         <li><%= link_to users_path do%>| 
-            <%=image_tag "Menu/iconoRankingMenu.png", {:class => "", :height=>"20"}%> RANKING
+            <%=image_tag "Menu/iconosMenu_Ranking.png", {:class => "", :height=>"20"}%> RANKING
             <%end%>
         </li>
         <li><%= link_to home_reglamento_path do%>| 
-            <%=image_tag "Menu/iconoReglamentoMenu.png", {:class => "", :height=>"20"}%> REGLAMENTO
+            <%=image_tag "Menu/iconosMenu_Reglamento.png", {:class => "", :height=>"20"}%> REGLAMENTO
             <%end%>
         </li>
       </ul>

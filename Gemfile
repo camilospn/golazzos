@@ -34,6 +34,8 @@ gem 'omniauth', '1.1.1'
 gem "fb_graph"
 gem "koala"
 gem "nifty-generators", :group => :development
+
+gem "rails-i18n"
 #gem "xmpp4r_facebook"
 
 #gem 'devise'
