@@ -70,10 +70,14 @@
 						  </div>
 						  <hr>
 						  
-	  					  <table class="table partidos-ranking">
+	  					  <table class="partidos-ranking-dos">
 						    <thead>
 						      <tr>
-						        <th>Resultado Jugado</th><th>Pezzos Jugados</th><th>Retorno Esperado</th><th>Pezzos Ganados</th>
+						        <th>Resultado Jugado</th>
+						        <th>Pezzos Jugados</th>
+						        <th>Retorno <font color="#fff601">Esperado</font></th>
+						        <th>Pezzos <font color="#67ff01">Ganados</font></th>
+						        <th>Pezzos <font color="#829198">Perdidos</font></th>
 						      </tr>
 						    </thead>
 						    <tbody>
@@ -81,13 +85,18 @@
 						        <tr>
 						         <td><%= "#{bet.golesLocal} - #{bet.golesVisitante}"%></td>
 						         <td><%= number_to_currency(bet.monto,:precision => 0)%></td>
-						         <td><%= @partido.xveces_el_resultado(bet.golesLocal, bet.golesVisitante)%></td>
+						         <td><font color="#fff601"><%= @partido.xveces_el_resultado(bet.golesLocal, bet.golesVisitante)%></font></td>
 						         <td>
-						         <% if bet.pezzos_ganados==nil  %>
-						         <%= 0%>
-						         <%else%>
-						         <%= number_to_currency(bet.pezzos_ganados,precision: 0)%>
-						         <%end%>
+						         	<font color="#67ff01">
+								         <% if bet.pezzos_ganados==nil  %>
+								         <%= 0%>
+								         <%else%>
+								         <%= number_to_currency(bet.pezzos_ganados,precision: 0)%>
+								         <%end%>
+						     		</font>
+						     	</td>
+						     	<td>
+						     		<font color="#829198">0</font>
 						     	</td>
 						        </tr>
 						      <%end%>
