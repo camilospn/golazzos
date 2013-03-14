@@ -89,14 +89,20 @@
 						         <td>
 						         	<font color="#67ff01">
 								         <% if bet.pezzos_ganados==nil  %>
-								         <%= 0%>
+								         	0
 								         <%else%>
 								         <%= number_to_currency(bet.pezzos_ganados,precision: 0)%>
 								         <%end%>
 						     		</font>
 						     	</td>
 						     	<td>
-						     		<font color="#829198">0</font>
+						     		<font color="#829198">
+						     			<%if bet.partido.repartido == true && bet.pezzos_ganados==nil %>
+						     				<%= number_to_currency(bet.monto,:precision => 0)%>
+						     			<%else%>
+						     				0
+						     			<%end%>
+						     		</font>
 						     	</td>
 						        </tr>
 						      <%end%>

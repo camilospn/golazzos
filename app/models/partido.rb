@@ -55,7 +55,7 @@ class Partido < ActiveRecord::Base
     bets_ganadoras = self.apuestas_en_el_resultado(self.resultadoLocal, self.resultadoVisitante)
     bets_ganadoras.each do |bet|
       pezzos_ganados = bet.monto * xveces_el_resultado(self.resultadoLocal, self.resultadoVisitante)
-      bet.update_attributes(pezzos_ganados: pezzos_ganados)
+      bet.update_attributes(pezzos_ganados: pezzos_ganados, repartido: true)
       User.find(bet.user_id).consignar_pezzos(pezzos_ganados) 
     end
   end
