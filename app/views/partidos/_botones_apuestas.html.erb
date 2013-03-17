@@ -12,7 +12,7 @@
                                   <%= f.hidden_field :visitante_apostado, value: j%>
                                       <% if (current_user.local_apostado==i && current_user.visitante_apostado== j)%>
                                           <button data-loading-text="Loading..." class= "btn btn-block btn-mini disabled btn-primary" >   
-                                          <h2><%= "#{i} - #{j}"%></h2>
+                                          <h2><%= image_tag @partido.logolocal, {:class => "", :width=>"30px"}%><%= "#{i} - #{j}"%><%= image_tag @partido.logovisitante, {:class => "", :width=>"05px"}%></h2>
                                           <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta).round(3)}x"%></h2> 
                                             <% f.submit ""%> 
                                         </button>
@@ -68,7 +68,7 @@
                                   <%= f.hidden_field :visitante_apostado, value: j%>
                                       <% if (current_user.local_apostado==i && current_user.visitante_apostado== j)%>
                                           <button class= "btn btn-block btn-mini disabled btn-primary" >   
-                                          <h2><%= "#{i} - #{j}"%></h2>
+                                          <h2><%= image_tag @partido.logolocal, {:class => "", :width=>"30px"}%><%= "#{i} - #{j}"%><%= image_tag @partido.logovisitante, {:class => "", :width=>"30px"}%></h2>
                                           <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta).round(3)}x"%></h2> 
                                             <% f.submit ""%> 
                                         </button>
@@ -129,7 +129,7 @@
                                   <%= f.hidden_field :visitante_apostado, value: j%>
                                       <% if (current_user.local_apostado==i && current_user.visitante_apostado== j)%>
                                           <button class= "btn btn-block btn-mini disabled btn-primary" >   
-                                          <h2><%= "#{i} - #{j}"%></h2>
+                                          <h2><%= image_tag @partido.logolocal, {:class => "", :width=>"30px"}%><%= "#{i} - #{j}"%><%= image_tag @partido.logovisitante, {:class => "", :width=>"30px"}%></h2>
                                           <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta).round(3)}x"%></h2> 
                                             <% f.submit ""%> 
                                         </button>

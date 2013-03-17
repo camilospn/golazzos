@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313211621) do
+ActiveRecord::Schema.define(:version => 20130315031139) do
 
   create_table "bets", :force => true do |t|
     t.integer  "monto"
@@ -55,6 +55,23 @@ ActiveRecord::Schema.define(:version => 20130313211621) do
     t.boolean  "cerrado"
     t.boolean  "repartido"
     t.integer  "torneo"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "nombre"
+    t.string   "pais"
+    t.string   "ciudad"
+    t.string   "direccion"
+    t.string   "email"
+    t.string   "celular"
+    t.string   "twitter"
+    t.string   "equipos_favoritos"
+    t.string   "camiseta_de"
+    t.string   "talla"
+    t.integer  "num_visitas",       :default => 0
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "tokenreferidos", :force => true do |t|

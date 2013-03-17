@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   def show
     @user_ranking = User.order("pezzos DESC").limit(10)
     @user= User.find(params[:id])
+    if @user.profile ==nil
+      @user.profile =Profile.new
+    end
 
     if @user.partidos.any?
       if params[:partidoId]

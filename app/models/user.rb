@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
 	has_many :bets, :dependent => :destroy
   has_many :partidos, :through => :bets, :uniq => true
+
+  has_one :profile
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -28,6 +30,7 @@ def self.from_omniauth(auth)
     user.provider = auth.provider
     user.uid = auth.uid
     user.name = auth.info.name
+    user.profile = Profile.new
     #CHAMBONADAAAA!!!! ------
     user.email = auth.uid
     #------

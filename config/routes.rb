@@ -14,7 +14,9 @@ Gollazos::Application.routes.draw do
       post 'repartir', :on => :collection
       resources :bets
   end
-  resources :users
+  resources :users do
+    resources :profiles
+  end
   #devise_for :users
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } 

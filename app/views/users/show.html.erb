@@ -1,4 +1,5 @@
 <div class= "">
+	    		<%= render "layouts/flash_notice"%>
   <div class="container">
     <div class="row user-photo">
     	<div class="span2">
@@ -30,7 +31,9 @@
 						      <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
 						      <div class="centro">
 							      <%= image_tag partido.logolocal, {:class => "", :width=>"50px"}%>
-							      Vs
+							      <%=partido.local%>
+							      <strong>Vs</strong>
+							      <%= partido.visitante%>
 							      <%= image_tag partido.logovisitante,{:class => "", :width =>"50px"}%>
 						      </div>
 		  					<%end%>
