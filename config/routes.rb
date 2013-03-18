@@ -1,5 +1,9 @@
 Gollazos::Application.routes.draw do
 
+  get "redireccion/index"
+
+  get "redireccion/new"
+
   get "metrics/index"
 
   #map.home '/home/:invitation_token', :controller => 'users', :action => 'new'

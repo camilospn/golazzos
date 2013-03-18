@@ -8,7 +8,7 @@ class Invitation < ActiveRecord::Base
 	validate :recipient_is_not_registered
 	#validate :sender_has_invitations, :if => :sender
 
-	before_create :generate_token
+	#before_create :generate_token
 	#before_create :decrement_sender_count, :if => :sender
 	#ADDED: incrementa las invitaciones
 	#before_create :increment_sender_count, :if => :sender
@@ -36,9 +36,9 @@ class Invitation < ActiveRecord::Base
 	#   end
 	# end
 
-	def generate_token
-	  self.token = Digest::SHA1.hexdigest([Time.now, rand].join)
-	end
+	#def generate_token
+	#  self.token = Digest::SHA1.hexdigest([Time.now, rand].join)
+	#end
 	# def decrement_sender_count
 	#   sender.decrement! :invitation_limit
 	# end
