@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
       @user.consignar_pezzos(50000)
       
       #revisa la invitacion
-      @invitacion= Invitation.find_by_token(session['guacamaya'])
-       
+      #@invitacion= Invitation.find_by_token(session['guacamaya'])
+       @invitacion= Invitation.find_by_recipient_uid(@user.uid)
       if @invitacion==nil
         flash[:notice] = "Recibes 50.000 Pezzos por tu primera visita"
       else
