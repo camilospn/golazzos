@@ -13,33 +13,8 @@
 <div class="row BTSinEspacio">
   <div class="span5 offset2 ">
 
-<p><strong>1. INVITANDO AMIGOS:</strong>
-<table class="table partidos-ranking">
 
-    <tbody>
-        <tr>
-          <td>10 amigos</td><td>recibes 20.000 PEZZOS</td>
-        </tr>
-        <tr>
-        <td>20 amigos</td><td>recibes 50.000 PEZZOS</td>
-        </tr>
-        <tr>
-        <td>30 amigos</td><td>recibes 125.000 PEZZOS</td>
-        </tr>
-        <tr>
-        <td>40 amigos</td><td>recibes 300.000 PEZZOS</td>
-        </tr>
-        <tr>
-        <td>50 amigos</td><td>recibes 750.000 PEZZOS</td>
-        </tr>
-        
-    </tbody>
-  </table>
-
-<!-- Button to trigger modal -->
-<p><a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Invitar a un amigo</a>
-<hr>
-<p><strong>2. AMIGOS REFERIDOS</strong>
+<p><strong>1. AMIGOS REFERIDOS</strong>
 <table class="table partidos-ranking">
 
     <tbody>
@@ -59,18 +34,20 @@
 
 <!-- Button to trigger modal -->
 <p><a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Invitar a un amigo</a>
-<hr>
-<p><strong>3. POSTEANDO EN TU MURO</strong>
 
-<p>Por Publicar el Post recibes: 10,000 Pezzos
-
-
-<p><%= link_to "Postear", @linkwallpost , :class =>"btn btn-primary"%>
-<hr><p><strong>4. APOSTANDO</strong>
+<p><% link_to "Postear", @linkwallpost , :class =>"btn btn-primary"%>
+<hr><p><strong>2. APOSTANDO</strong>
 
 <p>Por cada apuesta que realices recibes 5000 pezzos
 
 <p><%= link_to "Apuesta ya", '/partidos/' , :class =>"btn btn-primary"%>
+
+
+<hr><p><strong>3. LLENANDO TU PERFIL</strong>
+
+<p>Por llenar la información de tu perfil recibes 50000 pezzos
+
+<p><%= link_to "Actualiza tu perfil", '/partidos/' , :class =>"btn btn-primary"%>
 </div>
 </div>
 </div>

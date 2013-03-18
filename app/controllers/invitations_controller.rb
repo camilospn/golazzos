@@ -42,7 +42,7 @@ redirect_uri=http://www.golazzos.com/&to=100003778647592100001682753858"
     
     @linkinvitation= "https://www.facebook.com/dialog/apprequests?
   app_id=193467880799348&
-  message=Visita%20Golazzos%20y%20gana%20premios&to="+@invitados.to_s+"&redirect_uri=http://localhost:3000/invitations/new"
+  message=Visita%20Golazzos%20y%20gana%20premios&to="+@invitados.to_s+"&redirect_uri=http://www.golazzos.com/invitations/new"
  
  
 
