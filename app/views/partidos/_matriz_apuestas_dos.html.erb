@@ -23,6 +23,16 @@
       </div>
 
       <div class="row">
+        <div class="span4 centro">
+          <%= image_tag @partido.logolocal, { :class=> "centro", :width=> "100"} %>
+        </div>
+        <div class="span4 centro">
+        </div>
+        <div class="span4 centro">
+          <%= image_tag @partido.logovisitante, { :class=> "centro", :width=> "100"} %>
+        </div>
+      </div>
+      <div class="row">
         <div class="span4">
           <%= image_tag "partido/GanaLocal_apuesta.jpg"%>
         </div>

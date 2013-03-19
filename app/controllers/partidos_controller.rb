@@ -6,12 +6,12 @@ class PartidosController < ApplicationController
   def index
     @partidos = Partido.all
     
-    @eliminatorias = Partido.where("torneo = ?", 2)
-    @champions = Partido.where("torneo = ?", 1)
-    @libertadores = Partido.where("torneo = ?", 3)
-    @postobon = Partido.where("torneo = ?", 4)
-    @bbva = Partido.where("torneo = ?", 5)
-    @premier = Partido.where("torneo = ?", 6)
+    @eliminatorias = Partido.where("torneo = ? AND diapartido > ?", 2, Time.now)
+    @champions = Partido.where("torneo = ? AND diapartido > ?", 1, Time.now)
+    @libertadores = Partido.where("torneo = ? AND diapartido > ?", 3, Time.now)
+    @postobon = Partido.where("torneo = ? AND diapartido > ?", 4, Time.now)
+    @bbva = Partido.where("torneo = ? AND diapartido > ?", 5, Time.now)
+    @premier = Partido.where("torneo = ? AND diapartido > ?", 6, Time.now)
 
     @user_ranking = User.order("pezzos DESC").limit(10)
     respond_to do |format|

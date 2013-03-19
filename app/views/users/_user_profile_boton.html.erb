@@ -1,6 +1,6 @@
-<a href="" data-toggle="modal" data-target="#myProfile">
+<button href="" data-toggle="modal" data-target="#myProfile" class="btn btn-primary">
   Actualizar mi Perfil
-</a>
+</button>
 <div id="myProfile" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 <%= form_for [@user, @user.profile], :html => { :class => 'form-horizontal' } do |f| %>
   <div class="modal-header">

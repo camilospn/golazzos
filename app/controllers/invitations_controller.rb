@@ -2,6 +2,7 @@ class InvitationsController < ApplicationController
   before_filter :require_login
   def new
     @invitation = Invitation.new
+    @user = current_user
     @linkwallpost= "https://www.facebook.com/dialog/feed?
   app_id=193467880799348&
   link=https://www.golazzos.com/&

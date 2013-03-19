@@ -68,7 +68,7 @@
     <div class="areaPremios">
     
   	<%image_tag "landing/partidos/partido_equiposImportantes.png", {:class => "", :width=>"550"}%> 
-    <%= render "partidos/afiche_partido"%>
+    <%= render "partidos/afiche_partido" if @partido != nil%>
   	 
   
   </div>
