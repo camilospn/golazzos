@@ -93,14 +93,10 @@ Gollazos::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-<<<<<<< HEAD
-   #root :to => 'home#index'
-   root :to => 'home#index'
-=======
+
    root :to => 'home#index'
    #root :to => 'redireccion#index'
->>>>>>> 6f91edcfad9d6a293d40d99e59bfbbe0a9b71a6d
-
+   
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
