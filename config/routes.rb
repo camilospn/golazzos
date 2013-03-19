@@ -19,11 +19,13 @@ Gollazos::Application.routes.draw do
       resources :bets
   end
   resources :users
+  resources :redireccion
   #devise_for :users
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } 
 
   get "home/index"
+  get "home/index2"
   get "home/reglamento"
   #LOGIN WITH FACEBOOK OMNIAUTH
   match 'auth/:provider/callback', to: 'sessions#create'
@@ -31,8 +33,10 @@ Gollazos::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   #VIRALIDAD TOKEN
-  match "home/:invitation_token" ,to: "home#referido"
-  match "/:invitation_token" ,to: "home#index"
+  #match "home/:invitation_token" ,to: "home#referido"
+  match "home/:invitation_token" ,to: "home#index2"
+  #match "/:invitation_token" ,to: "home#index"
+  match "/:invitation_token" ,to: "home#index2"
 
   #match 'users', to: 'sessions#create', :as => 'user_root'
 
@@ -86,8 +90,8 @@ Gollazos::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   #root :to => 'home#index'
-   root :to => 'redireccion#index'
+   root :to => 'home#index'
+   #root :to => 'redireccion#index'
 
   # See how all your routes lay out with "rake routes"
 
