@@ -17,16 +17,27 @@ class SessionsController < ApplicationController
         flash[:notice] = "Recibes 50.000 Pezzos por tu primera visita"
       else
         if @invitacion.recipient_uid == @user.uid
-          flash[:notice] = "Recibes 50.000 Pezzos por tu primera visita. Recibiste 50.000 Pezzos extra gracias a que tu amigo te invito"  
-          @user.consignar_pezzos(50000)
-          #Le doy Pezzos al que me refirio.
-          id_anfitrion=@invitacion.sender_id
-          @usuario_anfitrion= User.find_by_id(id_anfitrion).consignar_pezzos(50000)
-          #Asigno la invitacion al usuario si fue invitado
+          
+          
           @user.update_attributes(invitation_id: @invitacion.id)
           @invitacion.update_attribute(:used, "true")
-          #@invitacion.actualizar_used
           @invitacion.actualizar_demora
+          if @invitacion.demora <1
+            flash[:notice] = "Recibes 50.000 Pezzos por tu primera visita. Recibiste 50.000 Pezzos extra gracias a que tu amigo te invito"  
+            @user.consignar_pezzos(50000)
+            #Le doy Pezzos al que me refirio.
+            id_anfitrion=@invitacion.sender_id
+            @usuario_anfitrion= User.find_by_id(id_anfitrion).consignar_pezzos(50000)
+            #Asigno la invitacion al usuario si fue invitado
+          else 
+            flash[:notice] = "Recibes 20.000 Pezzos por tu primera visita. Recibiste 50.000 Pezzos extra gracias a que tu amigo te invito"  
+            @user.consignar_pezzos(20000)
+            #Le doy Pezzos al que me refirio.
+            id_anfitrion=@invitacion.sender_id
+            @usuario_anfitrion= User.find_by_id(id_anfitrion).consignar_pezzos(20000)
+            #Asigno la invitacion al usuario si fue invitado
+           
+          end 
 
 #          @demoraT=(Time.now - @invitacion.created_at.to_time)/1.day
  #         @invitacion.update_attributes(:demora, @demoraT)
