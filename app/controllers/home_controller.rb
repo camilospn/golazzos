@@ -2,7 +2,8 @@ class HomeController < ApplicationController
   def index
     @partido= Partido.where("diapartido > ?", Time.now).first
   end
-
+  def index2
+  end
   def reglamento
     
   end
