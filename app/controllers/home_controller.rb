@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @partido= Partido.where("diapartido > ?", Time.now).first
+    @partido= Partido.where("diapartido > ?", Time.now).order("diapartido ASC").first
   end
   def index2
   end
