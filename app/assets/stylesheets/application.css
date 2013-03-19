@@ -93,3 +93,15 @@
 	letter-spacing: 3px;
 	line-height: 0.5;
 }
+.fondo-redireccion{
+	position:fixed;
+	top:0px;
+	left: 0px;
+	z-index: 1031;
+}
+.redireccion{
+	position:fixed;
+	top:0px;
+	left: 0px;
+	z-index: 1032;
+}
