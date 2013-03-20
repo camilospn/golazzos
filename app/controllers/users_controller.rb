@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_login
 
   def index
-    @users= User.order("pezzos DESC")
+    @users= User.order("pezzos DESC").limit(50)
 
 
   end
