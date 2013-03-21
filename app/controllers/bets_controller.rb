@@ -11,6 +11,7 @@ class BetsController < ApplicationController
 			flash[:notice] = "Juego creada correctamente. Recibes 5000 Pezzos por tu actividad."
 			if params[:bet][:posteo_fb]
 				mensaje= "Acabo de jugar por el marcador "+@partido.local+" : "+ params[:bet][:golesLocal]+" - "+@partido.visitante+" : "+params[:bet][:golesVisitante]+"\nJuega con Golazzos y gana fabulosos premios cada mes."
+				@user.aumentar_posts()
 				@user.facebook.put_object("me", "feed", :message => mensaje, :picture => 'https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-snc7/578495_319362508165730_718918976_n.jpg', :link => 'http://www.golazzos.com/', :name => 'Golazzos', :description => 'Golazzos la nueva Plataforma de apuestas sociales en Futbol.')
   			flash[:notice] = "Gracias por postear en tu muro. Tu Juego fue creada correctamente. Recibes 5000 Pezzos por tu actividad."
 			end

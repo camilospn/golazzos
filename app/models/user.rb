@@ -32,7 +32,12 @@ def self.from_omniauth(auth)
     user.name = auth.info.name
     user.profile = Profile.new
     #CHAMBONADAAAA!!!! ------
-    user.email = auth.uid
+    if auth.info.email == nil
+      
+    else
+      user.email = auth.info.email
+    end
+    
     #------
     user.oauth_token = auth.credentials.token
     user.oauth_expires_at = Time.at(auth.credentials.expires_at)
