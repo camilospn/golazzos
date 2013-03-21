@@ -17,7 +17,14 @@
                                             <% f.submit ""%> 
                                         </button>
                                       <%else%>
-                                                <%if @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)>=0 && @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)<4%>
+                                              <%if @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)<2%>
+                                                <button class= "btn btn-block btn-mini btn-danger"> 
+                                                  <h2><%= "#{i} - #{j}"%></h2>
+                                                  <h2 class="lead"><%="definiendo.."%></h2> 
+                                                  <% f.submit ""%>
+                                                </button>
+                                              <%end%>
+                                                <%if @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)>=2 && @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)<4%>
                                                   <button class= "btn btn-block btn-mini btn-danger"> 
                                                     <h2><%= "#{i} - #{j}"%></h2>
                                                     <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta).round(3)}x"%></h2> 
@@ -73,7 +80,14 @@
                                             <% f.submit ""%> 
                                         </button>
                                       <%else%>
-                                                <%if @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)>=0 && @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)<4%>
+                                                 <%if @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)<2%>
+                                                <button class= "btn btn-block btn-mini btn-danger"> 
+                                                  <h2><%= "#{i} - #{j}"%></h2>
+                                                  <h2 class="lead"><%="definiendo.."%></h2> 
+                                                  <% f.submit ""%>
+                                                </button>
+                                              <%end%>
+                                                <%if @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)>=2 && @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)<4%>
                                                   <button class= "btn btn-block btn-mini btn-danger"> 
                                                     <h2><%= "#{i} - #{j}"%></h2>
                                                     <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta).round(3)}x"%></h2> 
@@ -134,7 +148,14 @@
                                             <% f.submit ""%> 
                                         </button>
                                       <%else%>
-                                                <%if @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)>=0 && @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)<4%>
+                                               <%if @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)<2%>
+                                                <button class= "btn btn-block btn-mini btn-danger"> 
+                                                  <h2><%= "#{i} - #{j}"%></h2>
+                                                  <h2 class="lead"><%="definiendo.."%></h2> 
+                                                  <% f.submit ""%>
+                                                </button>
+                                              <%end%>
+                                                <%if @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)>=2 && @partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta)<4%>
                                                   <button class= "btn btn-block btn-mini btn-danger"> 
                                                     <h2><%= "#{i} - #{j}"%></h2>
                                                     <h2 class="lead"><%="#{@partido.xveces_el_resultado(i,j,current_user.pezzos_que_apuesta).round(3)}x"%></h2> 
