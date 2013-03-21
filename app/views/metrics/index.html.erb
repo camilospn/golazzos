@@ -13,6 +13,9 @@
 <p><span class="badge">1.</span> Número de usuarios registrados:
 <%= @numeroUsuarios=User.count %>
 </p>
+<p><span class="badge">1.5</span> Número de apuestas registradas:
+<%= @numeroBets=Bet.all.count %>
+</p>
 <p><span class="badge">2.</span> Número de invitaciones por usuario:
 <%= @numeroInvitacionesPromedio=User.average(:invitation_number) %>
 </p>
