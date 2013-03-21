@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_login
 
   def index
-    @users= User.order("pezzos DESC").limit(50)
+    @users= User.paginate(page: params[:page]).order("pezzos DESC")
 
 
   end
