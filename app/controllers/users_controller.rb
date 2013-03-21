@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users= User.paginate(page: params[:page], per_page: 15).order("pezzos DESC")
-    @page = (params[:page] - 1) * 15 
+    @page = ((params[:page].to_i - 1) * 15) + 1  
 
 
   end

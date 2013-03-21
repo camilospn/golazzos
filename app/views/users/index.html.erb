@@ -21,18 +21,18 @@
       </tr>
     </thead>
     <tbody>
-      <%@page +=1 %>
+      <%count = @page %>
       <%@users.each do |user|%>
         <tr>
           <td>
-            <%=@page%>
+            <%=count%>
           </td>
           <td>
             <div class="jugador">
               <%=image_tag user.facebook.get_picture(user.uid, {type: "square"}), {:class=> "", :width=>"30"}%>  <%=link_to user.name, user%></span></td><td><%= number_to_currency(user.pezzos,:precision => 0)%></td><td><%= user.bets.count%></td>
             </div>
         </tr>
-        <%@page +=1%>
+        <%count +=1%>
       <%end%>
     </tbody>
   </table>
