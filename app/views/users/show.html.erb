@@ -31,9 +31,9 @@
 						      <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
 						      <div class="centro">
 							      <%= image_tag partido.logolocal, {:class => "", :width=>"50px"}%>
-							      <%=partido.local%>
+							      <%partido.local%>
 							      <strong>Vs</strong>
-							      <%= partido.visitante%>
+							      <% partido.visitante%>
 							      <%= image_tag partido.logovisitante,{:class => "", :width =>"50px"}%>
 						      </div>
 		  					<%end%>
