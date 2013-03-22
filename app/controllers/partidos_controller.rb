@@ -5,13 +5,14 @@ class PartidosController < ApplicationController
   before_filter :require_admin_login , :only => [:new, :edit, :update, :destroy, :create, :repartir]
   def index
     @partidos = Partido.all
-    
-    @eliminatorias = Partido.where("torneo = ? AND diapartido > ?", 2, Time.now )
-    @champions = Partido.where("torneo = ? AND diapartido > ?", 1, Time.now)
-    @libertadores = Partido.where("torneo = ? AND diapartido > ?", 3, Time.now)
-    @postobon = Partido.where("torneo = ? AND diapartido > ?", 4, Time.now)
-    @bbva = Partido.where("torneo = ? AND diapartido > ?", 5, Time.now)
-    @premier = Partido.where("torneo = ? AND diapartido > ?", 6, Time.now)
+    @hora = Time.now - 1.day
+
+    @eliminatorias = Partido.where("torneo = ? AND diapartido > ?", 2, @hora )
+    @champions = Partido.where("torneo = ? AND diapartido > ?", 1, @hora)
+    @libertadores = Partido.where("torneo = ? AND diapartido > ?", 3, @hora)
+    @postobon = Partido.where("torneo = ? AND diapartido > ?", 4, @hora)
+    @bbva = Partido.where("torneo = ? AND diapartido > ?", 5, @hora)
+    @premier = Partido.where("torneo = ? AND diapartido > ?", 6, @hora)
 
     @user_ranking = User.order("pezzos DESC").limit(10)
     respond_to do |format|
