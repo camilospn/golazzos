@@ -7,6 +7,9 @@ class HomeController < ApplicationController
   def reglamento
     
   end
+  def contacto
+    
+  end
   def referido
   		
     #Revisa si esta invitado o no esta invitado para mostrar un mensaje.  

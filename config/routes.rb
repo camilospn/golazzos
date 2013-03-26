@@ -30,6 +30,7 @@ Gollazos::Application.routes.draw do
   get "home/index"
   get "home/index2"
   get "home/reglamento"
+  get "home/contacto"
   #LOGIN WITH FACEBOOK OMNIAUTH
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
