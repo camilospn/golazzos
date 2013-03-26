@@ -5,7 +5,7 @@ Gollazos::Application.routes.draw do
   get "redireccion/new"
 
   get "metrics/index"
-
+  get "metrics/emails"
   #map.home '/home/:invitation_token', :controller => 'users', :action => 'new'
   #map.home '/home/:invitation_token', :controller => 'home', :action => 'referido'
   #match "home/:invitation_token" ,to: "home#referido"
