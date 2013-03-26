@@ -1,5 +1,5 @@
 class MetricsController < ApplicationController
-	before_filter :require_admin_admin
+	before_filter :require_admin_login
 	def index
 	
 	end
