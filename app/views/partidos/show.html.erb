@@ -28,6 +28,9 @@
 <%render "matriz_apuestas"%>
 <%=render "matriz_apuestas_dos"%>
 </div>
+apuestas gana Local <%= @partido.bets.where("golesLocal > golesVisitante") %>
+apuestas gana empate <%= @partido.bets.where("golesLocal = golesVisitante") %>
+apuestas gana Visitante <%= @partido.bets.where("golesLocal < golesVisitante") %>
 
 <div class="centro spinner" id="spinner">
   <%= image_tag "350.gif", { width: "28px" }%>
