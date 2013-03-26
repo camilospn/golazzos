@@ -1,7 +1,6 @@
 Gollazos::Application.routes.draw do
 
   get "redireccion/index"
-
   get "redireccion/new"
 
   get "metrics/index"
