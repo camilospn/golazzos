@@ -10,31 +10,36 @@ class SessionsController < ApplicationController
     if@user.visits_number==1
       @user.consignar_pezzos(50000)
       
-      #revisa la invitacion
+      #revisa referido
       #@invitacion= Invitation.find_by_token(session['guacamaya'])
-       @invitacion= Invitation.find_by_recipient_uid(@user.uid)
-      if @invitacion==nil
+      @anfitrion= User.find_by_uid(session['guacamaya'])
+
+       #@invitacion= Invitation.find_by_recipient_uid(@user.uid)
+      if @anfitrion==nil #No es referido
         flash[:notice] = "Recibes 50.000 Pezzos por tu primera visita"
       else
-        if @invitacion.recipient_uid == @user.uid
-          
-          
-          @user.update_attributes(invitation_id: @invitacion.id)
-          @invitacion.update_attribute(:used, "true")
-          @invitacion.actualizar_demora
-          if @invitacion.demora <1
+        #if @invitacion.recipient_uid == @user.uid
+        if @user.uid == @user.uid
+                    
+          #@user.update_attributes(invitation_id: @invitacion.id)
+          #@invitacion.update_attribute(:used, "true")
+          #@invitacion.actualizar_demora
+          if true
             flash[:notice] = "Recibes 50.000 Pezzos por tu primera visita. Recibiste 50.000 Pezzos extra gracias a que tu amigo te invito"  
             @user.consignar_pezzos(50000)
             #Le doy Pezzos al que me refirio.
-            id_anfitrion=@invitacion.sender_id
-            @usuario_anfitrion= User.find_by_id(id_anfitrion).consignar_pezzos(50000)
+            
+            @anfitrion.consignar_pezzos(50000)
+            @anfitrion.aumentar_referidos
+            
             #Asigno la invitacion al usuario si fue invitado
+            @user.update_attributes(invitation_id: @anfitrion.id)
           else 
-            flash[:notice] = "Recibes 20.000 Pezzos por tu primera visita. Recibiste 50.000 Pezzos extra gracias a que tu amigo te invito"  
-            @user.consignar_pezzos(20000)
+            #flash[:notice] = "Recibes 20.000 Pezzos por tu primera visita. Recibiste 50.000 Pezzos extra gracias a que tu amigo te invito"  
+            #@user.consignar_pezzos(20000)
             #Le doy Pezzos al que me refirio.
-            id_anfitrion=@invitacion.sender_id
-            @usuario_anfitrion= User.find_by_id(id_anfitrion).consignar_pezzos(20000)
+            #id_anfitrion=@invitacion.sender_id
+            #@usuario_anfitrion= User.find_by_id(id_anfitrion).consignar_pezzos(20000)
             #Asigno la invitacion al usuario si fue invitado
            
           end 

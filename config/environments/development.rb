@@ -36,5 +36,7 @@ Gollazos::Application.configure do
   config.assets.debug = true
   #ADDED: Devise
         # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
+        #APP de facebook 
+  config.fb_app_id = '500959623297658'
+  config.fb_app_secret = '01911454d7d49d1a68786eb86791cb43'
 end

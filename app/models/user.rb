@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, 
                   :uid, :pezzos, :administrator, :invitation_token, :visits_number, 
                   :invitation_number, :invitation_id, :post_on_fb, :bets_number, :age,
-                   :pezzos_que_apuesta, :local_apostado, :visitante_apostado
+                   :pezzos_que_apuesta, :local_apostado, :visitante_apostado, :referidos
 
 
   validates :pezzos, :numericality => {:greater_than_or_equal_to => 0, :message => "no puedes tener menos de 0 pezzos"}
@@ -71,6 +71,10 @@ end
   def aumentar_invitaciones
     invitaciones_total = self.invitation_number + 1
     self.update_attributes(invitation_number: invitaciones_total)
+  end
+  def aumentar_referidos
+    referidos_total = self.referidos + 1
+    self.update_attributes(referidos: referidos_total)
   end
   def aumentar_apuestas
     apuestas_total = self.bets_number + 1
