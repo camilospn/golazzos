@@ -58,14 +58,17 @@
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Invita a un amigo a Golazzos</h3>
+    <h3 id="myModalLabel">Invita a tus amigos a Golazzos</h3>
   </div>
   <div class="modal-body">
       <div class="alert alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong> MENSAJE IMPORTANTE </strong> <br/> En estos momentos tenemos problemas con Facebook  cuando intentas invitar a mas de 40 amigos. Te aconsejamos invitar en grupos de 40 amigos. 
+        <strong> </strong> <br/> 
+        Si tus amigos acepta ganarás más Pezzos. Puedes invitar hasta 40 amigos.<p>
+        No se permiten cuentas ficticias, estas cuentas serán eliminadas.
         <br/>
-        Muchas gracias :D ! 
+        Muchas gracias :D!
+        Equipo de Golazzos. 
       </div>
     <p>
 
@@ -73,26 +76,9 @@
 <% @connections2 = @user.facebook.get_connections("me","friends")%>
 
 <%= form_for (@invitation) do |f| %>
-  <p>
-    
-    <% @connections2.each do |connection2| %>
-    <p>
-  <%= @amigo=User.find_by_uid(connection2["id"])%>
-  <% if @amigo == nil%>
-         
-  <%= check_box_tag 'invited_uids[]', connection2["id"] -%>
-  <%= image_tag"http://graph.facebook.com/"+connection2["id"]+"/picture"%>
-  <%= h connection2["name"] -%>
-      
-  
-  <% connection2["name"]%>
-  <%end%>
-    </p>
-    <% end %>
-    </p>
-  </div>
-  <div class="modal-footer">
+ <div class="modal-footer">
       <p><%= f.submit "Invite!" , :class => 'btn btn-primary'%></p>
+  
   <% end %>
   </div>
 </div>

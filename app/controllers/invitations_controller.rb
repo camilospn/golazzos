@@ -14,37 +14,23 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    @invitados = params[:invited_uids]
-    @mensaje = "hola "
-    #Para cada usuario creamos una invitacion, tendrian el mismo token
-    @invitados.each do |invi|
-
-      @mensaje = @mensaje + "\n " + invi.to_s
-      #Crea cada invitacion...
-      @invitation = Invitation.new()
-      @invitation.recipient_uid = invi.to_s
-      @invitation.sender = current_user
-      @invitation.token = current_user.uid
-
-      if @invitation.save
-        @user = User.find(session['user_id'])
-        @user.aumentar_invitaciones
-      end
-
-    end
-    #terminaron las invitaciones
+    
 
 @linkinvitation= "http://www.facebook.com/dialog/send?app_id=116412671734664&link=http://developers.facebook.com/docs/reference/dialogs/&redirect_uri=http://www.jetsetter.com/&to=100000910418225,590528674"
 
         @linkinvitation= "http://www.facebook.com/dialog/send?app_id=193467880799348&
-name=Visita%20Golazzos%20y%20gana%20premios&
+name=Te%20invito%20a%20que%20juegues%20conmigo%20en%20Golazzos,%20el%20juego%20divertido%20de%20futbol%20y%20gana%20fabulosos%20premios&
 link=http://www.golazzos.com/home/"+current_user.uid+"/&
-redirect_uri=http://www.golazzos.com/&to=100003778647592100001682753858"
+redirect_uri=http://www.golazzos.com/invitations/new"
     
     @linkinvitation= "https://www.facebook.com/dialog/apprequests?
   app_id=193467880799348&
   message=Visita%20Golazzos%20y%20gana%20premios%20como%20boletas%20camisetas%20y%20balones%20cada%20mes&to="+@invitados.to_s+"&redirect_uri=http://www.golazzos.com/invitations/new"
- 
+
+ @linkinvitation= "http://www.facebook.com/dialog/send?app_id=193467880799348&
+name=Te%20invito%20a%20que%20juegues%20conmigo%20en%20Golazzos,%20el%20juego%20divertido%20de%20futbol%20y%20gana%20fabulosos%20premios&
+link=http://www.golazzos.com/home/"+current_user.uid+"/&
+redirect_uri=http://www.golazzos.com/"
  
 
     #redirect_to root_url, :notice => @mensaje

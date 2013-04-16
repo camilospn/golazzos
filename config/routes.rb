@@ -36,10 +36,10 @@ Gollazos::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   #VIRALIDAD TOKEN
-  #match "home/:invitation_token" ,to: "home#referido"
-  match "home/:invitation_token" ,to: "home#index2"
-  #match "/:invitation_token" ,to: "home#index"
-  match "/:invitation_token" ,to: "home#index2"
+  match "home/:invitation_token" ,to: "home#referido"
+  #match "home/:invitation_token" ,to: "home#index2"
+  match "/:invitation_token" ,to: "home#index"
+  #match "/:invitation_token" ,to: "home#index2"
 
   #match 'users', to: 'sessions#create', :as => 'user_root'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315031139) do
+ActiveRecord::Schema.define(:version => 20130410211443) do
 
   create_table "bets", :force => true do |t|
     t.integer  "monto"
@@ -39,6 +39,20 @@ ActiveRecord::Schema.define(:version => 20130315031139) do
     t.datetime "updated_at",                       :null => false
     t.boolean  "used",          :default => false
     t.decimal  "demora"
+  end
+
+  create_table "metrics", :force => true do |t|
+    t.integer  "total_usuarios"
+    t.integer  "total_apuestas"
+    t.decimal  "apuestas_usuario"
+    t.integer  "total_referidos"
+    t.decimal  "referidos_usuario"
+    t.decimal  "login_usuario"
+    t.decimal  "posts_usuario"
+    t.integer  "sinapostar_usuarios"
+    t.integer  "sininvitar_usuarios"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "partidos", :force => true do |t|
@@ -100,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20130315031139) do
     t.string   "email"
     t.integer  "local_apostado",     :default => 0
     t.integer  "visitante_apostado", :default => 0
+    t.integer  "referidos",          :default => 0
   end
 
 end
