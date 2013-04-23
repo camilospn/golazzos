@@ -15,11 +15,7 @@ class Partido < ActiveRecord::Base
     self.bets.where("\"golesLocal\"= ? AND \"golesVisitante\"= ?",local, visitante)
   end
   def monto_apostado_en_el_resultado(local, visitante)
-  	total=0
-  	self.apuestas_en_el_resultado(local, visitante).each do |bet|
-		total+=bet.monto if !bet.monto.nil?
-	end
-	return total.to_f
+  	return self.apuestas_en_el_resultado(local, visitante).sum(:monto)
   end
 
   def porcentaje_en_el_resultado(local, visitante, monto_futuro=0)
@@ -39,11 +35,7 @@ class Partido < ActiveRecord::Base
   end
 
   def monto_total_apostado
-	total=0
-  	self.bets.each do |bet|
-  		total+=bet.monto if !bet.monto.nil?
-  	end
-	return total.to_f
+	return self.bets.sum(:monto)
   end
 
   def monto_que_puedo_apostar_en_el_marcador(local, visitante)
