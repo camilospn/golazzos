@@ -6,9 +6,7 @@
       <p>
       <div class="span6 fuenteFuturaB titulo-blanco">
         <h3><%=image_tag "partidos/btn_partidosTitulos.png"%>PARTIDOS
-<%= render "social"%>
-     
-
+        <%= render "social"%>
       </div>
     </div>
   </div>
@@ -19,6 +17,9 @@
 <div class="container">
   <div class="row BTSinEspacio">
 
+
+
+  <%= render "users/user_apostaria" if current_user.profile.apostaria==nil%>
    <%= render "acordeon"%>
    <%= render "premios_y_ranking"%>
   </div>

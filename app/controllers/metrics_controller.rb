@@ -2,6 +2,10 @@ class MetricsController < ApplicationController
 	before_filter :require_admin_login
 
   def index
+    @usuarios_que_apostarian = Profile.where(:apostaria => true).count
+    @usuarios_que_apostarian_total = Profile.where('apostaria  IS NOT NULL').count
+
+    @usuarios_que_apostarian_porcentaje = @usuarios_que_apostarian / @usuarios_que_apostarian_total
   end
   
   def emails
@@ -20,6 +24,8 @@ class MetricsController < ApplicationController
 	  @registro.login_usuario=User.average(:visits_number)
 	  @registro.posts_usuario=User.average(:post_on_fb)
 	  @registro.sinapostar_usuarios=User.where(:bets_number =>0).count
+
+
 	  
       if @registro.save
         #algo sucede...
