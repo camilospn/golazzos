@@ -40,7 +40,7 @@
 <%friends = current_user.facebook.get_connections("me", "friends")%>
 
 
-<h2>Friends</h2>
+<h2>Facebook Friends</h2>
 <% friends.each  do |friend| %>
 	<%user = User.find_by_uid(friend["id"])%>
 	<%if user.nil? %>
@@ -48,7 +48,7 @@
 		<div class= "user">
 			<p>
 				<strong> <%=h user.name%></strong>
-				<%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post  if user.id != current_user.id %>
+				<%= link_to "Seguir", friendships_path(:friend_id => user), :method => :post  if !current_user.friendships.find_by_friend_id(user.id) %>
 			</p>
 		</div>
 	<%end%>
