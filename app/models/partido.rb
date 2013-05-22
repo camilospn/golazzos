@@ -10,6 +10,7 @@ class Partido < ActiveRecord::Base
   validates :torneo, presence: true
 
   has_many :bets, :dependent => :destroy
+  has_many :users, :through => :bets
 
   def apuestas_en_el_resultado(local, visitante)
     self.bets.where("\"golesLocal\"= ? AND \"golesVisitante\"= ?",local, visitante)
