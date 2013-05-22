@@ -33,9 +33,17 @@
                             <%= image_tag partido.logovisitante, {:class => "partidos-escudo-alinear", :width=>"80", style:""}%>
                           </div>
                           <div class="span2">
+                            <% if partido.id==64 %>
+                            <%= link_to  "http://www.sportsaround.us" do %>
+                            Patrocinado por:
+
+                            <%=image_tag "varios/sportsaround.jpg"%>
+                            <%end%>
+                            <%end%>
                             <%= link_to  partido_path(partido) do %>
                             <%=image_tag "partidos/btnJUEGA_partidos.png"%>
                             <%end%>
+
                                 <% if current_user.administrator==true %>
                                 <%= link_to t('edit', :default => t("helpers.links.edit")),
                                             edit_partido_path(partido), :class => 'btn btn-mini' %>
@@ -248,6 +256,7 @@
                             <%= image_tag partido.logovisitante, {:class => "partidos-escudo-alinear", :width=>"80", style:""}%>
                           </div>
                           <div class="span2">
+                            
                             <%= link_to  partido_path(partido) do %>
                             <%=image_tag "partidos/btnJUEGA_partidos.png"%>
                             <%end%>
