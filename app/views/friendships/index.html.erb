@@ -1,5 +1,64 @@
 <%= render "layouts/flash_notice"%>
 
+<div class="container">
+	<div class="row">
+		<div class="span3">
+						<h2> Following (<%= current_user.friends.count%>) </h2>
+						<ul>
+							<% for friendship in current_user.friendships %>
+								<li>
+									<%=h friendship.friend.name %>
+									(<%= link_to "remove", friendship, :method => :delete %>)
+								</li>
+							<%end%>
+						</ul>
+
+		</div>
+		<div class="span3">
+						<h2>Followers (<%=current_user.inverse_friends.count%>)</h2>
+							<ul>
+								<% for user in current_user.inverse_friends%>
+									<li><%=h user.name %></li>
+								<%end%>
+							</ul>
+
+		</div>
+		<div class="span3">
+			<%friends = current_user.facebook.get_connections("me", "friends")%>
+
+
+			<h2>Facebook Friends</h2>
+			<div id= "users">
+				<% friends.each  do |friend| %>
+					<%user = User.find_by_uid(friend["id"])%>
+					<%if user.nil? %>
+						<!-- el usuario no existe -->
+
+					<%else%>
+						<div class= "user">
+							<p>
+								<strong> <%=h user.name%></strong>
+								<%= link_to "Seguir", friendships_path(:friend_id => user), :method => :post  if !current_user.friendships.find_by_friend_id(user.id) %>
+							</p>
+						</div>
+					<%end%>
+				<%end%>
+			</div>
+		</div>
+		<div class="span3">
+
+			<div id="ranking">
+				<h2>Ranking Usuarios</h2>
+				<% ranking=current_user.following.sort_by { |e| -e[:pezzos]}%>
+				<% ranking.each do |user|%>
+				<li>
+					<%="#{user.name} - #{user.pezzos}"%>
+				</li>
+				<%end%>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!--
 <h2> Users</h2>
@@ -18,56 +77,11 @@
 
 
 
-<h2> Following (<%= current_user.friends.count%>) </h2>
-<ul>
-	<% for friendship in current_user.friendships %>
-		<li>
-			<%=h friendship.friend.name %>
-			(<%= link_to "remove", friendship, :method => :delete %>)
-		</li>
-	<%end%>
-</ul>
 
 
-<h2>Followers (<%=current_user.inverse_friends.count%>)</h2>
-<ul>
-	<% for user in current_user.inverse_friends%>
-		<li><%=h user.name %></li>
-	<%end%>
-</ul>
 
 
-<%friends = current_user.facebook.get_connections("me", "friends")%>
 
-
-<h2>Facebook Friends</h2>
-<div id= "users">
-	<% friends.each  do |friend| %>
-		<%user = User.find_by_uid(friend["id"])%>
-		<%if user.nil? %>
-			<!-- el usuario no existe -->
-
-		<%else%>
-			<div class= "user">
-				<p>
-					<strong> <%=h user.name%></strong>
-					<%= link_to "Seguir", friendships_path(:friend_id => user), :method => :post  if !current_user.friendships.find_by_friend_id(user.id) %>
-				</p>
-			</div>
-		<%end%>
-	<%end%>
-</div>
-
-<h2>Ranking Usuarios</h2>
-<ol>
-
-<% ranking=current_user.following.sort_by { |e| -e[:pezzos]}%>
-<% ranking.each do |user|%>
-	<li>
-		<%="#{user.name} - #{user.pezzos}"%>
-	</li>
-<%end%>
-</ol>
 
 <!--
 <h2>emails</h2>
