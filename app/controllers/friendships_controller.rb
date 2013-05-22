@@ -6,7 +6,7 @@ class FriendshipsController < ApplicationController
   def create
   	@friendship = current_user.friendships.build(:friend_id => params[:friend_id])
   	if @friendship.save
-  		flash[:notice] = "Amigo añadido"
+  		flash[:notice] = "Amigo anadido"
   		redirect_to :back
   	else
   		flash[:error] = "No es posible Seguirlo !"
