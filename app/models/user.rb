@@ -114,5 +114,10 @@ end
     #return self.friendships
   end
 
+  def correos_usuarios
+    usuarios = User.where("email is NOT NULL", nil)
+    return usuarios
+  end
+
 
 end
