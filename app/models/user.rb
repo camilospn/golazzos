@@ -100,7 +100,7 @@ end
   def followers
     followers = []
     self.inverse_friends.each do |follower|
-      followers.push(follower.name)
+      followers.push(follower)
     end
     return followers
     #return self.inverse_friendships
@@ -108,7 +108,7 @@ end
   def following
     following = []
     self.friendships.each do |follower|
-      following.push(follower.friend.name)
+      following.push(follower.friend)
     end
     return following
     #return self.friendships
