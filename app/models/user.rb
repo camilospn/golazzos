@@ -92,9 +92,27 @@ end
     self.update_attributes(post_on_fb: posts_total)
   end
   
-    def position(column = 'pezzos', order = 'DESC')
+  def position(column = 'pezzos', order = 'DESC')
     order_by = "#{column} #{order}"
     arrow = order.capitalize == "ASC" ? "<=" : ">="
     User.where("#{column} #{arrow} ?", self.send(column)).order(order_by).count
   end  
+  def followers
+    followers = []
+    self.inverse_friends.each do |follower|
+      followers.push(follower.name)
+    end
+    return followers
+    #return self.inverse_friendships
+  end
+  def following
+    following = []
+    self.friendships.each do |follower|
+      following.push(follower.friend.name)
+    end
+    return following
+    #return self.friendships
+  end
+
+
 end

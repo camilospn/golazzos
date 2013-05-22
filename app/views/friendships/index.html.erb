@@ -18,7 +18,7 @@
 
 
 
-<h2> Follow (<%= current_user.friends.count%>) </h2>
+<h2> Following (<%= current_user.friends.count%>) </h2>
 <ul>
 	<% for friendship in current_user.friendships %>
 		<li>
@@ -41,15 +41,26 @@
 
 
 <h2>Facebook Friends</h2>
-<% friends.each  do |friend| %>
-	<%user = User.find_by_uid(friend["id"])%>
-	<%if user.nil? %>
-	<%else%>
-		<div class= "user">
-			<p>
-				<strong> <%=h user.name%></strong>
-				<%= link_to "Seguir", friendships_path(:friend_id => user), :method => :post  if !current_user.friendships.find_by_friend_id(user.id) %>
-			</p>
-		</div>
+<div id= "users">
+	<% friends.each  do |friend| %>
+		<%user = User.find_by_uid(friend["id"])%>
+		<%if user.nil? %>
+			<!-- el usuario no existe -->
+
+		<%else%>
+			<div class= "user">
+				<p>
+					<strong> <%=h user.name%></strong>
+					<%= link_to "Seguir", friendships_path(:friend_id => user), :method => :post  if !current_user.friendships.find_by_friend_id(user.id) %>
+				</p>
+			</div>
+		<%end%>
 	<%end%>
-<%end%>
+</div>
+
+<h2>followers</h2>
+<%= current_user.followers%>
+
+
+<h2>following</h2>
+<%= current_user.following%>
