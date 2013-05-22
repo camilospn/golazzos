@@ -68,7 +68,7 @@
 <h2>emails</h2>
 <ul>
 	<% current_user.correos_usuarios.each do |user|%>
-	<li> <%= "#{user.name} - #{user.email}" %></li>
+	<li> <%= "#{user.name} * #{user.email}" %></li>
 	<%end%>
 </ul>
 
