@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410211443) do
+ActiveRecord::Schema.define(:version => 20130521180958) do
 
   create_table "bets", :force => true do |t|
     t.integer  "monto"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20130410211443) do
 
   add_index "bets", ["partido_id"], :name => "index_bets_on_partido_id"
   add_index "bets", ["user_id"], :name => "index_bets_on_user_id"
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "invitations", :force => true do |t|
     t.integer  "sender_id"
@@ -86,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20130410211443) do
     t.integer  "num_visitas",       :default => 0
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.boolean  "apostaria"
   end
 
   create_table "tokenreferidos", :force => true do |t|

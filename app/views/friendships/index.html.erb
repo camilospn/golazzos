@@ -1,0 +1,55 @@
+<%= render "layouts/flash_notice"%>
+
+
+<!--
+<h2> Users</h2>
+ <div id= "users">
+	<% for user in @users %>
+		<div class= "user">
+			<p>
+				<strong> <%=h user.name%></strong>
+				<%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post  if user.id != current_user.id %>
+			</p>
+		</div>
+	<%end%>
+</div>
+
+-->
+
+
+
+<h2> Follow (<%= current_user.friends.count%>) </h2>
+<ul>
+	<% for friendship in current_user.friendships %>
+		<li>
+			<%=h friendship.friend.name %>
+			(<%= link_to "remove", friendship, :method => :delete %>)
+		</li>
+	<%end%>
+</ul>
+
+
+<h2>Followers (<%=current_user.inverse_friends.count%>)</h2>
+<ul>
+	<% for user in current_user.inverse_friends%>
+		<li><%=h user.name %></li>
+	<%end%>
+</ul>
+
+
+<%friends = current_user.facebook.get_connections("me", "friends")%>
+
+
+<h2>Facebook Friends</h2>
+<% friends.each  do |friend| %>
+	<%user = User.find_by_uid(friend["id"])%>
+	<%if user.nil? %>
+	<%else%>
+		<div class= "user">
+			<p>
+				<strong> <%=h user.name%></strong>
+				<%= link_to "Seguir", friendships_path(:friend_id => user), :method => :post  if !current_user.friendships.find_by_friend_id(user.id) %>
+			</p>
+		</div>
+	<%end%>
+<%end%>

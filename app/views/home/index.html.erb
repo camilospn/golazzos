@@ -1,3 +1,5 @@
+<% content_for :title, "Juego de Futbol : Golazzos" %>
+
 <div class="contenedor centro">
 <div id="myCarousel" class="carousel slide" data-interval="3000">
 
@@ -107,4 +109,11 @@
 		 <%= image_tag 'Call/btnCall.png', { width: "500px"}  %>
 		 <% end -%>
   </div>
-  </div>
+  <section class="container">
+    <h3 class="centro">Con el apoyo de</h3>
+    <div class="row apoyoInstituciones">
+      <%= image_tag 'hubbog.jpg', {:class => "span4"}%>
+      <%= image_tag 'mintic.png', {:class => "span4"}%>
+      <%= image_tag 'appsco.png', {:class => "span4"}%>
+    </div>
+  </section>

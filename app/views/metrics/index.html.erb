@@ -1,3 +1,5 @@
+
+
 <div class= "header-title">
   <div class="container">
     <div class="row">
@@ -43,8 +45,11 @@
 <p><span class="badge">8.</span> Edad promedio:
 <%= @usuariosConEdad=User.average(:age)%> years
 
-<p><span class="badge">B.</span> Número de Apuestas Promedio por usuario:
+<p><span class="badge">9.</span> Número de Apuestas Promedio por usuario:
   <%= @numeroApuestasPromedio=User.average(:bets_number) %>
+</p>
+
+<p><span class="badge">10.</span> Usuarios que apostarian: <%= @usuarios_que_apostarian%> / Total de usuarios que respondieron: <%= @usuarios_que_apostarian_total%> / % = <%= @usuarios_que_apostarian_porcentaje%>
 </p>
 
 

@@ -1,11 +1,12 @@
 Gollazos::Application.routes.draw do
 
-  get "redireccion/index"
+  get "friendship/index"
 
+  get "redireccion/index"
   get "redireccion/new"
 
   get "metrics/index"
-
+  get "metrics/emails"
   #map.home '/home/:invitation_token', :controller => 'users', :action => 'new'
   #map.home '/home/:invitation_token', :controller => 'home', :action => 'referido'
   #match "home/:invitation_token" ,to: "home#referido"
@@ -23,6 +24,9 @@ Gollazos::Application.routes.draw do
     resources :profiles
   end
   resources :redireccion
+
+  resources :friendships
+
   #devise_for :users
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } 
