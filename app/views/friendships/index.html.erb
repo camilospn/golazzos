@@ -58,18 +58,25 @@
 	<%end%>
 </div>
 
-<h2>followers</h2>
-<%= current_user.followers%>
+<h2>Ranking Usuarios</h2>
+<ol>
 
+<% ranking=current_user.following.sort_by { |e| -e[:pezzos]}%>
+<% ranking.each do |user|%>
+	<li>
+		<%="#{user.name} - #{user.pezzos}"%>
+	</li>
+<%end%>
+</ol>
 
-<h2>following</h2>
-<%= current_user.following%>
-
+<!--
 <h2>emails</h2>
 <ul>
 	<% current_user.correos_usuarios.each do |user|%>
 	<li> <%= "#{user.name} * #{user.email}" %></li>
 	<%end%>
 </ul>
+
+-->
 
 
