@@ -1,5 +1,7 @@
 Gollazos::Application.routes.draw do
 
+  get "friendship/index"
+
   get "redireccion/index"
   get "redireccion/new"
 
@@ -22,6 +24,9 @@ Gollazos::Application.routes.draw do
     resources :profiles
   end
   resources :redireccion
+
+  resources :friendships
+
   #devise_for :users
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } 
