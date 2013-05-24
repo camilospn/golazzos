@@ -1,0 +1,102 @@
+// Place all the styles related to the activities controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.activity
+{	
+	.activity-hr
+	{
+		margin-top: -15px;
+	}
+
+	h5
+	{
+		margin: 0px;
+		padding: 0px;
+	}
+	vertical-align:top;
+	padding:15px 0px;
+	margin:5px;
+	.activity-owner
+	{
+		vertical-align:top;
+		display: inline-block;
+		margin-right:5px;
+		img{
+			display: block;
+		}
+	}
+	.activity-content
+	{	
+		padding:0px;
+		vertical-align:top;
+		display: inline-block;
+		width:82%;
+		img
+		{
+			height:50px;
+			width:50px;
+			display: inline-block;
+		}
+		.activity-content-body
+		{
+			margin: 0px;
+			.activity-content-body-content
+			{	
+				text-align:center;
+
+			}
+		}
+		.activity-content-resultado
+		{
+			display: inline-block;
+
+		}
+	}
+
+
+}
+.activity-partido-nuevo
+	{	
+		margin-top: 0px;
+		text-align:center;
+		
+		h5
+		{
+			margin: 0px;
+			padding:0px;
+		}
+		.activity-partido-nuevo-vs
+		{
+			vertical-align:middle;
+			text-align:center;
+			display: inline-block;
+			img
+			{
+				height:40px;
+				width:40px;
+			}
+		}
+		.activity-partido-nuevo-logo
+		{
+			vertical-align:middle;
+			text-align:center;
+			display: inline-block;
+			img{
+				height:80px;
+				width:80px;
+			}
+		}
+		.activity-partido-nuevo-apuesta
+		{
+			margin-top:5px;
+			font-size: 130%;
+			img{
+				padding:3px;
+				height:30px;
+				width:30px;
+			}
+		}
+	}

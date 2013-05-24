@@ -1,4 +1,6 @@
 class Partido < ActiveRecord::Base
+  include PublicActivity::Common
+  
   attr_accessible :diapartido, :local, :logolocal, :logovisitante, :visitante, 
                   :terminado, :resultadoLocal, :resultadoVisitante, :cerrado, :repartido, :torneo
 
@@ -66,5 +68,13 @@ class Partido < ActiveRecord::Base
       bet.update_attributes(pezzos_ganados: pezzos_ganados, repartido: true)
       User.find(bet.user_id).consignar_pezzos(pezzos_ganados) 
     end
+  end
+
+  def apuestas_del_usuario(user)
+      return self.bets.where(user_id: user.id)
+  end
+
+  def ganancias_del_usuario(user)
+    return self.apuestas_del_usuario(user).sum(:pezzos_ganados)
   end
 end

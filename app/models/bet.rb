@@ -1,4 +1,7 @@
 class Bet < ActiveRecord::Base
+	include PublicActivity::Common
+	#tracked owner: ->(controller,model) { controller && controller.current_user }
+
   belongs_to :partido
   belongs_to :user
 

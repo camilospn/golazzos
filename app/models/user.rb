@@ -105,6 +105,16 @@ end
     return followers
     #return self.inverse_friendships
   end
+
+  def followers_ids
+    followers = []
+    self.followers.each do |follower|
+      followers.push(follower.id)
+    end
+    return followers
+  end
+
+
   def following
     following = []
     self.friendships.each do |follower|
@@ -112,6 +122,14 @@ end
     end
     return following
     #return self.friendships
+  end
+
+  def following_ids
+    following = []
+    self.following.each do |follower|
+      following.push(follower.id)
+    end
+    return following
   end
 
   def correos_usuarios
