@@ -63,11 +63,13 @@
 			<div id="ranking">
 				<h2>Ranking Usuarios</h2>
 				<% ranking=current_user.following.sort_by { |e| -e[:pezzos]}%>
-				<% ranking.each do |user|%>
-				<li>
-					<%="#{user.name} - #{user.pezzos}"%>
-				</li>
-				<%end%>
+				<ol>
+					<% ranking.each do |user|%>
+					<li>
+						<%="#{user.name} - #{user.pezzos}"%>
+					</li>
+					<%end%>
+				</ol>
 			</div>
 		</div>
 	</div>
