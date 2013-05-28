@@ -51,9 +51,26 @@
 		<div class="span3">
 			<div class="about">
 				<div class="about_titulo secTitle">PARTIDOS</div>
-				<div class="about_content"> reeeBla bla blba</div>
+				<div class="about_content"> 
+					<ul class="nav nav-tabs nav-stacked">
+		  			<% @partidos.each do |partido|%>
+		  				<li class="">
+		  					<%= link_to partido do%>
+
+						      <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
+						      <div class="centro">
+							      <%= image_tag partido.logolocal, {:class => "", :width=>"50px"}%>
+							      <%partido.local%>
+							      <strong>Vs</strong>
+							      <% partido.visitante%>
+							      <%= image_tag partido.logovisitante,{:class => "", :width =>"50px"}%>
+						      </div>
+		  					<%end%>
+		  				</li>
+		  			<%end%>  
+				</ul></div>
 			</div>
-						<ul class="nav nav-tabs nav-stacked">
+			<ul class="nav nav-tabs nav-stacked">
 			    <li><%= link_to "Partidos",partidos_path %></li>
   				<li><%= link_to "Ranking", users_path%></li>
   				<li><%= link_to "Reglamento", home_reglamento_path%></li>

@@ -7,6 +7,7 @@ class ActivitiesController < ApplicationController
 
   	@following= current_user.following
   	@followers= current_user.followers
+  	@partidos = Partido.order(:diapartido)
   	@ranking_followers=current_user.following.sort_by { |e| -e[:pezzos]}
   end
 end
