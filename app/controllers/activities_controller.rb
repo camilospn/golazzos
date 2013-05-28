@@ -7,7 +7,9 @@ class ActivitiesController < ApplicationController
 
   	@following= current_user.following
   	@followers= current_user.followers
-  	@partidos = Partido.order(:diapartido)
+
+  	@hora = Time.now - 1.day
+  	@partidos = Partido.where("diapartido > ?", @hora).order("diapartido ASC")
   	@ranking_followers=current_user.following.sort_by { |e| -e[:pezzos]}
   end
 end
