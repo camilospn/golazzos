@@ -2,9 +2,9 @@
 	<div class="row">
 		<div class="span3">
 			<div class="about">
-				<div>
-					<%=image_tag current_user.facebook.get_picture(current_user.uid, {type: "square"}), {:class=> "thumbsail"}%>
-					<%= link_to current_user.name, current_user %>
+				<div class="about_titulo_nombre secTitle">
+					<%=image_tag current_user.facebook.get_picture(current_user.uid, {type: "square"}), {:class=> "thumbsail", :width => "40px"}%>
+					<%= current_user.name.upcase%>
 				</div>
 				<div class="about_followers">
 					<div class="about_followers_following">
@@ -28,7 +28,7 @@
 							<%= link_to following.name, following%>
 						</div>
 						<div class="pull-right">
-							<font face="digital7" color="orange" size="5">
+							<font face="digital7" color="orange" size="3">
 								<%= number_to_currency(following.pezzos,:precision => 0) %>
 							</font>
 						</div>
@@ -39,6 +39,11 @@
 
 		</div>
 		<div class="span6">
+			<div class="">
+				<div class="about_titulo_noticias">
+					NOTICIAS
+				</div>
+			</div>
 			<% @activities.each do |activity| %>
 				<%=render_activity activity%>
 			<%end%>

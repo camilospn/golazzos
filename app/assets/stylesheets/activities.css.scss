@@ -27,6 +27,13 @@
 			padding:10px;
 		}
 	}
+	.about_titulo_nombre
+	{
+		color: white;
+		vertical-align: middle;
+		border-bottom:1px solid #dedede;
+		background-color: #0673ab;
+	}
 	.about_titulo
 	{
 		color: white;
@@ -36,19 +43,36 @@
 		border-bottom:1px solid #dedede;
 		background-color: #0673ab;
 	}
+
 	.about_content
 	{
 		padding: 10px;
 		background-color: #fafafa;
 	}
 }
+.about_titulo_noticias
+{
+	background-color: #fafafa;
+	margin: 30px 0 0 0;
+	border: 1px solid #dedede;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	overflow: hidden;
+	color: white;
+	padding: 10px;
+	vertical-align: middle;
+	border-bottom:1px solid #dedede;
+	background-color: #0673ab;
+}
 
 .activity-ranking-follower
 {
+	vertical-align: middle;
 	margin-bottom: 10px;
 }
 .activity-ranking
 {
+	vertical-align: middle;
 	display: inline-block;
 }
 
