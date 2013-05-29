@@ -92,6 +92,25 @@
 {
 	position: fixed;
 }
+
+.activity-partidos
+{
+	hr
+	{
+		margin: 15px 0px;
+	}
+	.activity-partidos-equipos
+	{
+		float: left;
+		h5
+		{
+			margin: 0px;
+		}
+	}
+	.activity-partidos-apostar
+	{
+	}
+}
 .activity
 {	
 	vertical-align:top;

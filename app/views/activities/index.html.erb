@@ -51,24 +51,20 @@
 		<div class="span3">
 			<div class="about">
 				<div class="about_titulo secTitle">PARTIDOS</div>
-				<div class="about_content_partidos"> 
-					<ul class="nav nav-tabs nav-stacked">
-		  			<% @partidos.each do |partido|%>
-		  				<li class="">
-		  					<%= link_to partido do%>
-
-						      <h6> <%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></h6>
-						      <div class="centro">
-							      <%= image_tag partido.logolocal, {:class => "", :width=>"50px"}%>
-							      <%partido.local%>
-							      <strong>Vs</strong>
-							      <% partido.visitante%>
-							      <%= image_tag partido.logovisitante,{:class => "", :width =>"50px"}%>
-						      </div>
-		  					<%end%>
-		  				</li>
-		  			<%end%>  
-				</ul></div>
+				<div class="about_content"> 
+					<%@partidos.each do |partido|%>
+						<div class="activity-partidos">
+							<div class="activity-partidos-equipos">
+								<h5><%= "#{partido.local} - #{partido.visitante}" %></h5>
+							    <h5><small><%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></small></h5>
+							</div>
+							<div class= "activity-partidos-apostar text-right">
+								<%= link_to "juega!", partido, {:class => "btn btn-small"}%>
+							</div>
+							<hr/>
+						</div>
+					<%end%>
+				</div>
 			</div>
 			<ul class="nav nav-tabs nav-stacked">
 			    <li><%= link_to "Partidos",partidos_path %></li>
