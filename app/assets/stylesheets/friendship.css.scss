@@ -11,16 +11,24 @@
 .friendship-amigo-facebook
 {	
 	clear: both;
-	width: 45%;
 	margin-bottom: 10px;
-	display: inline-block;
-
+	display: block;
 	.friendship-foto-facebook
 	{
-		float:left;
+		display: inline;
 		margin-right: 5px;
 	}
 	.friendship-nombre-facebook
 	{
+		display: inline;
+		h5
+		{
+			display: inline;
+		}
+	}
+	.friendship-seguir-facebook
+	{	
+		float: right;
+		display: inline;
 	}
 }
