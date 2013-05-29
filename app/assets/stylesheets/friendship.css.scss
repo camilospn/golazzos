@@ -9,13 +9,17 @@
 }
 
 .friendship-amigo-facebook
-{
+{	
+	width: 45%;
+	margin-bottom: 10px;
+	display: inline-block;
+
 	.friendship-foto-facebook
 	{
 		float:left;
+		margin-right: 5px;
 	}
 	.friendship-nombre-facebook
 	{
-
 	}
 }
