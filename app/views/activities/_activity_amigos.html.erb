@@ -1,0 +1,18 @@
+<div class="about">
+	<div class="about_titulo secTitle">AMIGOS</div>
+	<div class="about_content">
+		<% @ranking_followers.each do |following|%>
+		<div class="activity-ranking-follower">
+			<div class="activity-ranking">
+				<%=image_tag current_user.facebook.get_picture(following.uid, {type: "square"}), {:class=> "thumbsail", :width => "25px"}%>
+				<%= link_to following.name, following%>
+			</div>
+			<div class="pull-right">
+				<font face="digital7" color="orange" size="3">
+					<%= number_to_currency(following.pezzos,:precision => 0) %>
+				</font>
+			</div>
+		</div>
+		<%end%>
+	</div>
+</div>

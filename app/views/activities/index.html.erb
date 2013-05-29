@@ -1,77 +1,15 @@
 <div class="container activities-home">
 	<div class="row">
 		<div class="span3">
-			<div class="about">
-				<div class="about_titulo_nombre secTitle">
-					<%=image_tag current_user.facebook.get_picture(current_user.uid, {type: "square"}), {:class=> "thumbsail", :width => "40px"}%>
-					<%= current_user.name.upcase%>
-				</div>
-				<div class="about_followers">
-					<div class="about_followers_following">
-					<h3><%= @following.count%></h3>
-						Following
-					</div>
-					<div class="about_followers_following">
-						<h3><%= @followers.count%></h3>
-						Followers
-					</div>
-				</div>
-			</div>
-
-			<div class="about">
-				<div class="about_titulo secTitle">AMIGOS</div>
-				<div class="about_content">
-					<% @ranking_followers.each do |following|%>
-					<div class="activity-ranking-follower">
-						<div class="activity-ranking">
-							<%=image_tag current_user.facebook.get_picture(following.uid, {type: "square"}), {:class=> "thumbsail", :width => "25px"}%>
-							<%= link_to following.name, following%>
-						</div>
-						<div class="pull-right">
-							<font face="digital7" color="orange" size="3">
-								<%= number_to_currency(following.pezzos,:precision => 0) %>
-							</font>
-						</div>
-					</div>
-					<%end%>
-				</div>
-			</div>	
-
+			<%= render "activity_perfil"%>
+			<%= link_to "Agrega amigos!", friendships_path, {:class=> "btn btn-block"}%>
+			<%= render "activity_amigos"%>	
 		</div>
 		<div class="span6">
-			<div class="">
-				<div class="about_titulo_noticias">
-					NOTICIAS
-				</div>
-			</div>
-			<% @activities.each do |activity| %>
-				<%=render_activity activity%>
-			<%end%>
+			<%= render "activity_noticias"%>
 		</div>
 		<div class="span3">
-			<div class="about">
-				<div class="about_titulo secTitle">PARTIDOS</div>
-				<div class="about_content"> 
-					<%@partidos.each do |partido|%>
-						<div class="activity-partidos">
-							<div class="activity-partidos-equipos">
-								<h5><%= "#{partido.local} - #{partido.visitante}" %></h5>
-							    <h5><small><%= l(partido.diapartido, format: '%d de %B %l:%M %p', locale:'es-CO')%></small></h5>
-							</div>
-							<div class= "activity-partidos-apostar text-right">
-								<%= link_to "juega!", partido, {:class => "btn btn-small"}%>
-							</div>
-							<hr/>
-						</div>
-					<%end%>
-				</div>
-			</div>
-			<ul class="nav nav-tabs nav-stacked">
-			    <li><%= link_to "Partidos",partidos_path %></li>
-  				<li><%= link_to "Ranking", users_path%></li>
-  				<li><%= link_to "Reglamento", home_reglamento_path%></li>
-  				<li><%= link_to "Gana mas pezzos!",  new_invitation_path%></li>
-			</ul>
+			<%= render "activity_partidos"%>
 		</div>
 	</div>	 
 </div>
