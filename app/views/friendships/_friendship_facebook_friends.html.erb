@@ -12,7 +12,7 @@
 				<%else%>
 					<div class= "friendship-amigo-facebook">
 						<div class="friendship-foto-facebook">
-							<%=image_tag current_user.facebook.get_picture(user.uid, {type: "square"}), {:class=> "thumbsail", :width => "40px"}%>
+							<%=image_tag friend["picture"]["data"]["url"], {:class=> "thumbsail", :width => "40px"}%>
 						</div>
 						<div class="friendship-nombre-facebook">
 								<h5> <%=h user.name%></h5>
@@ -34,7 +34,5 @@
 				<%end%>
 			<%end%>
 		</div>
-		<%= link_to 'Anterior', url_for(:page => @friends.previous_page_params) %>
-		<%= link_to 'Siguiente', url_for(:page => @friends.next_page_params) %>
 	</div>
 </div>
