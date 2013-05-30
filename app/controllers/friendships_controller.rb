@@ -4,7 +4,7 @@ class FriendshipsController < ApplicationController
     @following= current_user.following
     @followers= current_user.followers
     @friends = current_user.facebook.get_connections("me", "friends?fields=id,name,picture.type(square)")
-
+    @ranking_followers=@following.sort_by { |e| -e[:pezzos]}
   end
 
   def create
