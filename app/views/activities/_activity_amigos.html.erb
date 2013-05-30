@@ -4,7 +4,6 @@
 		<% @ranking_followers.each do |following|%>
 		<div class="activity-ranking-follower">
 			<div class="activity-ranking">
-				<%=image_tag current_user.facebook.get_picture(following.uid, {type: "square"}), {:class=> "thumbsail", :width => "25px"}%>
 				<%= link_to following.name, following%>
 			</div>
 			<div class="pull-right">
