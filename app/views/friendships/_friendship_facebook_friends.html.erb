@@ -4,8 +4,7 @@
 	</div>
 	<div class="about_content">
 		<div class="ro">
-			<%friends = current_user.facebook.get_connections("me", "friends")%>
-			<% friends.each  do |friend| %>
+			<% @friends.each  do |friend| %>
 				<%user = User.find_by_uid(friend["id"])%>
 				<%if user.nil? %>
 					<!-- el usuario no existe -->
@@ -20,9 +19,13 @@
 						</div>
 						<div class="friendship-seguir-facebook">
 							<%  if !current_user.friendships.find_by_friend_id(user.id) %>
-								<%= link_to "Seguir", friendships_path(:friend_id => user), {:class => "btn btn-primary"}, :method => :post%>
+								<button class="btn btn-primary">
+									<%= link_to "Seguir", friendships_path(:friend_id => user), :method => :post%>
+								</button>
 							<%else%>
-								<%= link_to "remove", current_user.friendships.find_by_friend_id(user.id), {:class => "btn btn-danger"}, :method => :delete %>
+								<button class="btn btn-danger">
+									<%= link_to "remove", current_user.friendships.find_by_friend_id(user.id), :method => :delete %>
+								</button>
 							<%end%>
 						</div>
 
@@ -31,5 +34,7 @@
 				<%end%>
 			<%end%>
 		</div>
+		<%= link_to 'Anterior', url_for(:page => @friends.previous_page_params) %>
+		<%= link_to 'Siguiente', url_for(:page => @friends.next_page_params) %>
 	</div>
 </div>
