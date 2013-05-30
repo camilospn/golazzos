@@ -3,7 +3,7 @@ class FriendshipsController < ApplicationController
   	@users = User.all
     @following= current_user.following
     @followers= current_user.followers
-    @friends = current_user.facebook.get_connections("me", "friends?fields=id,name,picture.type(small)")
+    @friends = current_user.facebook.get_connections("me", "friends?fields=id,name,picture.type(square)")
 
   end
 
