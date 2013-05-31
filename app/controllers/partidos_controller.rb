@@ -24,11 +24,20 @@ class PartidosController < ApplicationController
   # GET /partidos/1
   # GET /partidos/1.json
   def show
+
+    #amigos a favor y en contra.
     @partido = Partido.find(params[:id])
+    
+    @supporters=@partido.supporters_partido(current_user.following,@partido)
+    @linkinvitation= "http://www.facebook.com/dialog/feed?app_id=193467880799348&
+name=Los%20invito%20a%20que%20jueguen%20conmigo%20en%20Golazzos,%20En%20el%20partido%20de%20#{@partido.local}%20vs.%20#{@partido.visitante}&
+link=http://www.golazzos.com/partidos/#{@partido.id}&
+redirect_uri=http://www.golazzos.com/partidos/#{@partido.id}"
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @partido }
-    end
+    end    
   end
 
   # GET /partidos/new
