@@ -69,7 +69,7 @@
     <div class="areaPremios">
     
   	<%image_tag "landing/partidos/partido_equiposImportantes.png", {:class => "", :width=>"550"}%> 
-    <%= render "partidos/afiche_partido" if @partido != nil%>
+    <%= render "partidos/afiche_partido2" if @partido != nil%>
   	 
   
   </div>
@@ -82,18 +82,12 @@
 
 <div class="fondoPremios">
 	
-	<%=image_tag "ranking/premios_titulo.png", {:class => "tituloS", :width=>""}%> 
+	 
 
   <div class="centro">
-  	<p><font color="white" face="Futura Book BT">¡Acumula la mayor cantidad de Pezzos jugando por tus equipos favoritos e invitando amigos y gana fabulosos premios cada mes!
+    <div class="areaPremios"></div>
+  	<p><font color="white" face="Futura Book BT">¡Acumula la mayor cantidad de Pezzos jugando por tus equipos favoritos e invitando amigos!
   	</font></p>
-    <div class="areaPremios">
-  <%=image_tag "ranking/1er_premios.png", {:class => "", :width=>""}%> 
-  <%=image_tag "ranking/2do_premios.png", {:class => "", :width=>""}%> 
-  <%=image_tag "ranking/3er_premios.png", {:class => "", :width=>""}%> 
-  <%=image_tag "ranking/4to5to_premios.png", {:class => "", :width=>""}%> 
-  </div>
-  <div class="areaPremios"></div>
   <div class="areaPremios"></div>
   <div class="areaPremios"></div>
   <div class="areaPremios"></div>

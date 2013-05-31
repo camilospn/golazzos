@@ -6,10 +6,10 @@
       <h6 class="muted BTSinEspacio"> <%= l(@partido.diapartido, format: '%l:%M %p', locale:'es-CO')%></h6>
     </div>
 
-    <%=render "supporters_local"%>
+    
 
 
-    <div class="span3 logo">
+    <div class="span3 logo offset3">
       <%= image_tag @partido.logolocal, {:class => "", :width=>"200x200"}%>
       <div>
           <h2 class="lead BTSinEspacio"> <%=@partido.local%></h2>      
@@ -24,21 +24,7 @@
       </div>
     </div>
   
-  <%=render "supporters_visitante"%>
+  
 
 </div>
 
-  <div class="accordion span8 offset2" id="accordion2">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-        Comparte tus comentarios sobre este partido aquí!
-      </a>
-    </div>
-    <div id="collapseOne" class="accordion-body collapse">
-      <div class="accordion-inner">
-        <%=render "chat_partido"%>
-      </div>
-    </div>
-  </div>
-  </div>

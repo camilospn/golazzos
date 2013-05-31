@@ -59,6 +59,46 @@ class Partido < ActiveRecord::Base
     return apuesta
   end
 
+  def supporters_partido(followings, partido)
+    amigosLocal=[]
+    amigosVisitante=[]
+    amigosEmpate=[] 
+    arreglos=[]
+
+    followings.each do |fan|
+      betSupporter = Bet.where(:user_id=>fan.id).where(:partido_id=>partido.id).first  
+      
+      if betSupporter==nil
+      else
+        
+        nombreFan=fan.name
+        fotoFan="https://graph.facebook.com/#{fan.uid}/picture"
+        marcadorFan="#{partido.local} : #{betSupporter.golesLocal} - #{partido.visitante} : #{betSupporter.golesVisitante}"
+        
+        if betSupporter.golesLocal>betSupporter.golesVisitante
+          as={name: nombreFan, pic: fotoFan, marcador: marcadorFan}
+          amigosLocal.push(as)
+        else
+          if betSupporter.golesLocal<betSupporter.golesVisitante
+            as={name: nombreFan, pic: fotoFan, marcador: marcadorFan}
+            amigosVisitante.push(as)
+          else
+            as={name: nombreFan, pic: fotoFan, marcador: marcadorFan}
+            amigosEmpate.push(as)
+          end 
+        end 
+      end
+    
+    end#End del for.
+
+    as={local: amigosLocal, visitante: amigosVisitante, empate: amigosEmpate}
+    #arreglos.push(amigosLocal)
+    #arreglos.push(amigosVisitante)
+    #arreglos.push(amigosEmpate)
+    arreglos.push(as)
+    return arreglos
+  end
+
   def repartir_la_plata
     bets_ganadoras = self.apuestas_en_el_resultado(self.resultadoLocal, self.resultadoVisitante)
     bets_ganadoras.each do |bet|

@@ -108,3 +108,9 @@
 .letra-blanca{
 	color: white;	
 }
+
+.centrado{
+	text-align:center;
+	margin: auto;
+
+}
