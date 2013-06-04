@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row user-photo">
     	<div class="span2">
-    		<%=image_tag @user.facebook.get_picture(@user.uid, {type: "large"}), {:class=> "thumbnail"}%>
+    		<%=image_tag current_user.facebook.get_picture(@user.uid, {type: "large"}), {:class=> "thumbnail"}%>
     	</div>
     	<% if current_user.id == @user.id%>
     		<%=render "user_mi_perfil"%>

@@ -63,6 +63,7 @@ redirect_uri=http://www.golazzos.com/partidos/#{@partido.id}"
 
     respond_to do |format|
       if @partido.save
+        @partido.create_activity :create, owner: current_user
         format.html { redirect_to @partido, notice: 'Partido was successfully created.' }
         format.json { render json: @partido, status: :created, location: @partido }
       else
@@ -79,6 +80,11 @@ redirect_uri=http://www.golazzos.com/partidos/#{@partido.id}"
 
     respond_to do |format|
       if @partido.update_attributes(params[:partido])
+        if (@partido.terminado && @partido.cerrado)
+          @partido.create_activity :termino, owner: current_user
+        else
+          @partido.create_activity :update, owner: current_user
+        end
         format.html { redirect_to @partido, notice: 'Partido was successfully updated.' }
         format.json { head :no_content }
       else
