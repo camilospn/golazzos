@@ -32,9 +32,9 @@
         
     </tbody>
   </table>
-
-<!-- Button to trigger modal -->
-<p><a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Invitar a tus amigos</a>
+<%= form_for (@invitation) do |f| %>
+<%= f.submit "Invitar a tus amigos!" , :class => 'btn btn-primary'%>
+<% end %>
 
 <p><% link_to "Postear", @linkwallpost , :class =>"btn btn-primary"%>
 <hr><p><strong>2. JUGANDO</strong>
@@ -52,35 +52,3 @@
 </div>
 </div>
  
-<!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Invita a tus amigos a Golazzos</h3>
-  </div>
-  <div class="modal-body">
-      <div class="alert alert-info">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong> </strong> <br/> 
-        Si tus amigos aceptan ganarás más Pezzos. Puedes invitar hasta 40 amigos.<p> 
-        No se permiten cuentas ficticias, estas cuentas serán eliminadas.
-        <br/>
-        Muchas gracias!
-        Equipo de Golazzos. 
-      </div>
-    <p>
-
-<% @user = User.find(session['user_id'])%>
-<% @connections2 = @user.facebook.get_connections("me","friends")%>
-
-<%= form_for (@invitation) do |f| %>
- <div class="modal-footer">
-      <p><%= f.submit "Invite!" , :class => 'btn btn-primary'%></p>
-  
-  <% end %>
-  </div>
-</div>
-
-
-
-
