@@ -2,7 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.about2
+{
+	background-color: #fafafa;
 
+	 margin: 30px auto;
+	border: 1px solid #dedede;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	position: fixed;
+	.about_followers
+	{
+
+		border-top:1px solid #dedede;
+		.about_followers_following
+		{	
+			h3
+			{
+				margin: 0px;
+			}
+			width:40%;
+			display: inline-block;
+			padding:10px;
+		}
+	}
+	.about_titulo_nombre
+	{
+		color: white;
+		vertical-align: middle;
+		border-bottom:1px solid #dedede;
+		background-color: #0673ab;
+	}
+	.about_titulo
+	{
+		color: white;
+		margin: 0px !important;
+		padding: 10px;
+		vertical-align: middle;
+		border-bottom:1px solid #dedede;
+		background-color: #0673ab;
+	}
+	.about_content_partidos
+	{
+		background-color: #fafafa;
+	}
+
+	.about_content
+	{
+		padding: 10px;
+		background-color: #fafafa;
+	}
+}
 .about
 {
 	background-color: #fafafa;
