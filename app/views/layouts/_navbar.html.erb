@@ -23,10 +23,17 @@
                 <%end%>
             <%end%>
         </li>
+        <% if current_user==nil %>
+                <li><%= link_to "http://www.youtube.com/watch?v=vs8QFX_zp3s" do%>| 
+            <%=image_tag "Menu/iconosMenu_Perfil.png", {:class => "", :height=>"20"}%> VIDEO
+            <%end%>
+        </li>
+        <%end%>
         <li><%= link_to home_reglamento_path do%>| 
             <%=image_tag "Menu/iconosMenu_Reglamento.png", {:class => "", :height=>"20"}%> REGLAMENTO
             <%end%>
         </li>
+
       </ul>
       <ul class= "nav pull-right">
         <% if current_user %>
