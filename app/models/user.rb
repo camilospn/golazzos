@@ -38,7 +38,7 @@ def self.from_omniauth(auth)
     user.uid = auth.uid
     user.name = auth.info.name
     user.profile = Profile.new
-    #CHAMBONADAAAA!!!! ------
+    #email
     if auth.info.email == nil
       
     else

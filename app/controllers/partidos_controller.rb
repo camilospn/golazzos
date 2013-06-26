@@ -1,7 +1,7 @@
 class PartidosController < ApplicationController
   # GET /partidos
   # GET /partidos.json
-  before_filter :require_login
+  #before_filter :require_login
   before_filter :require_admin_login , :only => [:new, :edit, :update, :destroy, :create, :repartir]
   def index
     @partidos = Partido.all
@@ -14,7 +14,7 @@ class PartidosController < ApplicationController
     @bbva = Partido.where("torneo = ? AND diapartido > ?", 5, @hora).order("diapartido ASC")
     @premier = Partido.where("torneo = ? AND diapartido > ?", 6, @hora).order("diapartido ASC")
 
-    @user_ranking = User.order("pezzos DESC").limit(10)
+    #@user_ranking = User.order("pezzos DESC").limit(10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @partidos }

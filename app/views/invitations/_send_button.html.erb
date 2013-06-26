@@ -3,9 +3,15 @@
 	<div class="about_content">
 		
          
-        Invita a tus amigos a Golazzos aquí:<p>
-
+        Jugar en Golazzos es más divertido si juegas 
+        <p>con tus amigos, invitalos aquí:
+        <p>	
         <fb:send href=<%=@linkinvitation%>></fb:send>
+        <p>
+        	<%= link_to activities_path do%> 
+            <%=image_tag "Menu/iconosMenu_Ranking.png", {:class => "", :height=>"20"}%> CONTINUAR
+            <%end%>
+        <p>
         
 	</div>
 </div>

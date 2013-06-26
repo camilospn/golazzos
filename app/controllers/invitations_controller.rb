@@ -27,7 +27,7 @@ class InvitationsController < ApplicationController
   #app_id=193467880799348&
   #message=Visita%20Golazzos%20y%20gana%20premios%20como%20boletas%20camisetas%20y%20balones%20cada%20mes&to="+@invitados.to_s+"&redirect_uri=http://www.golazzos.com/invitations/new"
 @friends = current_user.facebook.get_connections("me", "friends?fields=id,name,picture.type(square)")
- @linkinvitation= "http://www.golazzos.com/home/#{current_user.uid}"
+@linkinvitation= "http://www.golazzos.com/home/#{current_user.uid}"
  
 
     #redirect_to root_url, :notice => @mensaje

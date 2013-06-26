@@ -1,5 +1,7 @@
 Gollazos::Application.routes.draw do
 
+  
+
   get "activities/index"
   get "friendship/index"
   get "redireccion/index"
@@ -13,6 +15,7 @@ Gollazos::Application.routes.draw do
   resources :invitations do
     post 'postear', :on => :collection
   end
+  resources :invitacion2
 
   resources :partidos do
       post 'repartir', :on => :collection
